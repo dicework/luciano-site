@@ -20,7 +20,7 @@ components:
       max: 200
       collapsible:
         collapsed: true
-        summary: "{name}"
+        summary: '{name}'
     fields:
       - name: id
         component: stableId
@@ -49,7 +49,7 @@ components:
           max: 10
           collapsible:
             collapsed: false
-            summary: "{label} — {price} €"
+            summary: '{label} — {price} €'
         fields:
           - name: id
             component: stableId
@@ -62,12 +62,12 @@ components:
               maxlength: 80
           - name: price
             label: Цена в евро
-            type: number
+            type: string
             required: true
-            description: Например 7.80. До два знака след десетичната точка.
+            description: Например 7.80 или 7,80. Между 0,01 и 1000 евро.
+            pattern: '^(?:0[.,](?:0[1-9]|[1-9][0-9]?)|[1-9][0-9]{0,2}(?:[.,][0-9]{1,2})?|1000(?:[.,]0{1,2})?)$'
             options:
-              min: 0.01
-              max: 1000
+              maxlength: 7
           - name: available
             label: Може да се поръчва
             type: boolean
@@ -126,7 +126,7 @@ content:
           max: 30
           collapsible:
             collapsed: true
-            summary: "{name}"
+            summary: '{name}'
         fields:
           - name: id
             component: stableId
@@ -186,13 +186,13 @@ content:
           min: 1
           max: 7
           values:
-            - { name: "1", label: Понеделник }
-            - { name: "2", label: Вторник }
-            - { name: "3", label: Сряда }
-            - { name: "4", label: Четвъртък }
-            - { name: "5", label: Петък }
-            - { name: "6", label: Събота }
-            - { name: "0", label: Неделя }
+            - { name: '1', label: Понеделник }
+            - { name: '2', label: Вторник }
+            - { name: '3', label: Сряда }
+            - { name: '4', label: Четвъртък }
+            - { name: '5', label: Петък }
+            - { name: '6', label: Събота }
+            - { name: '0', label: Неделя }
       - name: hours
         label: Часове за поръчки
         type: object
@@ -202,14 +202,14 @@ content:
             label: От час
             type: string
             required: true
-            description: "Например 11:00 (българско време)."
-            pattern: "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+            description: 'Например 11:00 (българско време).'
+            pattern: '^([01][0-9]|2[0-3]):[0-5][0-9]$'
           - name: until
             label: До час
             type: string
             required: true
-            description: "Например 15:00 (българско време)."
-            pattern: "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+            description: 'Например 15:00 (българско време).'
+            pattern: '^([01][0-9]|2[0-3]):[0-5][0-9]$'
       - name: items
         label: Ястия за обяд
         component: dish
@@ -217,4 +217,4 @@ content:
           max: 100
           collapsible:
             collapsed: true
-            summary: "{name}"
+            summary: '{name}'

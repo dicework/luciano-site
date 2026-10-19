@@ -16,8 +16,13 @@ void test('Pages CMS price, photo and translation edits feed the menu and checko
   assert.equal(menu[0].items[0].image, '/images/menu/new-photo.webp');
   assert.equal(localizeMenu(menu, 'en')[0].items[0].name, 'Owner-edited pizza');
   const input = {
-    requestId: crypto.randomUUID(), name: 'Test Guest', phone: '+359888123456', notes: '', locale: 'bg' as const,
-    lines: [{ itemId: item.id, variantId: item.variants[1].id, quantity: 1 }], expectedTotalMinor: 780,
+    requestId: crypto.randomUUID(),
+    name: 'Test Guest',
+    phone: '+359888123456',
+    notes: '',
+    locale: 'bg' as const,
+    lines: [{ itemId: item.id, variantId: item.variants[1].id, quantity: 1 }],
+    expectedTotalMinor: 780,
   };
   assert.throws(() => priceCheckout(input, menu), /changed/);
   assert.equal(priceCheckout({ ...input, expectedTotalMinor: 815 }, menu)[0].priceMinor, 815);
@@ -44,6 +49,26 @@ void test('invalid editable prices, photos, IDs and portions cannot enter the or
   assert.throws(() => parseMenu(empty));
 });
 
+void test('CMS decimal text supports dot and comma prices without accepting malformed amounts', () => {
+  const withPrice = (price: unknown) => ({
+    categories: [
+      {
+        ...menuContent.categories[0],
+        items: [
+          {
+            ...menuContent.categories[0].items[0],
+            variants: [{ ...menuContent.categories[0].items[0].variants[0], price }],
+          },
+        ],
+      },
+    ],
+  });
+  for (const price of ['7.80', '7,80', ' 7,80 '])
+    assert.equal(parseMenu(withPrice(price))[0].items[0].variants[0].priceMinor, 780);
+  for (const price of ['', ' ', '0', '0,00', '-1', '7.801', '7,801', '1e2', '0x10', '7,8.0', '1000,01', null, true])
+    assert.throws(() => parseMenu(withPrice(price)));
+});
+
 void test('lunch schedule changes expire old cart identities and disabled menus are unavailable', () => {
   const raw = structuredClone(lunchContent);
   const first = parseLunchWeek(raw)!;
@@ -55,7 +80,12 @@ void test('lunch schedule changes expire old cart identities and disabled menus 
   assert.equal(second.items[0].variants[0].priceMinor, 340);
   assert.equal(parseLunchWeek({ ...raw, enabled: false }), null);
   for (const changed of [
-    { validFrom: '2026-02-30' }, { validUntil: '2026-10-18' }, { weekdays: [] }, { weekdays: ['1', '1'] },
-    { hours: { from: '15:00', until: '11:00' } }, { hours: { from: '25:00', until: '26:00' } },
-  ]) assert.throws(() => parseLunchWeek({ ...raw, ...changed }));
+    { validFrom: '2026-02-30' },
+    { validUntil: '2026-10-18' },
+    { weekdays: [] },
+    { weekdays: ['1', '1'] },
+    { hours: { from: '15:00', until: '11:00' } },
+    { hours: { from: '25:00', until: '26:00' } },
+  ])
+    assert.throws(() => parseLunchWeek({ ...raw, ...changed }));
 });

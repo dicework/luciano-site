@@ -33,7 +33,12 @@ function parseItem(value: unknown, ids: Set<string>, prefix = ''): MenuItem {
   const variantIds = new Set<string>();
   const variants = array(row.variants, 10).map((value) => {
     const variant = record(value);
-    const price = variant.price;
+    // Pages CMS text fields accept both Bulgarian and dot decimal notation.
+    const rawPrice = variant.price;
+    const price =
+      typeof rawPrice === 'string' && /^[0-9]+(?:[.,][0-9]{1,2})?$/.test(rawPrice.trim()) ?
+        Number(rawPrice.trim().replace(',', '.'))
+      : rawPrice;
     if (typeof price !== 'number' || !Number.isFinite(price) || price <= 0 || price > 1000)
       throw new Error('Invalid menu price');
     const priceMinor = Math.round(price * 100);
@@ -103,9 +108,11 @@ function time(value: unknown): string {
 export function parseLunchWeek(value: unknown): LunchWeek | null {
   const week = record(value);
   if (!flag(week.enabled, true)) return null;
-  const validFrom = date(week.validFrom), validUntil = date(week.validUntil);
+  const validFrom = date(week.validFrom),
+    validUntil = date(week.validUntil);
   const hours = record(week.hours);
-  const from = time(hours.from), until = time(hours.until);
+  const from = time(hours.from),
+    until = time(hours.until);
   // Select values are strings in Pages CMS; the ordering rules use numeric weekdays.
   const weekdays = array(week.weekdays, 7).map((day) => {
     if (typeof day !== 'string' || !/^[0-6]$/.test(day)) throw new Error('Invalid lunch weekday');
@@ -115,7 +122,10 @@ export function parseLunchWeek(value: unknown): LunchWeek | null {
     throw new Error('Invalid lunch schedule');
   const ids = new Set<string>();
   return {
-    validFrom, validUntil, hours: { from, until }, weekdays,
+    validFrom,
+    validUntil,
+    hours: { from, until },
+    weekdays,
     // A new week expires saved cart lines even when the owner reuses the dish.
     items: array(week.items, 100).map((item) => parseItem(item, ids, `lunch-${validFrom}-`)),
   };
