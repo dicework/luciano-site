@@ -6,8 +6,8 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "dev": "node scripts/run-framework.mjs dev",
-    "build": "node scripts/run-framework.mjs build",
+    "dev": "vinext dev --port 5173",
+    "build": "node --experimental-strip-types scripts/validate-menu.ts && vinext build",
     "start": "node scripts/start-preview.mjs",
     "lint": "oxlint",
     "format": "prettier --write .",
@@ -15,7 +15,10 @@
     "typecheck": "tsc --noEmit",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
     "db:generate": "drizzle-kit generate",
-    "install:ci": "node scripts/install-ci.mjs"
+    "install:ci": "node scripts/install-ci.mjs",
+    "db:migrate:remote": "wrangler d1 migrations apply DB --remote",
+    "deploy": "wrangler deploy",
+    "types:cloudflare": "wrangler types --env-interface CloudflareBindings --include-runtime false"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",

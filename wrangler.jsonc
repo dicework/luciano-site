@@ -1,0 +1,31 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "luciano-site",
+  "account_id": "f99c684d49911046e74bf1defcf5341e",
+  "main": "build/cloudflare-worker.ts",
+  "compatibility_date": "2026-10-19",
+  "compatibility_flags": ["nodejs_compat"],
+  // Worker-level Cloudflare Access protects all traffic. Keep that policy enabled.
+  "workers_dev": true,
+  "preview_urls": false,
+  "assets": {
+    "directory": "dist/client",
+    "binding": "ASSETS",
+  },
+  "vars": {
+    "ORDERS_ENABLED": "true",
+    "RESERVATIONS_ENABLED": "true",
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "luciano-site",
+      "database_id": "00a45569-9dbc-4656-b280-ce80a7e3023e",
+      "migrations_dir": "drizzle",
+    },
+  ],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 0.1,
+  },
+}

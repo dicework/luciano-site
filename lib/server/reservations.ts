@@ -1,6 +1,7 @@
 import { validateReservation, reservationMessage, type Reservation } from '../order.ts';
 import { boundedText, notificationChannels, notifyOwner, type NotificationResult } from './notifications.ts';
 import { json, sameOrigin, digest } from './http.ts';
+import type { RestaurantEnv } from './env.ts';
 
 type Saved = { id: string; payload_hash: string; notification_json: string };
 const receipt = (row: Saved) => ({
@@ -8,7 +9,7 @@ const receipt = (row: Saved) => ({
   notified: (JSON.parse(row.notification_json) as NotificationResult[]).some((n) => n.status === 'accepted'),
 });
 
-export function reservationsEnabled(env: Cloudflare.Env) {
+export function reservationsEnabled(env: RestaurantEnv) {
   return (
     (env.RESERVATIONS_ENABLED ?? env.ORDERS_ENABLED) === 'true' && Boolean(env.DB) && notificationChannels(env).telegram
   );
@@ -16,7 +17,7 @@ export function reservationsEnabled(env: Cloudflare.Env) {
 
 export async function submitReservation(
   request: Request,
-  env: Cloudflare.Env,
+  env: RestaurantEnv,
   send: typeof fetch = fetch,
   now = new Date(),
 ) {

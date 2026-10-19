@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { Miniflare } from 'miniflare';
 import { submitOrder } from '../lib/server/orders.ts';
+import type { RestaurantEnv } from '../lib/server/env.ts';
 
 void test('order API saves before notifying, handles concurrent retries, validates prices, and limits requests', async (t) => {
   const runtime = new Miniflare({
@@ -15,7 +16,7 @@ void test('order API saves before notifying, handles concurrent retries, validat
   const db = await runtime.getD1Database('DB');
   const migration = readFileSync(new URL('../drizzle/0000_outstanding_captain_universe.sql', import.meta.url), 'utf8');
   for (const sql of migration.split('--> statement-breakpoint')) await db.prepare(sql.trim()).run();
-  const env: Cloudflare.Env = {
+  const env: RestaurantEnv = {
     DB: db,
     ORDERS_ENABLED: 'true',
     TELEGRAM_BOT_TOKEN: 'test-token',

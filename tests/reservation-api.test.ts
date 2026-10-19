@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 import { Miniflare } from 'miniflare';
 import { submitReservation } from '../lib/server/reservations.ts';
+import type { RestaurantEnv } from '../lib/server/env.ts';
 
 void test('reservations use the existing Telegram recipient, persist before delivery, deduplicate and validate', async (t) => {
   const runtime = new Miniflare({
@@ -19,7 +20,7 @@ void test('reservations use the existing Telegram recipient, persist before deli
     for (const sql of readFileSync('drizzle/' + file, 'utf8').split('--> statement-breakpoint'))
       await db.prepare(sql.trim()).run();
   }
-  const env: Cloudflare.Env = {
+  const env: RestaurantEnv = {
     DB: db,
     ORDERS_ENABLED: 'true',
     TELEGRAM_BOT_TOKEN: 'test-token',

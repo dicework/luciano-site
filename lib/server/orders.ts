@@ -4,10 +4,11 @@ import { CheckoutValidationError, parseCheckout, priceCheckout, type OrderReceip
 import { orderingMenu } from '../lunch.ts';
 import { money, orderTotal, sofiaDateTime } from '../order.ts';
 import { boundedText, notificationChannels, notifyOwner, type NotificationResult } from './notifications.ts';
+import type { RestaurantEnv } from './env.ts';
 
 type SavedOrder = { id: string; payload_hash: string; notification_json: string };
 
-export function ordersEnabled(env: Cloudflare.Env) {
+export function ordersEnabled(env: RestaurantEnv) {
   const channels = notificationChannels(env);
   return env.ORDERS_ENABLED === 'true' && Boolean(env.DB) && (channels.whatsapp || channels.telegram);
 }
@@ -25,7 +26,7 @@ async function digest(text: string) {
 }
 
 // Destinations and credentials are read only from runtime configuration.
-export async function submitOrder(request: Request, env: Cloudflare.Env, send: typeof fetch = fetch, now = new Date()) {
+export async function submitOrder(request: Request, env: RestaurantEnv, send: typeof fetch = fetch, now = new Date()) {
   if (request.method !== 'POST') return json({ error: 'invalid' }, 405);
   if (
     request.headers.get('origin') !== new URL(request.url).origin ||

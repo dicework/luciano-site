@@ -13,24 +13,30 @@ Save in Pages CMS. Once a GitHub-to-hosting build is connected, saved edits appe
 
 ## Files
 
-| File/folder | Purpose |
-| --- | --- |
-| `.pages.yml` | The portal's Bulgarian fields and photo-library configuration. |
-| `content/menu.json` | Main-menu categories, dishes, photos and euro prices. |
-| `content/lunch.json` | Lunch dates, hours, dishes, photos and euro prices. |
-| `content/menu.ts`, `content/lunch.ts` | Small adapters that load and validate the JSON for the existing website. |
-| `lib/menu-content.ts` | Validates content and converts euro prices into integer cents for checkout. |
-| `public/images/menu/` | The dish photo library used by Pages CMS and the website. |
+| File/folder                           | Purpose                                                                     |
+| ------------------------------------- | --------------------------------------------------------------------------- |
+| `.pages.yml`                          | The portal's Bulgarian fields and photo-library configuration.              |
+| `content/menu.json`                   | Main-menu categories, dishes, photos and euro prices.                       |
+| `content/lunch.json`                  | Lunch dates, hours, dishes, photos and euro prices.                         |
+| `content/menu.ts`, `content/lunch.ts` | Small adapters that load and validate the JSON for the existing website.    |
+| `lib/menu-content.ts`                 | Validates content and converts euro prices into integer cents for checkout. |
+| `public/images/menu/`                 | The dish photo library used by Pages CMS and the website.                   |
 
 There is no separate CMS package, dependency installation, CMS API token or runtime menu request. Orders and reservations continue to use the existing server and Telegram integration.
 
-## One-time connection — still required
+## Connection status
 
-1. Choose a separate Luciano GitHub repository and put the website source, `.pages.yml`, `content/` and `public/` at its root. Never upload local `.env` files, dependencies, builds or database state.
-2. Authorize that repository in Pages CMS and invite the restaurant owner through its collaborator settings. iSystem's repository connection does not connect Luciano automatically.
-3. Connect changes on the same GitHub branch to a deployment pipeline for **this existing Worker application**, including its database and Telegram secrets. iSystem's static `dist` hosting settings cannot run Luciano's orders or reservations.
-4. Test one menu price change, one uploaded photo and one lunch-menu edit through Pages CMS, then verify the resulting deployment.
+The source repository is [dicework/luciano-site](https://github.com/dicework/luciano-site), branch `main`. The separate Cloudflare Worker is `luciano-site`, with its own order/reservation database and the existing Telegram secrets. Cloudflare Access protects all traffic using the account owner's existing email policy.
 
-The current ChatGPT Site source repository is not a GitHub repository. This change prepares the content and editor configuration; it does not claim a live Pages CMS connection or automatic publishing. Current Site publication continues through the existing Sites workflow until the GitHub deployment is connected.
+Pages CMS sign-in and the GitHub-to-Cloudflare automatic-build connection are being completed. Until both are verified, saving in the portal is not a confirmed automatic publication workflow.
 
-References: [Pages CMS configuration](https://pagescms.org/docs/configuration/), [fields and files](https://pagescms.org/docs/configuration/content/), [collaborators](https://pagescms.org/docs/configuration/collaborators/).
+One-time setup:
+
+1. Authorize `dicework/luciano-site` in Pages CMS. Preserve the existing iSystem connection.
+2. In the Luciano Worker, connect Workers Builds to the same repository's `main` branch. Use root `/`, build command `npm run build`, and deploy command `npm run deploy`.
+3. Verify a saved menu change reaches the private preview after a successful build.
+4. Invite the owner through Pages CMS collaborator settings when their email and invitation are authorized.
+
+The owner needs no Cloudflare dashboard access, API keys or command-line tools for everyday menu edits. The previous ChatGPT Site remains separate and unchanged.
+
+References: [Pages CMS configuration](https://pagescms.org/docs/configuration/), [fields and files](https://pagescms.org/docs/configuration/content/), [collaborators](https://pagescms.org/docs/configuration/collaborators/), [Cloudflare automatic builds](https://developers.cloudflare.com/workers/ci-cd/builds/).
