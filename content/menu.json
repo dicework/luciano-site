@@ -2,1435 +2,1733 @@
   "categories": [
     {
       "id": "pizza",
+      "cmsId": "ffd91179-9ea3-4b2f-a989-0966fb4b0c16",
       "name": "Пици",
       "items": [
         {
           "id": "pizza-1",
-          "image": "/images/menu/pizza-margherita.webp",
+          "cmsId": "d13e0859-2a55-486a-8a36-62c4f2a1e715",
           "name": "Маргарита",
           "description": "доматен сос, моцарела",
+          "image": "/images/menu/pizza-margherita.webp",
           "variants": [
             {
               "id": "26",
+              "cmsId": "4453f286-0cab-4f7c-a92b-f2803a6d2e29",
               "label": "26 см",
-              "price": "7.10"
+              "price": "7,10",
+              "available": true
             },
             {
               "id": "33",
+              "cmsId": "81756033-7021-4f75-b0f4-8c38129c81f8",
               "label": "33 см",
-              "price": "7.80"
+              "price": "7.80",
+              "available": true
             },
             {
               "id": "50",
+              "cmsId": "8c77e5e1-f955-490c-bf45-40978e979df2",
               "label": "50 см",
-              "price": "11.90"
+              "price": "11.90",
+              "available": true
             }
           ],
+          "available": true,
+          "featured": false,
           "tags": [
             "vegetarian"
-          ],
-          "available": true
+          ]
         },
         {
           "id": "pizza-2",
-          "image": "/images/menu/pizza-fungi.webp",
+          "cmsId": "8aba5bd1-6f5b-49bc-a904-09796a946c7e",
           "name": "Фунги",
           "description": "доматен сос, гъби, моцарела",
+          "image": "/images/menu/pizza-fungi.webp",
           "variants": [
             {
               "id": "26",
+              "cmsId": "8812c9d9-9a2d-4034-a5e1-e6c1f49db42e",
               "label": "26 см",
-              "price": "7.30"
+              "price": "7.30",
+              "available": true
             },
             {
               "id": "33",
+              "cmsId": "dac409cc-955a-4c08-bc93-6e68fe00dd73",
               "label": "33 см",
-              "price": "7.90"
+              "price": "7.90",
+              "available": true
             },
             {
               "id": "50",
+              "cmsId": "68a73e49-a321-40fe-ab20-d92612dead24",
               "label": "50 см",
-              "price": "12.30"
+              "price": "12.30",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "pizza-3",
-          "image": "/images/menu/pizza-vegetariana.webp",
+          "cmsId": "ec8a0a71-f963-4b74-84b0-0a9598e16644",
           "name": "Вегетарианска",
           "description": "доматен сос, лук, пипер, маслини, царевица, гъби, моцарела",
+          "image": "/images/menu/pizza-vegetariana.webp",
           "variants": [
             {
               "id": "26",
+              "cmsId": "69768e21-5a9d-414c-af69-088cc0121185",
               "label": "26 см",
-              "price": "7.30"
+              "price": "7.30",
+              "available": true
             },
             {
               "id": "33",
+              "cmsId": "e27307c9-874e-4c50-8462-4c25e4809995",
               "label": "33 см",
-              "price": "8.10"
+              "price": "8.10",
+              "available": true
             },
             {
               "id": "50",
+              "cmsId": "59d1275f-3ea3-4794-9fb9-b47814d6bc2f",
               "label": "50 см",
-              "price": "13.60"
+              "price": "13.60",
+              "available": true
             }
           ],
+          "available": true,
+          "featured": false,
           "tags": [
             "vegetarian"
-          ],
-          "available": true
+          ]
         },
         {
           "id": "pizza-4",
-          "image": "/images/menu/pizza-quattro-formaggi.webp",
+          "cmsId": "6654f019-5d71-423e-8048-ced1bc82b914",
           "name": "Куатро Формаджи",
           "description": "сметана, синьо сирене, топено сирене, чедър, моцарела",
+          "image": "/images/menu/pizza-quattro-formaggi.webp",
           "variants": [
             {
               "id": "26",
+              "cmsId": "6c120f48-d24e-4946-bdc2-ccbb095ffb02",
               "label": "26 см",
-              "price": "7.90"
+              "price": "7.90",
+              "available": true
             },
             {
               "id": "33",
+              "cmsId": "9c6c056a-146c-43e1-92b6-3645106764bf",
               "label": "33 см",
-              "price": "8.70"
+              "price": "8.70",
+              "available": true
             },
             {
               "id": "50",
+              "cmsId": "a0c60880-fcbb-4ac2-ba32-1245b308e1eb",
               "label": "50 см",
-              "price": "14.80"
+              "price": "14.80",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "pizza-5",
-          "image": "/images/menu/pizza-salsicce.webp",
+          "cmsId": "edde4be2-17dc-48ac-b2a0-523099978dc4",
           "name": "Салсиче",
           "description": "доматен сос, шунка, моцарела",
+          "image": "/images/menu/pizza-salsicce.webp",
           "variants": [
             {
               "id": "26",
+              "cmsId": "6064e720-eed2-43dd-bd79-41a0de320495",
               "label": "26 см",
-              "price": "7.40"
+              "price": "7.40",
+              "available": true
             },
             {
               "id": "33",
+              "cmsId": "ea4eb0ef-0139-4620-a2bb-59f9f2fd3fec",
               "label": "33 см",
-              "price": "7.90"
+              "price": "7.90",
+              "available": true
             },
             {
               "id": "50",
+              "cmsId": "610a8e8d-5a27-4b53-b601-ec1302aa56e7",
               "label": "50 см",
-              "price": "13.60"
+              "price": "13.60",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "pizza-6",
-          "image": "/images/menu/pizza-toscana.webp",
+          "cmsId": "63c28e59-c8e9-480f-80c6-58900e5c5a11",
           "name": "Тоскана",
           "description": "доматен сос, шунка, гъби, моцарела",
+          "image": "/images/menu/pizza-toscana.webp",
           "variants": [
             {
               "id": "26",
+              "cmsId": "471b2224-3add-4a5c-9dcd-5cfd33a14554",
               "label": "26 см",
-              "price": "7.60"
+              "price": "7.60",
+              "available": true
             },
             {
               "id": "33",
+              "cmsId": "2d320d6f-3386-446c-9bac-4ad4417aceb2",
               "label": "33 см",
-              "price": "8.10"
+              "price": "8.10",
+              "available": true
             },
             {
               "id": "50",
+              "cmsId": "5832e956-c172-45a8-93ce-a945a207a595",
               "label": "50 см",
-              "price": "14.30"
+              "price": "14.30",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "pizza-7",
-          "image": "/images/menu/pizza-capricciosa.webp",
+          "cmsId": "d7e6babc-1865-4868-95ca-ddeb31004741",
           "name": "Капричоза",
           "description": "доматен сос, шунка, бекон, гъби, пипер, маслини, моцарела",
+          "image": "/images/menu/pizza-capricciosa.webp",
           "variants": [
             {
               "id": "26",
+              "cmsId": "ff33f068-ef5f-4cbe-95a4-18b14d4e84ae",
               "label": "26 см",
-              "price": "8.50"
+              "price": "8.50",
+              "available": true
             },
             {
               "id": "33",
+              "cmsId": "9319a6a6-eeb8-4c52-81ed-732033976266",
               "label": "33 см",
-              "price": "8.90"
+              "price": "8.90",
+              "available": true
             },
             {
               "id": "50",
+              "cmsId": "be400b6c-fff2-4f70-948e-e0671785aac7",
               "label": "50 см",
-              "price": "14.90"
+              "price": "14.90",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "pizza-8",
-          "image": "/images/menu/pizza-bekoni.webp",
+          "cmsId": "5ccee9b0-7645-46be-9d16-f10770f865b3",
           "name": "Бекони",
           "description": "сметана, бекон, гъби, лук, моцарела",
+          "image": "/images/menu/pizza-bekoni.webp",
           "variants": [
             {
               "id": "26",
+              "cmsId": "9a5d0058-803a-4a10-8a47-3700b512bbba",
               "label": "26 см",
-              "price": "8.60"
+              "price": "8.60",
+              "available": true
             },
             {
               "id": "33",
+              "cmsId": "ba3736e2-2bc7-4bfe-b602-f42f02ee4669",
               "label": "33 см",
-              "price": "8.90"
+              "price": "8.90",
+              "available": true
             },
             {
               "id": "50",
+              "cmsId": "62ded520-c6bf-4c59-a9bb-67933f67f75f",
               "label": "50 см",
-              "price": "13.80"
+              "price": "13.80",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "pizza-9",
-          "image": "/images/menu/pizza-peperone.webp",
+          "cmsId": "e1f15157-0417-4f5f-a231-128f4a41f1b0",
           "name": "Пепероне",
           "description": "доматен сос, салам пепероне, моцарела",
+          "image": "/images/menu/pizza-peperone.webp",
           "variants": [
             {
               "id": "26",
+              "cmsId": "d673cadf-7730-4bd9-b0db-1b2d5d105187",
               "label": "26 см",
-              "price": "7.70"
+              "price": "7.70",
+              "available": true
             },
             {
               "id": "33",
+              "cmsId": "8cb4d43a-5214-46c0-a975-944d875dcb43",
               "label": "33 см",
-              "price": "8.70"
+              "price": "8.70",
+              "available": true
             },
             {
               "id": "50",
+              "cmsId": "f13a6031-1386-4f25-8fdd-a97c1324d2d5",
               "label": "50 см",
-              "price": "14.50"
+              "price": "14.50",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "pizza-10",
-          "image": "/images/menu/pizza-polo.webp",
+          "cmsId": "a1199fcc-902b-438f-bb89-37cd06ce0177",
           "name": "Поло",
           "description": "доматен сос, пилешко роле, царевица, гъби, моцарела",
+          "image": "/images/menu/pizza-polo.webp",
           "variants": [
             {
               "id": "26",
+              "cmsId": "8e6a9890-c33c-4f7c-942c-5dbe7bff6706",
               "label": "26 см",
-              "price": "7.70"
+              "price": "7.70",
+              "available": true
             },
             {
               "id": "33",
+              "cmsId": "fef8a5bc-800e-47a9-a0bf-eb5787c05c0d",
               "label": "33 см",
-              "price": "8.40"
+              "price": "8.40",
+              "available": true
             },
             {
               "id": "50",
+              "cmsId": "d4688e29-23a3-4e4b-818a-ec4386f96395",
               "label": "50 см",
-              "price": "14.50"
+              "price": "14.50",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "pizza-11",
-          "image": "/images/menu/pizza-prosciutto.webp",
+          "cmsId": "427c1502-5d39-4278-85d9-91b8dfcde0f9",
           "name": "Прошуто",
           "description": "доматен сос, прошуто, рукола, пармезан, моцарела",
+          "image": "/images/menu/pizza-prosciutto.webp",
           "variants": [
             {
               "id": "26",
+              "cmsId": "c63b80e6-3ebc-40c0-a401-1b28e4961e82",
               "label": "26 см",
-              "price": "8.10"
+              "price": "8.10",
+              "available": true
             },
             {
               "id": "33",
+              "cmsId": "3ad8e902-83f2-4803-b8e8-9cffa49d8dfc",
               "label": "33 см",
-              "price": "9.20"
+              "price": "9.20",
+              "available": true
             },
             {
               "id": "50",
+              "cmsId": "92a608fd-8e92-4154-b880-f4f7c2f2f4ac",
               "label": "50 см",
-              "price": "15.50"
+              "price": "15.50",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "pizza-12",
-          "image": "/images/menu/pizza-four-seasons.webp",
+          "cmsId": "5b751b2c-0205-4361-bad8-5fdc718fb098",
           "name": "Четири сезона",
           "description": "доматен сос, шунка, бекон, салам пепероне, гъби, маслини, моцарела",
+          "image": "/images/menu/pizza-four-seasons.webp",
           "variants": [
             {
               "id": "26",
+              "cmsId": "92f0c7c8-094e-4c29-b319-561c14b071fb",
               "label": "26 см",
-              "price": "8.50"
+              "price": "8.50",
+              "available": true
             },
             {
               "id": "33",
+              "cmsId": "7a6cd332-5222-427b-a925-50a443165cc0",
               "label": "33 см",
-              "price": "9.70"
+              "price": "9.70",
+              "available": true
             },
             {
               "id": "50",
+              "cmsId": "6a46869b-f150-4a1c-bc71-42dd5d75077f",
               "label": "50 см",
-              "price": "15.50"
+              "price": "15.50",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "pizza-13",
-          "image": "/images/menu/pizza-luciano.webp",
+          "cmsId": "33037820-6f26-400c-a434-0676cf4fca63",
           "name": "Лучиано",
           "description": "доматен сос, бекон, луканка, лук, гъби, топено сирене, моцарела",
+          "image": "/images/menu/pizza-luciano.webp",
           "variants": [
             {
               "id": "26",
+              "cmsId": "529cd21c-9525-4d1b-81f2-7f172f82a79a",
               "label": "26 см",
-              "price": "8.50"
+              "price": "8.50",
+              "available": true
             },
             {
               "id": "33",
+              "cmsId": "014ab4bf-6c24-4f5c-826c-ea985aec185c",
               "label": "33 см",
-              "price": "9.70"
+              "price": "9.70",
+              "available": true
             },
             {
               "id": "50",
+              "cmsId": "bc399844-afad-4c0e-b39c-a6a342e9208c",
               "label": "50 см",
-              "price": "15.50"
+              "price": "15.50",
+              "available": true
             }
           ],
+          "available": true,
+          "featured": true,
           "tags": [
             "popular"
-          ],
-          "available": true,
-          "featured": true
+          ]
         },
         {
           "id": "pizza-14",
-          "image": "/images/menu/pizza-tuna.webp",
+          "cmsId": "08bcc633-90c5-4e98-b14b-a0c46eac15ba",
           "name": "Туна",
           "description": "доматен сос, риба тон, лук, моцарела",
+          "image": "/images/menu/pizza-tuna.webp",
           "variants": [
             {
               "id": "26",
+              "cmsId": "d5d2d0d9-02f4-4947-b4cf-1ac4c71dee0c",
               "label": "26 см",
-              "price": "7.20"
+              "price": "7.20",
+              "available": true
             },
             {
               "id": "33",
+              "cmsId": "6521d5d6-6fb3-4a41-9dc1-06cf0d7ed161",
               "label": "33 см",
-              "price": "8.20"
+              "price": "8.20",
+              "available": true
             },
             {
               "id": "50",
+              "cmsId": "5f384993-d6d0-4588-bb5a-87a3aea25021",
               "label": "50 см",
-              "price": "14.30"
+              "price": "14.30",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "pizza-15",
-          "image": "/images/menu/pizza-frutti.webp",
+          "cmsId": "3c12daba-179c-4268-9424-963b5f625c9f",
           "name": "Фрути ди Маре",
           "description": "доматен сос, морски дарове, моцарела",
+          "image": "/images/menu/pizza-frutti.webp",
           "variants": [
             {
               "id": "26",
+              "cmsId": "1ad9a05b-dd79-4ce1-8d9e-f3d0b54d3c6b",
               "label": "26 см",
-              "price": "7.40"
+              "price": "7.40",
+              "available": true
             },
             {
               "id": "33",
+              "cmsId": "260dc807-fce3-4acc-8019-4f960847be71",
               "label": "33 см",
-              "price": "8.40"
+              "price": "8.40",
+              "available": true
             },
             {
               "id": "50",
+              "cmsId": "23896cf9-1d88-47f4-b8bd-489e53a674f6",
               "label": "50 см",
-              "price": "15.50"
+              "price": "15.50",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "pizza-16",
-          "image": "/images/menu/pizza-hawaii.webp",
+          "cmsId": "2f13c08a-99cc-4773-9137-792467b80be1",
           "name": "Хавай",
           "description": "доматен сос, шунка, ананас, моцарела",
+          "image": "/images/menu/pizza-hawaii.webp",
           "variants": [
             {
               "id": "26",
+              "cmsId": "d97b43f6-ff46-45a6-905e-7cfef304107d",
               "label": "26 см",
-              "price": "7.10"
+              "price": "7.10",
+              "available": true
             },
             {
               "id": "33",
+              "cmsId": "fb8784fb-45aa-4385-b4f9-b77f0bef76de",
               "label": "33 см",
-              "price": "7.90"
+              "price": "7.90",
+              "available": true
             },
             {
               "id": "50",
+              "cmsId": "d67af973-6ca2-4178-be04-3fb634c4d671",
               "label": "50 см",
-              "price": "14.30"
+              "price": "14.30",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "pizza-17",
-          "image": "/images/menu/pizza-burger.webp",
+          "cmsId": "dc88aa2d-70a7-4766-8054-804bba73e61d",
           "name": "Бургер пица",
           "description": "барбекю сос, дърпано свинско, червен лук, чедър, бургер сос",
+          "image": "/images/menu/pizza-burger.webp",
           "variants": [
             {
               "id": "26",
+              "cmsId": "685a4aaf-006e-48cb-a06c-83377bdf0fec",
               "label": "26 см",
-              "price": "7.70"
+              "price": "7.70",
+              "available": true
             },
             {
               "id": "33",
+              "cmsId": "155a39df-de7f-40e0-a28b-e12cd0d3420a",
               "label": "33 см",
-              "price": "8.70"
+              "price": "8.70",
+              "available": true
             },
             {
               "id": "50",
+              "cmsId": "6dff3d28-dca4-42e3-855c-b59366f37157",
               "label": "50 см",
-              "price": "15.70"
+              "price": "15.70",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "pizza-18",
-          "image": "/images/menu/pizza-speciale.webp",
+          "cmsId": "1af84e54-7b0c-4114-93f8-5b875ee96fb5",
           "name": "Специале",
           "description": "сметана, бекон, червен лук, моцарела",
+          "image": "/images/menu/pizza-speciale.webp",
           "variants": [
             {
               "id": "26",
+              "cmsId": "3dcd0023-2960-4073-a7cc-e7f05d4fd218",
               "label": "26 см",
-              "price": "7.30"
+              "price": "7.30",
+              "available": true
             },
             {
               "id": "33",
+              "cmsId": "2917a8cb-6743-4e99-a550-e6fab18a3bdd",
               "label": "33 см",
-              "price": "8.80"
+              "price": "8.80",
+              "available": true
             },
             {
               "id": "50",
+              "cmsId": "337edcd8-3bba-4f69-b853-ac6fb45cb888",
               "label": "50 см",
-              "price": "14.40"
+              "price": "14.40",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         }
       ]
     },
     {
       "id": "salads",
+      "cmsId": "55e607cb-de2e-4b02-b72e-e3e964238171",
       "name": "Салати",
       "items": [
         {
           "id": "salads-1",
-          "image": "/images/menu/salad-shopska.webp",
+          "cmsId": "2c1271fd-1742-4f77-b52f-bfaaeb055fa6",
           "name": "Шопска",
           "description": "домати, краставици, пипер, лук, сирене, магданоз",
+          "image": "/images/menu/salad-shopska.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "1791de1f-379d-4c3a-a723-868259831771",
               "label": "400 гр",
-              "price": "6.60"
+              "price": "6.60",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "salads-2",
-          "image": "/images/menu/salad-grcka.webp",
+          "cmsId": "db7a5708-0d4e-44b4-9109-c1b6108c3a64",
           "name": "Гръцка",
           "description": "домати, краставици, маслини, сирене фета, пипер, лук, риган",
+          "image": "/images/menu/salad-grcka.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "0abca196-4418-46ad-8252-cf1fd7f0b901",
               "label": "400 гр",
-              "price": "6.60"
+              "price": "6.60",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "salads-3",
-          "image": "/images/menu/salad-tuna.webp",
+          "cmsId": "f7a88c4f-349e-438b-9625-318c7a6a1a84",
           "name": "Туна",
           "description": "домати, краставици, риба тон, царевица, лук, зелена салата",
+          "image": "/images/menu/salad-tuna.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "93c65bd6-734a-439d-97b2-4584dd704e7b",
               "label": "400 гр",
-              "price": "7.60"
+              "price": "7.60",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "salads-4",
-          "image": "/images/menu/salad-cezar.webp",
+          "cmsId": "6588382c-6d95-4471-9b7e-6498dd2456e5",
           "name": "Цезар",
           "description": "пиле, айсберг, брускети, пармезан, дресинг цезар",
+          "image": "/images/menu/salad-cezar.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "33f82dad-d595-4c13-b202-97f2223b2a3c",
               "label": "400 гр",
-              "price": "7.90"
+              "price": "7.90",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "salads-5",
-          "image": "/images/menu/salad-caprese.webp",
+          "cmsId": "07a43b25-a9e5-42b2-b15c-a2b4d3d13ae6",
           "name": "Капрезе",
           "description": "домати, моцарела, босилек, зехтин, песто",
+          "image": "/images/menu/salad-caprese.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "f1709117-9274-4833-9a2b-664b05550ddd",
               "label": "250 гр",
-              "price": "6.60"
+              "price": "6.60",
+              "available": true
             }
           ],
+          "available": true,
+          "featured": true,
           "tags": [
             "vegetarian"
-          ],
-          "available": true,
-          "featured": true
+          ]
         },
         {
           "id": "salads-6",
-          "image": "/images/menu/salad-pechen-piper.webp",
+          "cmsId": "f9327f49-77f6-4c09-998d-e4ccc67b8966",
           "name": "Печен пипер",
           "description": "печен пипер, домати, лук, натрошено сирене, чесън, магданоз, зехтин",
+          "image": "/images/menu/salad-pechen-piper.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "8b9b5d48-d2b1-4ff3-bf1b-b4797f3fc6f1",
               "label": "250 гр",
-              "price": "6.80"
+              "price": "6.80",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         }
       ]
     },
     {
       "id": "pasta",
+      "cmsId": "fae324ff-e9ff-459e-a792-9595fed945cb",
       "name": "Пасти",
       "items": [
         {
           "id": "pasta-1",
-          "image": "/images/menu/pasta-carbonara.webp",
+          "cmsId": "0446e9ac-9019-4f27-9fd6-26410548fd45",
           "name": "Карбонара",
           "description": "бекон, пармезан, яйце",
+          "image": "/images/menu/pasta-carbonara.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "a30ebaf9-af8c-43ce-a6c7-52d5c868764f",
               "label": "400 гр",
-              "price": "7.40"
+              "price": "7.40",
+              "available": true
             }
           ],
-          "tags": [],
           "available": true,
           "featured": true
         },
         {
           "id": "pasta-2",
-          "image": "/images/menu/pasta-bolognese.webp",
+          "cmsId": "833e4bc6-1dec-4084-81d6-1f1fc55ad8e8",
           "name": "Болонез",
           "description": "сос болонез, пармезан, босилек",
+          "image": "/images/menu/pasta-bolognese.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "73894aba-03cc-4700-92be-567dd979ea3c",
               "label": "400 гр",
-              "price": "7.40"
+              "price": "7.40",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "pasta-3",
-          "image": "/images/menu/pasta-quattro-formaggi.webp",
+          "cmsId": "62ce4bca-02b1-4fdd-8cde-41083428eef5",
           "name": "Куатро формаджи",
           "description": "сметана, синьо сирене, пармезан, топено сирене, чедър",
+          "image": "/images/menu/pasta-quattro-formaggi.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "9da0d68d-59c9-403b-b71a-31714a9127e7",
               "label": "400 гр",
-              "price": "7.20"
+              "price": "7.20",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "pasta-4",
-          "image": "/images/menu/pasta-aglio-olio.webp",
+          "cmsId": "c78a3b7c-c6e3-47eb-b674-5baca7f8dea4",
           "name": "Алио олио",
           "description": "зехтин, люта чушка, домат конкасе, чесън, магданоз",
+          "image": "/images/menu/pasta-aglio-olio.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "b2cdb348-398b-4828-813e-95fe8f6d2ceb",
               "label": "400 гр",
-              "price": "6.90"
+              "price": "6.90",
+              "available": true
             }
           ],
+          "available": true,
+          "featured": false,
           "tags": [
             "spicy"
-          ],
-          "available": true
+          ]
         },
         {
           "id": "pasta-5",
-          "image": "/images/menu/pasta-genovese.webp",
+          "cmsId": "3c9db81f-0ed8-4faf-8353-4a2deb299e87",
           "name": "Дженовезе",
           "description": "сметана, песто, чесън, пармезан",
+          "image": "/images/menu/pasta-genovese.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "7657eea0-0f3a-4fb5-b58b-55d1e5cff929",
               "label": "400 гр",
-              "price": "6.90"
+              "price": "6.90",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "pasta-6",
-          "image": "/images/menu/pasta-siciliana.webp",
+          "cmsId": "706be495-630f-4027-ad73-1291529cb999",
           "name": "Сицилиана",
           "description": "риба тон, чесън, каперси",
+          "image": "/images/menu/pasta-siciliana.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "5561df69-8123-4675-8d73-5ed28327faa8",
               "label": "400 гр",
-              "price": "7.10"
+              "price": "7.10",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         }
       ]
     },
     {
       "id": "starters",
+      "cmsId": "9efb9ceb-1a72-4314-aca9-eb3872c63727",
       "name": "Предястия",
       "items": [
         {
           "id": "starters-1",
-          "image": "/images/menu/app-crispy-chicken.webp",
+          "cmsId": "3f8fdb93-9903-448a-b41e-e00448191dd4",
           "name": "Хрупкави пилешки филенца",
           "description": "пилешко филе, паниране, чеснов сос",
+          "image": "/images/menu/app-crispy-chicken.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "ddb8f55d-10e3-4dc8-9640-dc1764233402",
               "label": "250 гр",
-              "price": "7.50"
+              "price": "7.50",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "starters-2",
-          "image": "/images/menu/app-fried-cheese.webp",
+          "cmsId": "6620c9b3-2a1c-44e8-b377-f922fda7849e",
           "name": "Панирани сиренца",
           "description": "сирене, панировка, сладко от боровинки",
+          "image": "/images/menu/app-fried-cheese.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "ddf7ceb7-8e20-4ab1-ac1a-9594d6ed2eee",
               "label": "250 гр",
-              "price": "6.80"
+              "price": "6.80",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "starters-3",
-          "image": "/images/menu/app-fried-kashkaval.webp",
+          "cmsId": "33e50e7e-d59e-402a-8be5-2dffa579918e",
           "name": "Панирани кашкавалчета",
           "description": "кашкавал, панировка, сладко от боровинки",
+          "image": "/images/menu/app-fried-kashkaval.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "5e3389df-8142-446e-8aa1-9c4fe244ba62",
               "label": "250 гр",
-              "price": "6.80"
+              "price": "6.80",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "starters-4",
-          "image": "/images/menu/app-camembert.webp",
+          "cmsId": "6523b35a-95ae-4c54-80f7-12a856bb7249",
           "name": "Камембер със сусам и боровинково сладко",
           "description": "камембер, сусам, боровинково сладко",
+          "image": "/images/menu/app-camembert.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "9840971d-806d-4e2e-bdfe-924d1f3a1b80",
               "label": "200 гр",
-              "price": "7.50"
+              "price": "7.50",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "starters-5",
-          "image": "/images/menu/app-goat-cheese.webp",
+          "cmsId": "69a33d4d-00c7-4d82-a925-50aaa200e852",
           "name": "Запечено френско козе сирене с мед и орехи",
           "description": "козе сирене, мед, орехи",
+          "image": "/images/menu/app-goat-cheese.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "696ae024-9d18-44de-97ea-3c829e756b79",
               "label": "200 гр",
-              "price": "8.20"
+              "price": "8.20",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "starters-6",
-          "image": "/images/menu/app-calamari.webp",
+          "cmsId": "ceb51da3-02b4-42c7-9716-82e6ce882d40",
           "name": "Панирани калмари",
           "description": "калмари, панировка, лимон",
+          "image": "/images/menu/app-calamari.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "5ae1be96-7e84-49fc-9a07-6d9e027783f1",
               "label": "250 гр",
-              "price": "8.90"
+              "price": "8.90",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "starters-7",
-          "image": "/images/menu/app-fries.webp",
+          "cmsId": "676a29d1-1d0c-4775-84a9-1d596493c610",
           "name": "Пържени картофи",
           "description": "картофи, олио, сол",
+          "image": "/images/menu/app-fries.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "2a88ac6f-08fd-4305-8b04-e0d1a47d74d9",
               "label": "250 гр",
-              "price": "3.70"
+              "price": "3.70",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "starters-8",
-          "image": "/images/menu/app-fries-cheese.webp",
+          "cmsId": "e271fa8f-9d28-4675-ad9c-a16d0d2d973a",
           "name": "Пържени картофи със сирене",
           "description": "картофи, сирене, сол",
+          "image": "/images/menu/app-fries-cheese.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "da27d07b-deb1-4010-b793-d4a8cd54cdf1",
               "label": "300 гр",
-              "price": "4.20"
+              "price": "4.20",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "starters-9",
-          "image": "/images/menu/app-homemade-fries.webp",
+          "cmsId": "8601e900-42c3-4768-8738-f553a16325fd",
           "name": "Домашни картофи",
           "description": "картофи, подправки, олио",
+          "image": "/images/menu/app-homemade-fries.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "0db9bb22-6f72-49cb-8a88-ade0c9a7407f",
               "label": "250 гр",
-              "price": "4.20"
+              "price": "4.20",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "starters-10",
-          "image": "/images/menu/app-homemade-fries-cheese.webp",
+          "cmsId": "8f8f77de-afce-4fea-ad62-7925e5389e04",
           "name": "Домашни картофи със сирене",
           "description": "картофи, сирене, подправки",
+          "image": "/images/menu/app-homemade-fries-cheese.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "412c8901-87f5-4c2f-b92d-8c24b543e610",
               "label": "250 гр",
-              "price": "4.60"
+              "price": "4.60",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "starters-11",
-          "image": "/images/menu/app-potato-saute.webp",
+          "cmsId": "c975d5be-1be8-441d-902c-180e825195c1",
           "name": "Картофи соте с копър и чесън",
           "description": "картофи, олио, копър, чесън",
+          "image": "/images/menu/app-potato-saute.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "5d62747b-8236-4a02-ac03-357984a01ca1",
               "label": "300 гр",
-              "price": "4.40"
+              "price": "4.40",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "starters-12",
-          "image": "/images/menu/app-potato-chips.webp",
+          "cmsId": "c21fe3a1-6c95-4030-9cf6-f0c58edfecbc",
           "name": "Картофен чипс",
           "description": "тънко нарязани картофи, подправки",
+          "image": "/images/menu/app-potato-chips.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "ccc47811-e0c0-4d92-9b3b-5314d4f916dc",
               "label": "200 гр",
-              "price": "4.60"
+              "price": "4.60",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "starters-13",
-          "image": "/images/menu/app-grilled-veg.webp",
+          "cmsId": "996398d0-b95f-4f91-8896-ac5c4b0aa8db",
           "name": "Гриловани зеленчуци",
           "description": "тиквичка, патладжан, пипер, гъби, морков, лук",
+          "image": "/images/menu/app-grilled-veg.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "da3e46af-93d0-4f82-83f6-a87eb150e4ac",
               "label": "200 гр",
-              "price": "4.60"
+              "price": "4.60",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         }
       ]
     },
     {
       "id": "grill",
+      "cmsId": "0925566b-7e06-4d5d-939b-f695b00ddf9e",
       "name": "Барбекю / BBQ",
       "items": [
         {
           "id": "grill-1",
-          "image": "/images/menu/bbq-kufte-kebapche.webp",
+          "cmsId": "0ee46c2c-9bd9-447d-8ab5-9959add975cc",
           "name": "Кюфте / кебапче",
-          "description": "",
+          "image": "/images/menu/bbq-kufte-kebapche.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "4a5c0835-2723-41ac-bc98-f78f2373cef3",
               "label": "3 бр, 300 гр",
-              "price": "6.90"
+              "price": "6.90",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "grill-2",
-          "image": "/images/menu/pork-chicken skewer.webp",
+          "cmsId": "9b94ed91-ce58-4b75-beea-6884f9bcad16",
           "name": "Пилешко / Свинско шишче",
-          "description": "",
+          "image": "/images/menu/pork-chicken skewer.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "0a545aae-f4a2-4b10-b7ed-27fd62f55f63",
               "label": "2 бр, 200 гр",
-              "price": "6.90"
+              "price": "6.90",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "grill-3",
-          "image": "/images/menu/bbq-pleskavica.webp",
+          "cmsId": "62975ad9-e2ac-463b-a353-fa675890b9b4",
           "name": "Плескавица",
-          "description": "",
+          "image": "/images/menu/bbq-pleskavica.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "d4c8bce2-8f9b-4197-b486-c57ef5ee3a38",
               "label": "200 гр",
-              "price": "6.90"
+              "price": "6.90",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "grill-4",
-          "image": "/images/menu/bbq-lukankova-nadenica.webp",
+          "cmsId": "d3ea1ea1-d2d8-4db9-9533-ff152ae2d415",
           "name": "Луканкова наденица",
-          "description": "",
+          "image": "/images/menu/bbq-lukankova-nadenica.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "ba7490ce-802b-416f-938e-630481e8d253",
               "label": "2 бр, 200 гр",
-              "price": "6.90"
+              "price": "6.90",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "grill-5",
-          "image": "/images/menu/bbq-domashen-sudzhuk.webp",
+          "cmsId": "18434e6d-ae88-469f-ac40-8107dc898693",
           "name": "Домашен суджук",
-          "description": "",
+          "image": "/images/menu/bbq-domashen-sudzhuk.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "25ca1e15-8c63-44cd-b4f1-89880be77e80",
               "label": "250 гр",
-              "price": "6.90"
+              "price": "6.90",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "grill-6",
-          "image": "/images/menu/bbq-vratna-parzhola.webp",
+          "cmsId": "c8c71b38-0cbf-4df6-90bc-6cca393cf50d",
           "name": "Вратна пържола",
-          "description": "",
+          "image": "/images/menu/bbq-vratna-parzhola.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "95b328d3-e184-47e3-81b6-f8e68797d101",
               "label": "200 гр",
-              "price": "6.90"
+              "price": "6.90",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "grill-7",
-          "image": "/images/menu/bbq-svinski-gardi.webp",
+          "cmsId": "5ce1539a-cac3-4251-8ad6-852558bd7503",
           "name": "Свински гърди",
-          "description": "",
+          "image": "/images/menu/bbq-svinski-gardi.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "0fd7f53b-dfd9-48dd-b57d-6d5e751b868f",
               "label": "200 гр",
-              "price": "6.90"
+              "price": "6.90",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "grill-8",
-          "image": "/images/menu/bbq-pileshka-parzhola.webp",
+          "cmsId": "8ba95eb7-ab04-4cf6-8848-edb53e48fff4",
           "name": "Пилешка пържола",
-          "description": "",
+          "image": "/images/menu/bbq-pileshka-parzhola.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "27042606-70a1-4fbb-847e-12278cc1752c",
               "label": "200 гр",
-              "price": "6.90"
+              "price": "6.90",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         }
       ]
     },
     {
       "id": "ciabatta",
+      "cmsId": "2f533915-f70d-469c-9ed0-accd0f203ff3",
       "name": "Чабати",
       "items": [
         {
           "id": "ciabatta-1",
-          "image": "/images/menu/ciabatta-veg.webp",
+          "cmsId": "2a2aefaa-13d7-4bd9-ab13-eec567711d0e",
           "name": "Вегетарианска",
           "description": "сирене халуми, доматена салца, краставици, айсберг, червен лук",
+          "image": "/images/menu/ciabatta-veg.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "0f7670f3-fc23-4beb-858d-062911244aa4",
               "label": "250 гр",
-              "price": "7.50"
+              "price": "7.50",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "ciabatta-2",
-          "image": "/images/menu/ciabatta-tuna.webp",
+          "cmsId": "10bb7476-60e9-4b7a-a08c-e670dc24cff7",
           "name": "Риба тон",
           "description": "риба тон, червен лук, маслини, айсберг, домати, краставица, млечен сос",
+          "image": "/images/menu/ciabatta-tuna.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "dcad5ef9-a101-49e8-93f1-43f7a3ef6582",
               "label": "250 гр",
-              "price": "7.50"
+              "price": "7.50",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "ciabatta-3",
-          "image": "/images/menu/ciabatta-shunka.webp",
+          "cmsId": "a051bc6a-ac4f-41d7-881e-35bb2e8a3910",
           "name": "Шунка",
           "description": "крема сирене, шунка, домати, айсберг, краставица, майонеза",
+          "image": "/images/menu/ciabatta-shunka.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "100aeda1-7da7-48eb-9af9-f0cb9b4a93d6",
               "label": "250 гр",
-              "price": "6.70"
+              "price": "6.70",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "ciabatta-4",
-          "image": "/images/menu/ciabatta-bacon.webp",
+          "cmsId": "04652c51-6d81-4359-ae8a-e4fa0580a3e7",
           "name": "Бекон",
           "description": "крема сирене, бекон, домати, айсберг, краставица, майонеза",
+          "image": "/images/menu/ciabatta-bacon.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "cf82a948-ed6d-48c5-959b-c298ad95bc4b",
               "label": "250 гр",
-              "price": "6.70"
+              "price": "6.70",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "ciabatta-5",
-          "image": "/images/menu/ciabatta-chorizo.webp",
+          "cmsId": "cedc1287-ab92-493e-aef8-182186f8c410",
           "name": "Чоризо",
           "description": "крема сирене, чоризо, айсберг, домати, краставица, майонеза, чили",
+          "image": "/images/menu/ciabatta-chorizo.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "2a12d69d-1ef0-40eb-9c85-f7613721761b",
               "label": "250 гр",
-              "price": "6.90"
+              "price": "6.90",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "ciabatta-6",
-          "image": "/images/menu/ciabatta-prosciutto.webp",
+          "cmsId": "8d08eeb8-ab5c-4235-8bba-e57e7bd68558",
           "name": "Прошуто",
           "description": "крема сирене, прошуто, рукола, чери домати, дресинг",
+          "image": "/images/menu/ciabatta-prosciutto.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "33c42577-56e4-4aea-aeb6-a89a0b4ea2cf",
               "label": "250 гр",
-              "price": "7.50"
+              "price": "7.50",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "ciabatta-7",
-          "image": "/images/menu/ciabatta-pulled-pork.webp",
+          "cmsId": "183e6230-20e9-451d-8b9b-fcfef8070113",
           "name": "Дърпано свинско",
           "description": "дърпано свинско, айсберг, карамелизиран лук, кисели краставички, барбекю сос",
+          "image": "/images/menu/ciabatta-pulled-pork.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "3ec7b563-fd60-46f1-b4f9-67e2f9c89132",
               "label": "250 гр",
-              "price": "7.90"
+              "price": "7.90",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "ciabatta-8",
-          "image": "/images/menu/ciabatta-cezar.webp",
+          "cmsId": "7dad7891-850d-4782-b8a2-383195acdffc",
           "name": "Цезар",
           "description": "пилешко филе, айсберг, чедър, цезар сос",
+          "image": "/images/menu/ciabatta-cezar.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "73fc8841-2f56-440d-941d-273939f1fe5a",
               "label": "250 гр",
-              "price": "7.90"
+              "price": "7.90",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         }
       ]
     },
     {
       "id": "bread",
+      "cmsId": "25d3cb24-56ef-41d7-9db8-342dcc646c2e",
       "name": "Фокачи / Пърленки",
       "items": [
         {
           "id": "bread-1",
-          "image": "/images/menu/focaccia-rosemary.webp",
+          "cmsId": "fb834677-eaba-45a0-9907-7a67c363cd74",
           "name": "Розмарин, морска сол",
           "description": "зехтин, розмарин, морска сол",
+          "image": "/images/menu/focaccia-rosemary.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "df814a4d-49b6-43b6-b9bc-cc52cfad4134",
               "label": "26 см",
-              "price": "3.20"
+              "price": "3.20",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "bread-2",
-          "image": "/images/menu/focaccia-blue.webp",
+          "cmsId": "3cd51a62-2dce-4d70-bb5b-1b5ff23d6455",
           "name": "Синьо сирене",
           "description": "синьо сирене, зехтин",
+          "image": "/images/menu/focaccia-blue.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "0f364ff1-bc56-4aac-a0fe-faa4b4adb1f4",
               "label": "26 см",
-              "price": "3.20"
+              "price": "3.20",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "bread-3",
-          "image": "/images/menu/purlenka.webp",
+          "cmsId": "d1bfbee6-2af7-4a5b-96f5-df3ea1999aaf",
           "name": "Пърленка",
           "description": "класическо хлебно тесто с масло",
+          "image": "/images/menu/purlenka.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "8d8e8c9e-3105-4b22-9a24-25198404e248",
               "label": "26 см",
-              "price": "2.80"
+              "price": "2.80",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "bread-4",
-          "image": "/images/menu/purlenka-garlic.webp",
+          "cmsId": "7343119d-cf50-48f7-ae90-13dae8964de8",
           "name": "Чеснова пърленка",
           "description": "масло, чесън, магданоз",
+          "image": "/images/menu/purlenka-garlic.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "9f73e379-f899-414d-97cc-2ed662162a01",
               "label": "26 см",
-              "price": "3.20"
+              "price": "3.20",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "bread-5",
-          "image": "/images/menu/purlenka-cheese.webp",
+          "cmsId": "f71e16f8-c0c1-4374-aded-b8787eda76e8",
           "name": "Пърленка със сирене и кашкавал",
           "description": "сирене, кашкавал, масло",
+          "image": "/images/menu/purlenka-cheese.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "10c6d950-5d94-4885-9837-7dc99081903c",
               "label": "26 см",
-              "price": "3.40"
+              "price": "3.40",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         }
       ]
     },
     {
       "id": "sides",
+      "cmsId": "fc9d4979-c423-435d-ab80-91ea33e5e8a8",
       "name": "Гарнитури",
       "items": [
         {
           "id": "sides-1",
-          "image": "/images/menu/app-fries.webp",
+          "cmsId": "8ad01a44-593c-473a-88fc-f561f024f385",
           "name": "Пържени картофи",
-          "description": "",
+          "image": "/images/menu/app-fries.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "ea908c98-8d42-480f-9a11-7bbb66507be8",
               "label": "150 гр",
-              "price": "2.90"
+              "price": "2.90",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "sides-2",
-          "image": "/images/menu/app-fries-cheese.webp",
+          "cmsId": "41d42739-4108-4889-a35d-b965136132d7",
           "name": "Пържени картофи със сирене",
-          "description": "",
+          "image": "/images/menu/app-fries-cheese.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "71edf2c5-4683-4fe6-a577-f36be5ef3701",
               "label": "150 гр",
-              "price": "3.10"
+              "price": "3.10",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "sides-3",
-          "image": "/images/menu/app-potato-saute.webp",
+          "cmsId": "1095bde4-f579-41ab-ba21-b35353f5725d",
           "name": "Картофки соте с копър и чесън",
-          "description": "",
+          "image": "/images/menu/app-potato-saute.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "31729299-2c33-4247-813c-21abd6f76919",
               "label": "150 гр",
-              "price": "3.30"
+              "price": "3.30",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "sides-4",
-          "image": "/images/menu/app-potato-chips.webp",
+          "cmsId": "d8e0c352-5710-48ea-b8cf-5e6ef5e1504f",
           "name": "Картофен чипс",
-          "description": "",
+          "image": "/images/menu/app-potato-chips.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "f2868d8f-d031-4f74-833e-16ae90a74f6b",
               "label": "150 гр",
-              "price": "3.40"
+              "price": "3.40",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "sides-5",
-          "image": "/images/menu/app-grilled-veg.webp",
+          "cmsId": "f049793a-599f-415a-9ec3-4a40c36868f0",
           "name": "Гриловани зеленчуци",
-          "description": "",
+          "image": "/images/menu/app-grilled-veg.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "92ca772c-7e5b-436a-b832-6bf9c49c84bf",
               "label": "150 гр",
-              "price": "3.40"
+              "price": "3.40",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "sides-6",
-          "image": "/images/menu/side-tomatoes-cucumbers.webp",
+          "cmsId": "1222075a-d6db-43c4-a17b-fe0db308dce6",
           "name": "Домати и краставици",
-          "description": "",
+          "image": "/images/menu/side-tomatoes-cucumbers.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "f8cb58b8-9f5e-41d7-ac88-df0788febd41",
               "label": "150 гр",
-              "price": "3.10"
+              "price": "3.10",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         }
       ]
     },
     {
       "id": "sauces",
+      "cmsId": "490aeb01-9e22-428a-a2fe-0a1f7cd1c849",
       "name": "Сосове",
       "items": [
         {
           "id": "sauces-1",
-          "image": "/images/menu/sauce-ketchup.webp",
+          "cmsId": "78825fb8-31a0-49b7-ad2b-058d6a9eab43",
           "name": "Кетчуп",
-          "description": "",
+          "image": "/images/menu/sauce-ketchup.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "033903f4-0641-4540-8d6f-010740b7d34c",
               "label": "50 гр",
-              "price": "0.80"
+              "price": "0.80",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "sauces-2",
-          "image": "/images/menu/sauce-mayo.webp",
+          "cmsId": "e96a2153-85b5-4c63-8450-7f853cb5d34f",
           "name": "Майонеза",
-          "description": "",
+          "image": "/images/menu/sauce-mayo.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "6cf921e0-f296-4271-96bb-1116af9fdb4c",
               "label": "50 гр",
-              "price": "0.80"
+              "price": "0.80",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "sauces-3",
-          "image": "/images/menu/sauce-mustard.webp",
+          "cmsId": "531bb4a7-9405-463d-b86f-ceda3edecf6b",
           "name": "Горчица",
-          "description": "",
+          "image": "/images/menu/sauce-mustard.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "f00322e1-82bd-41a9-9241-5dc352c72cfb",
               "label": "50 гр",
-              "price": "0.80"
+              "price": "0.80",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "sauces-4",
-          "image": "/images/menu/sauce-garlic.webp",
+          "cmsId": "e2097290-2df8-47fa-99ac-7c12b8bba1bf",
           "name": "Чеснов сос",
-          "description": "",
+          "image": "/images/menu/sauce-garlic.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "7d5a7b55-384b-4066-9a4c-41d1838ef0c5",
               "label": "50 гр",
-              "price": "0.80"
+              "price": "0.80",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "sauces-5",
-          "image": "/images/menu/sauce-chili.webp",
+          "cmsId": "e767e8d8-d334-44a1-b119-d814320b7279",
           "name": "Чили сос",
-          "description": "",
+          "image": "/images/menu/sauce-chili.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "0f32c514-88ef-466d-87b6-81c2190d8c16",
               "label": "50 гр",
-              "price": "0.80"
+              "price": "0.80",
+              "available": true
             }
           ],
+          "available": true,
+          "featured": false,
           "tags": [
             "spicy"
-          ],
-          "available": true
+          ]
         },
         {
           "id": "sauces-6",
-          "image": "/images/menu/sauce-burger.webp",
+          "cmsId": "f5ac4fe4-4fce-47fd-8831-2e077c7588c6",
           "name": "Бургер сос",
-          "description": "",
+          "image": "/images/menu/sauce-burger.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "f3bc0c44-932f-4334-a7c9-63b9c03c74ca",
               "label": "50 гр",
-              "price": "0.80"
+              "price": "0.80",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "sauces-7",
-          "image": "/images/menu/sauce-cezar.webp",
+          "cmsId": "6f230f8a-3396-4a95-b3eb-8ae56a9a5304",
           "name": "Цезар сос",
-          "description": "",
+          "image": "/images/menu/sauce-cezar.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "df707cfb-294b-4ce1-ad3b-4255767241ed",
               "label": "50 гр",
-              "price": "0.80"
+              "price": "0.80",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "sauces-8",
-          "image": "/images/menu/sauce-bbq.webp",
+          "cmsId": "9de65f88-f379-42fd-9005-c58e697a7ce1",
           "name": "Барбекю сос",
-          "description": "",
+          "image": "/images/menu/sauce-bbq.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "4ab70065-2b5b-4e21-846f-ee2dc1be9645",
               "label": "50 гр",
-              "price": "0.80"
+              "price": "0.80",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         },
         {
           "id": "sauces-9",
-          "image": "/images/menu/sauce-lyutenica.webp",
+          "cmsId": "e818d77c-d2af-45c1-be44-788cb9a8d5d1",
           "name": "Лютеница",
-          "description": "",
+          "image": "/images/menu/sauce-lyutenica.webp",
           "variants": [
             {
               "id": "regular",
+              "cmsId": "d06229c9-d16d-4392-9350-cb03f5003b28",
               "label": "50 гр",
-              "price": "0.80"
+              "price": "0.80",
+              "available": true
             }
           ],
-          "tags": [],
-          "available": true
+          "available": true,
+          "featured": false
         }
       ]
     }
