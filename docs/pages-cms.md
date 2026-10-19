@@ -28,7 +28,9 @@ There is no separate CMS package, dependency installation, CMS API token or runt
 
 The source repository is [dicework/luciano-site](https://github.com/dicework/luciano-site), branch `main`. The separate Cloudflare Worker is `luciano-site`, with its own order/reservation database and the existing Telegram secrets. Cloudflare Access protects all traffic using the account owner's existing email policy.
 
-Pages CMS sign-in and the GitHub-to-Cloudflare automatic-build connection are being completed. Until both are verified, saving in the portal is not a confirmed automatic publication workflow.
+The [private preview](https://luciano-site.harizanovworks.workers.dev) is deployed. Anonymous requests to pages, order/reservation APIs and dish photos were verified to require Cloudflare Access. The standalone build, type check and all 32 tests pass; local navigation, language switching and both forms were checked.
+
+Still pending: Pages CMS sign-in, approval for Cloudflare to create the automatic-deployment token, and verification of a portal edit reaching the preview. The Cloudflare connection form is prepared for `main`, with preview-branch builds disabled. Automatic publishing is not connected yet.
 
 One-time setup:
 

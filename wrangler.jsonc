@@ -3,7 +3,7 @@
   "name": "luciano-site",
   "account_id": "f99c684d49911046e74bf1defcf5341e",
   "main": "build/cloudflare-worker.ts",
-  "compatibility_date": "2026-10-19",
+  "compatibility_date": "2026-10-12",
   "compatibility_flags": ["nodejs_compat"],
   // Worker-level Cloudflare Access protects all traffic. Keep that policy enabled.
   "workers_dev": true,
