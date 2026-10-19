@@ -23,7 +23,7 @@
         {
           "id": "regular",
           "label": "300 г",
-          "price": 3.4
+          "price": "3.40"
         }
       ]
     },
@@ -37,7 +37,7 @@
         {
           "id": "regular",
           "label": "300 г",
-          "price": 3.1
+          "price": "3.10"
         }
       ]
     },
@@ -51,7 +51,7 @@
         {
           "id": "regular",
           "label": "400 г",
-          "price": 6.8
+          "price": "6.80"
         }
       ]
     },
@@ -67,7 +67,7 @@
         {
           "id": "regular",
           "label": "400 г",
-          "price": 5.2
+          "price": "5.20"
         }
       ]
     },
@@ -81,7 +81,7 @@
         {
           "id": "regular",
           "label": "400 г",
-          "price": 7.2
+          "price": "7.20"
         }
       ]
     },
@@ -95,7 +95,7 @@
         {
           "id": "regular",
           "label": "180 г",
-          "price": 2.2
+          "price": "2.20"
         }
       ]
     }

@@ -9,7 +9,7 @@ import { localizeMenu } from '../i18n/content.ts';
 void test('Pages CMS price, photo and translation edits feed the menu and checkout together', () => {
   const raw = structuredClone(menuContent);
   const item = { ...raw.categories[0].items[0], nameEn: 'Owner-edited pizza' };
-  item.variants[1].price = 8.15;
+  item.variants[1].price = '8.15';
   item.image = '/images/menu/new-photo.webp';
   raw.categories[0].items[0] = item;
   const menu = parseMenu(raw);
@@ -33,7 +33,7 @@ void test('Pages CMS price, photo and translation edits feed the menu and checko
 void test('invalid editable prices, photos, IDs and portions cannot enter the ordering menu', () => {
   for (const price of [0, -1, 1.001, NaN, Infinity, 1000.01]) {
     const raw = structuredClone(menuContent);
-    raw.categories[0].items[0].variants[0].price = price;
+    Object.assign(raw.categories[0].items[0].variants[0], { price });
     assert.throws(() => parseMenu(raw));
   }
   for (const image of ['https://example.com/photo.jpg', '/images/menu/../secret.jpg', '/images/menu/file.svg']) {

@@ -13,17 +13,17 @@
             {
               "id": "26",
               "label": "26 см",
-              "price": 7.1
+              "price": "7.10"
             },
             {
               "id": "33",
               "label": "33 см",
-              "price": 7.8
+              "price": "7.80"
             },
             {
               "id": "50",
               "label": "50 см",
-              "price": 11.9
+              "price": "11.90"
             }
           ],
           "tags": [
@@ -40,17 +40,17 @@
             {
               "id": "26",
               "label": "26 см",
-              "price": 7.3
+              "price": "7.30"
             },
             {
               "id": "33",
               "label": "33 см",
-              "price": 7.9
+              "price": "7.90"
             },
             {
               "id": "50",
               "label": "50 см",
-              "price": 12.3
+              "price": "12.30"
             }
           ],
           "tags": [],
@@ -65,17 +65,17 @@
             {
               "id": "26",
               "label": "26 см",
-              "price": 7.3
+              "price": "7.30"
             },
             {
               "id": "33",
               "label": "33 см",
-              "price": 8.1
+              "price": "8.10"
             },
             {
               "id": "50",
               "label": "50 см",
-              "price": 13.6
+              "price": "13.60"
             }
           ],
           "tags": [
@@ -92,17 +92,17 @@
             {
               "id": "26",
               "label": "26 см",
-              "price": 7.9
+              "price": "7.90"
             },
             {
               "id": "33",
               "label": "33 см",
-              "price": 8.7
+              "price": "8.70"
             },
             {
               "id": "50",
               "label": "50 см",
-              "price": 14.8
+              "price": "14.80"
             }
           ],
           "tags": [],
@@ -117,17 +117,17 @@
             {
               "id": "26",
               "label": "26 см",
-              "price": 7.4
+              "price": "7.40"
             },
             {
               "id": "33",
               "label": "33 см",
-              "price": 7.9
+              "price": "7.90"
             },
             {
               "id": "50",
               "label": "50 см",
-              "price": 13.6
+              "price": "13.60"
             }
           ],
           "tags": [],
@@ -142,17 +142,17 @@
             {
               "id": "26",
               "label": "26 см",
-              "price": 7.6
+              "price": "7.60"
             },
             {
               "id": "33",
               "label": "33 см",
-              "price": 8.1
+              "price": "8.10"
             },
             {
               "id": "50",
               "label": "50 см",
-              "price": 14.3
+              "price": "14.30"
             }
           ],
           "tags": [],
@@ -167,17 +167,17 @@
             {
               "id": "26",
               "label": "26 см",
-              "price": 8.5
+              "price": "8.50"
             },
             {
               "id": "33",
               "label": "33 см",
-              "price": 8.9
+              "price": "8.90"
             },
             {
               "id": "50",
               "label": "50 см",
-              "price": 14.9
+              "price": "14.90"
             }
           ],
           "tags": [],
@@ -192,17 +192,17 @@
             {
               "id": "26",
               "label": "26 см",
-              "price": 8.6
+              "price": "8.60"
             },
             {
               "id": "33",
               "label": "33 см",
-              "price": 8.9
+              "price": "8.90"
             },
             {
               "id": "50",
               "label": "50 см",
-              "price": 13.8
+              "price": "13.80"
             }
           ],
           "tags": [],
@@ -217,17 +217,17 @@
             {
               "id": "26",
               "label": "26 см",
-              "price": 7.7
+              "price": "7.70"
             },
             {
               "id": "33",
               "label": "33 см",
-              "price": 8.7
+              "price": "8.70"
             },
             {
               "id": "50",
               "label": "50 см",
-              "price": 14.5
+              "price": "14.50"
             }
           ],
           "tags": [],
@@ -242,17 +242,17 @@
             {
               "id": "26",
               "label": "26 см",
-              "price": 7.7
+              "price": "7.70"
             },
             {
               "id": "33",
               "label": "33 см",
-              "price": 8.4
+              "price": "8.40"
             },
             {
               "id": "50",
               "label": "50 см",
-              "price": 14.5
+              "price": "14.50"
             }
           ],
           "tags": [],
@@ -267,17 +267,17 @@
             {
               "id": "26",
               "label": "26 см",
-              "price": 8.1
+              "price": "8.10"
             },
             {
               "id": "33",
               "label": "33 см",
-              "price": 9.2
+              "price": "9.20"
             },
             {
               "id": "50",
               "label": "50 см",
-              "price": 15.5
+              "price": "15.50"
             }
           ],
           "tags": [],
@@ -292,17 +292,17 @@
             {
               "id": "26",
               "label": "26 см",
-              "price": 8.5
+              "price": "8.50"
             },
             {
               "id": "33",
               "label": "33 см",
-              "price": 9.7
+              "price": "9.70"
             },
             {
               "id": "50",
               "label": "50 см",
-              "price": 15.5
+              "price": "15.50"
             }
           ],
           "tags": [],
@@ -317,17 +317,17 @@
             {
               "id": "26",
               "label": "26 см",
-              "price": 8.5
+              "price": "8.50"
             },
             {
               "id": "33",
               "label": "33 см",
-              "price": 9.7
+              "price": "9.70"
             },
             {
               "id": "50",
               "label": "50 см",
-              "price": 15.5
+              "price": "15.50"
             }
           ],
           "tags": [
@@ -345,17 +345,17 @@
             {
               "id": "26",
               "label": "26 см",
-              "price": 7.2
+              "price": "7.20"
             },
             {
               "id": "33",
               "label": "33 см",
-              "price": 8.2
+              "price": "8.20"
             },
             {
               "id": "50",
               "label": "50 см",
-              "price": 14.3
+              "price": "14.30"
             }
           ],
           "tags": [],
@@ -370,17 +370,17 @@
             {
               "id": "26",
               "label": "26 см",
-              "price": 7.4
+              "price": "7.40"
             },
             {
               "id": "33",
               "label": "33 см",
-              "price": 8.4
+              "price": "8.40"
             },
             {
               "id": "50",
               "label": "50 см",
-              "price": 15.5
+              "price": "15.50"
             }
           ],
           "tags": [],
@@ -395,17 +395,17 @@
             {
               "id": "26",
               "label": "26 см",
-              "price": 7.1
+              "price": "7.10"
             },
             {
               "id": "33",
               "label": "33 см",
-              "price": 7.9
+              "price": "7.90"
             },
             {
               "id": "50",
               "label": "50 см",
-              "price": 14.3
+              "price": "14.30"
             }
           ],
           "tags": [],
@@ -420,17 +420,17 @@
             {
               "id": "26",
               "label": "26 см",
-              "price": 7.7
+              "price": "7.70"
             },
             {
               "id": "33",
               "label": "33 см",
-              "price": 8.7
+              "price": "8.70"
             },
             {
               "id": "50",
               "label": "50 см",
-              "price": 15.7
+              "price": "15.70"
             }
           ],
           "tags": [],
@@ -445,17 +445,17 @@
             {
               "id": "26",
               "label": "26 см",
-              "price": 7.3
+              "price": "7.30"
             },
             {
               "id": "33",
               "label": "33 см",
-              "price": 8.8
+              "price": "8.80"
             },
             {
               "id": "50",
               "label": "50 см",
-              "price": 14.4
+              "price": "14.40"
             }
           ],
           "tags": [],
@@ -476,7 +476,7 @@
             {
               "id": "regular",
               "label": "400 гр",
-              "price": 6.6
+              "price": "6.60"
             }
           ],
           "tags": [],
@@ -491,7 +491,7 @@
             {
               "id": "regular",
               "label": "400 гр",
-              "price": 6.6
+              "price": "6.60"
             }
           ],
           "tags": [],
@@ -506,7 +506,7 @@
             {
               "id": "regular",
               "label": "400 гр",
-              "price": 7.6
+              "price": "7.60"
             }
           ],
           "tags": [],
@@ -521,7 +521,7 @@
             {
               "id": "regular",
               "label": "400 гр",
-              "price": 7.9
+              "price": "7.90"
             }
           ],
           "tags": [],
@@ -536,7 +536,7 @@
             {
               "id": "regular",
               "label": "250 гр",
-              "price": 6.6
+              "price": "6.60"
             }
           ],
           "tags": [
@@ -554,7 +554,7 @@
             {
               "id": "regular",
               "label": "250 гр",
-              "price": 6.8
+              "price": "6.80"
             }
           ],
           "tags": [],
@@ -575,7 +575,7 @@
             {
               "id": "regular",
               "label": "400 гр",
-              "price": 7.4
+              "price": "7.40"
             }
           ],
           "tags": [],
@@ -591,7 +591,7 @@
             {
               "id": "regular",
               "label": "400 гр",
-              "price": 7.4
+              "price": "7.40"
             }
           ],
           "tags": [],
@@ -606,7 +606,7 @@
             {
               "id": "regular",
               "label": "400 гр",
-              "price": 7.2
+              "price": "7.20"
             }
           ],
           "tags": [],
@@ -621,7 +621,7 @@
             {
               "id": "regular",
               "label": "400 гр",
-              "price": 6.9
+              "price": "6.90"
             }
           ],
           "tags": [
@@ -638,7 +638,7 @@
             {
               "id": "regular",
               "label": "400 гр",
-              "price": 6.9
+              "price": "6.90"
             }
           ],
           "tags": [],
@@ -653,7 +653,7 @@
             {
               "id": "regular",
               "label": "400 гр",
-              "price": 7.1
+              "price": "7.10"
             }
           ],
           "tags": [],
@@ -674,7 +674,7 @@
             {
               "id": "regular",
               "label": "250 гр",
-              "price": 7.5
+              "price": "7.50"
             }
           ],
           "tags": [],
@@ -689,7 +689,7 @@
             {
               "id": "regular",
               "label": "250 гр",
-              "price": 6.8
+              "price": "6.80"
             }
           ],
           "tags": [],
@@ -704,7 +704,7 @@
             {
               "id": "regular",
               "label": "250 гр",
-              "price": 6.8
+              "price": "6.80"
             }
           ],
           "tags": [],
@@ -719,7 +719,7 @@
             {
               "id": "regular",
               "label": "200 гр",
-              "price": 7.5
+              "price": "7.50"
             }
           ],
           "tags": [],
@@ -734,7 +734,7 @@
             {
               "id": "regular",
               "label": "200 гр",
-              "price": 8.2
+              "price": "8.20"
             }
           ],
           "tags": [],
@@ -749,7 +749,7 @@
             {
               "id": "regular",
               "label": "250 гр",
-              "price": 8.9
+              "price": "8.90"
             }
           ],
           "tags": [],
@@ -764,7 +764,7 @@
             {
               "id": "regular",
               "label": "250 гр",
-              "price": 3.7
+              "price": "3.70"
             }
           ],
           "tags": [],
@@ -779,7 +779,7 @@
             {
               "id": "regular",
               "label": "300 гр",
-              "price": 4.2
+              "price": "4.20"
             }
           ],
           "tags": [],
@@ -794,7 +794,7 @@
             {
               "id": "regular",
               "label": "250 гр",
-              "price": 4.2
+              "price": "4.20"
             }
           ],
           "tags": [],
@@ -809,7 +809,7 @@
             {
               "id": "regular",
               "label": "250 гр",
-              "price": 4.6
+              "price": "4.60"
             }
           ],
           "tags": [],
@@ -824,7 +824,7 @@
             {
               "id": "regular",
               "label": "300 гр",
-              "price": 4.4
+              "price": "4.40"
             }
           ],
           "tags": [],
@@ -839,7 +839,7 @@
             {
               "id": "regular",
               "label": "200 гр",
-              "price": 4.6
+              "price": "4.60"
             }
           ],
           "tags": [],
@@ -854,7 +854,7 @@
             {
               "id": "regular",
               "label": "200 гр",
-              "price": 4.6
+              "price": "4.60"
             }
           ],
           "tags": [],
@@ -875,7 +875,7 @@
             {
               "id": "regular",
               "label": "3 бр, 300 гр",
-              "price": 6.9
+              "price": "6.90"
             }
           ],
           "tags": [],
@@ -890,7 +890,7 @@
             {
               "id": "regular",
               "label": "2 бр, 200 гр",
-              "price": 6.9
+              "price": "6.90"
             }
           ],
           "tags": [],
@@ -905,7 +905,7 @@
             {
               "id": "regular",
               "label": "200 гр",
-              "price": 6.9
+              "price": "6.90"
             }
           ],
           "tags": [],
@@ -920,7 +920,7 @@
             {
               "id": "regular",
               "label": "2 бр, 200 гр",
-              "price": 6.9
+              "price": "6.90"
             }
           ],
           "tags": [],
@@ -935,7 +935,7 @@
             {
               "id": "regular",
               "label": "250 гр",
-              "price": 6.9
+              "price": "6.90"
             }
           ],
           "tags": [],
@@ -950,7 +950,7 @@
             {
               "id": "regular",
               "label": "200 гр",
-              "price": 6.9
+              "price": "6.90"
             }
           ],
           "tags": [],
@@ -965,7 +965,7 @@
             {
               "id": "regular",
               "label": "200 гр",
-              "price": 6.9
+              "price": "6.90"
             }
           ],
           "tags": [],
@@ -980,7 +980,7 @@
             {
               "id": "regular",
               "label": "200 гр",
-              "price": 6.9
+              "price": "6.90"
             }
           ],
           "tags": [],
@@ -1001,7 +1001,7 @@
             {
               "id": "regular",
               "label": "250 гр",
-              "price": 7.5
+              "price": "7.50"
             }
           ],
           "tags": [],
@@ -1016,7 +1016,7 @@
             {
               "id": "regular",
               "label": "250 гр",
-              "price": 7.5
+              "price": "7.50"
             }
           ],
           "tags": [],
@@ -1031,7 +1031,7 @@
             {
               "id": "regular",
               "label": "250 гр",
-              "price": 6.7
+              "price": "6.70"
             }
           ],
           "tags": [],
@@ -1046,7 +1046,7 @@
             {
               "id": "regular",
               "label": "250 гр",
-              "price": 6.7
+              "price": "6.70"
             }
           ],
           "tags": [],
@@ -1061,7 +1061,7 @@
             {
               "id": "regular",
               "label": "250 гр",
-              "price": 6.9
+              "price": "6.90"
             }
           ],
           "tags": [],
@@ -1076,7 +1076,7 @@
             {
               "id": "regular",
               "label": "250 гр",
-              "price": 7.5
+              "price": "7.50"
             }
           ],
           "tags": [],
@@ -1091,7 +1091,7 @@
             {
               "id": "regular",
               "label": "250 гр",
-              "price": 7.9
+              "price": "7.90"
             }
           ],
           "tags": [],
@@ -1106,7 +1106,7 @@
             {
               "id": "regular",
               "label": "250 гр",
-              "price": 7.9
+              "price": "7.90"
             }
           ],
           "tags": [],
@@ -1127,7 +1127,7 @@
             {
               "id": "regular",
               "label": "26 см",
-              "price": 3.2
+              "price": "3.20"
             }
           ],
           "tags": [],
@@ -1142,7 +1142,7 @@
             {
               "id": "regular",
               "label": "26 см",
-              "price": 3.2
+              "price": "3.20"
             }
           ],
           "tags": [],
@@ -1157,7 +1157,7 @@
             {
               "id": "regular",
               "label": "26 см",
-              "price": 2.8
+              "price": "2.80"
             }
           ],
           "tags": [],
@@ -1172,7 +1172,7 @@
             {
               "id": "regular",
               "label": "26 см",
-              "price": 3.2
+              "price": "3.20"
             }
           ],
           "tags": [],
@@ -1187,7 +1187,7 @@
             {
               "id": "regular",
               "label": "26 см",
-              "price": 3.4
+              "price": "3.40"
             }
           ],
           "tags": [],
@@ -1208,7 +1208,7 @@
             {
               "id": "regular",
               "label": "150 гр",
-              "price": 2.9
+              "price": "2.90"
             }
           ],
           "tags": [],
@@ -1223,7 +1223,7 @@
             {
               "id": "regular",
               "label": "150 гр",
-              "price": 3.1
+              "price": "3.10"
             }
           ],
           "tags": [],
@@ -1238,7 +1238,7 @@
             {
               "id": "regular",
               "label": "150 гр",
-              "price": 3.3
+              "price": "3.30"
             }
           ],
           "tags": [],
@@ -1253,7 +1253,7 @@
             {
               "id": "regular",
               "label": "150 гр",
-              "price": 3.4
+              "price": "3.40"
             }
           ],
           "tags": [],
@@ -1268,7 +1268,7 @@
             {
               "id": "regular",
               "label": "150 гр",
-              "price": 3.4
+              "price": "3.40"
             }
           ],
           "tags": [],
@@ -1283,7 +1283,7 @@
             {
               "id": "regular",
               "label": "150 гр",
-              "price": 3.1
+              "price": "3.10"
             }
           ],
           "tags": [],
@@ -1304,7 +1304,7 @@
             {
               "id": "regular",
               "label": "50 гр",
-              "price": 0.8
+              "price": "0.80"
             }
           ],
           "tags": [],
@@ -1319,7 +1319,7 @@
             {
               "id": "regular",
               "label": "50 гр",
-              "price": 0.8
+              "price": "0.80"
             }
           ],
           "tags": [],
@@ -1334,7 +1334,7 @@
             {
               "id": "regular",
               "label": "50 гр",
-              "price": 0.8
+              "price": "0.80"
             }
           ],
           "tags": [],
@@ -1349,7 +1349,7 @@
             {
               "id": "regular",
               "label": "50 гр",
-              "price": 0.8
+              "price": "0.80"
             }
           ],
           "tags": [],
@@ -1364,7 +1364,7 @@
             {
               "id": "regular",
               "label": "50 гр",
-              "price": 0.8
+              "price": "0.80"
             }
           ],
           "tags": [
@@ -1381,7 +1381,7 @@
             {
               "id": "regular",
               "label": "50 гр",
-              "price": 0.8
+              "price": "0.80"
             }
           ],
           "tags": [],
@@ -1396,7 +1396,7 @@
             {
               "id": "regular",
               "label": "50 гр",
-              "price": 0.8
+              "price": "0.80"
             }
           ],
           "tags": [],
@@ -1411,7 +1411,7 @@
             {
               "id": "regular",
               "label": "50 гр",
-              "price": 0.8
+              "price": "0.80"
             }
           ],
           "tags": [],
@@ -1426,7 +1426,7 @@
             {
               "id": "regular",
               "label": "50 гр",
-              "price": 0.8
+              "price": "0.80"
             }
           ],
           "tags": [],
