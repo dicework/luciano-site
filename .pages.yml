@@ -164,7 +164,7 @@ content:
             options:
               maxlength: 500
   - name: lunch
-    label: Обедно меню
+    label: Седмично обедно меню
     type: file
     path: content/lunch.json
     format: json
@@ -175,19 +175,20 @@ content:
         default: false
         description: Обновете датите, ястията и цените, след това включете. След крайната дата менюто се скрива автоматично.
       - name: validFrom
-        label: От дата
+        label: Начало на седмичното меню
         type: date
         required: true
         options:
           format: yyyy-MM-dd
       - name: validUntil
-        label: До дата
+        label: Край на седмичното меню
         type: date
         required: true
         options:
           format: yyyy-MM-dd
       - name: weekdays
-        label: Дни за обедно меню
+        label: В кои дни се предлага
+        description: Едно и също седмично меню се предлага във всички избрани дни.
         type: select
         required: true
         options:
@@ -220,7 +221,8 @@ content:
             description: 'Например 15:00 (българско време).'
             pattern: '^([01][0-9]|2[0-3]):[0-5][0-9]$'
       - name: items
-        label: Ястия за обяд
+        label: Ястия за цялата седмица
+        description: Попълнете един общ списък за седмицата — няма отделни менюта по дни.
         component: dish
         list:
           max: 100

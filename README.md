@@ -4,9 +4,9 @@ Bulgarian and English restaurant website, built with React, TypeScript and Vinex
 
 ## Daily menu editing
 
-Use the separate [Pages CMS portal](https://app.pagescms.org). The owner edits **Основно меню**, **Обедно меню** and **Снимки на ястията** without API keys or a login on the restaurant website. See [the owner guide and connection status](docs/pages-cms.md).
+Use the separate [Pages CMS portal](https://app.pagescms.org/dicework/luciano-site/main/file/menu). The owner edits **Основно меню**, **Обедно меню** and **Снимки на ястията** without API keys or a login on the restaurant website. See [the owner guide and connection status](docs/pages-cms.md).
 
-Prices are entered in euros, such as `7.80`. The website converts them to integer cents and validates checkout against the current menu. A build rejects invalid prices, missing photos and duplicate IDs. Expired lunch menus are hidden; advancing the lunch dates invalidates old saved lunch items.
+Prices are entered in euros, such as `7.80` or `7,80`. The website converts them to integer cents and validates checkout against the current menu. A build rejects invalid prices, missing photos and duplicate IDs. Expired lunch menus are hidden; advancing the lunch dates invalidates old saved lunch items.
 
 ## Development
 
@@ -36,9 +36,9 @@ npm run db:migrate:remote
 npm run deploy
 ```
 
-The temporary address is `https://luciano-site.harizanovworks.workers.dev`. Keep it disabled until a Worker-level Cloudflare Access policy protects **all traffic**. Version preview URLs remain disabled. Access is managed in Cloudflare, independently of the site code. Change `content/restaurant.ts` when a custom domain is ready.
+The temporary address is `https://luciano-site.harizanovworks.workers.dev`. Worker-level Cloudflare Access protects **all traffic**, allowing only the configured account owner. Keep this protection enabled until public launch is authorized. Version preview URLs remain disabled. Access is managed in Cloudflare, independently of the site code. Change `content/restaurant.ts` when a custom domain is ready.
 
-Configure Workers Builds for `dicework/luciano-site`, branch `main`, root `/`, build command `npm run build`, deploy command `npm run deploy`. Database migrations are applied separately when the schema changes; ordinary menu edits require no migration. Pages CMS commits trigger a deployment once the repository connection is enabled.
+Workers Builds is connected to `dicework/luciano-site`, branch `main`, root `/`, build command `npm run build`, deploy command `npm run deploy`. Database migrations are applied separately when the schema changes; ordinary menu edits require no migration. Pages CMS commits automatically trigger a deployment; the save-to-deploy flow has been verified. Preview-branch builds are disabled. The deployment token is limited to Workers Scripts Edit and Account Settings Read for this Cloudflare account.
 
 Worker runtime secrets:
 

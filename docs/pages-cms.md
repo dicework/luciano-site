@@ -1,15 +1,15 @@
 # Editing with Pages CMS
 
-The owner uses the separate [Pages CMS portal](https://app.pagescms.org). The restaurant website has no editor login or CMS application to install. This follows the file-based approach prepared for iSystem.
+The owner uses the separate [Pages CMS portal](https://app.pagescms.org/dicework/luciano-site/main/file/menu). The restaurant website has no editor login or CMS application to install. This follows the file-based approach prepared for iSystem.
 
 ## Everyday editing
 
-- **Основно меню:** open a category, open a dish, change its name, ingredients, photo or portion prices. Enter prices in euros, for example `7.80`. Add, remove or reorder dishes in the list. Turn off **Може да се поръчва** for sold-out dishes; they remain visible as unavailable.
-- **Обедно меню:** set the start/end dates, weekdays and serving hours, then edit the dishes. Enable **Обедното меню е готово за публикуване** when ready. The website hides expired lunch menus automatically. All times are Bulgarian local time.
+- **Основно меню:** open a category, open a dish, change its name, ingredients, photo or portion prices. Enter prices in euros, for example `7.80` or `7,80`. Add, remove or reorder dishes in the list. Turn off **Може да се поръчва** for sold-out dishes; they remain visible as unavailable.
+- **Седмично обедно меню:** edit one shared list of dishes for the whole week. Set its start/end dates and serving hours. The selected weekdays only control when that same menu is available; there are no separate daily menus. Enable **Обедното меню е готово за публикуване** when ready. The website hides expired lunch menus automatically. All times are Bulgarian local time.
 - **Снимки на ястията:** upload or select photos. Use the photo picker inside a dish to assign its photo.
 - English fields are optional. Existing translation fallbacks remain; newly added dishes need an English name/description if an English translation is wanted.
 
-Save in Pages CMS. Once a GitHub-to-hosting build is connected, saved edits appear after that deployment succeeds. Technical IDs are generated automatically and hidden from the owner.
+Save in Pages CMS. Saved edits automatically trigger a Cloudflare build and appear after it succeeds, typically in one to two minutes. Technical IDs are generated automatically and hidden from the owner.
 
 ## Files
 
@@ -28,16 +28,13 @@ There is no separate CMS package, dependency installation, CMS API token or runt
 
 The source repository is [dicework/luciano-site](https://github.com/dicework/luciano-site), branch `main`. The separate Cloudflare Worker is `luciano-site`, with its own order/reservation database and the existing Telegram secrets. Cloudflare Access protects all traffic using the account owner's existing email policy.
 
-The [private preview](https://luciano-site.harizanovworks.workers.dev) is deployed. Anonymous requests to pages, order/reservation APIs and dish photos were verified to require Cloudflare Access. The standalone build, type check and all 32 tests pass; local navigation, language switching and both forms were checked.
+The [private preview](https://luciano-site.harizanovworks.workers.dev) is deployed. Anonymous requests to pages, order/reservation APIs and dish photos were verified to require Cloudflare Access. The standalone build, type check and all 34 tests pass; local navigation, language switching and both forms were checked.
 
-Still pending: Pages CMS sign-in, approval for Cloudflare to create the automatic-deployment token, and verification of a portal edit reaching the preview. The Cloudflare connection form is prepared for `main`, with preview-branch builds disabled. Automatic publishing is not connected yet.
+Pages CMS is connected and a menu save has been verified to create a GitHub commit and a successful automatic Cloudflare deployment. Both main-menu and weekly lunch-menu saves have been checked. Prices accept either a decimal comma or a dot. Existing dish and portion identifiers are preserved, while new entries receive hidden automatic identifiers.
 
-One-time setup:
+Workers Builds watches `main`, with root `/`, build command `npm run build`, deploy command `npm run deploy`, and preview-branch builds disabled. Its token has only Workers Scripts Edit and Account Settings Read for the selected Cloudflare account. Runtime Telegram secrets remain on the Worker.
 
-1. Authorize `dicework/luciano-site` in Pages CMS. Preserve the existing iSystem connection.
-2. In the Luciano Worker, connect Workers Builds to the same repository's `main` branch. Use root `/`, build command `npm run build`, and deploy command `npm run deploy`.
-3. Verify a saved menu change reaches the private preview after a successful build.
-4. Invite the owner through Pages CMS collaborator settings when their email and invitation are authorized.
+When the restaurant owner's email and invitation are authorized, invite them through Pages CMS collaborator settings. The current portal access belongs to the connected GitHub account. Do not share developer credentials.
 
 The owner needs no Cloudflare dashboard access, API keys or command-line tools for everyday menu edits. The previous ChatGPT Site remains separate and unchanged.
 
