@@ -1,4 +1,5 @@
 {
+  "enabled": true,
   "validFrom": "2026-10-05",
   "validUntil": "2026-10-09",
   "weekdays": [
@@ -15,90 +16,108 @@
   "items": [
     {
       "id": "meatball-soup",
+      "cmsId": "8f5f3e1f-ff4e-438f-bf0b-94716aefd581",
       "name": "Супа топчета",
-      "nameEn": "Meatball soup",
-      "description": "",
-      "tags": [],
       "variants": [
         {
           "id": "regular",
+          "cmsId": "0dbf7ed1-0e2f-4bff-8a99-35b9733f1638",
           "label": "300 г",
-          "price": "3.40"
+          "price": "3,40",
+          "available": true
         }
-      ]
+      ],
+      "available": true,
+      "featured": false,
+      "nameEn": "Meatball soup"
     },
     {
       "id": "sweet-potato-soup",
+      "cmsId": "cef8b3f2-1515-4ffc-8259-25f9f380880e",
       "name": "Крем супа от батат",
-      "nameEn": "Sweet potato cream soup",
-      "description": "",
-      "tags": [],
       "variants": [
         {
           "id": "regular",
+          "cmsId": "b5169910-4131-4ca1-a8f2-2be6166c7c5b",
           "label": "300 г",
-          "price": "3.10"
+          "price": "3.10",
+          "available": true
         }
-      ]
+      ],
+      "available": true,
+      "featured": false,
+      "nameEn": "Sweet potato cream soup"
     },
     {
       "id": "chicken-kavarma",
+      "cmsId": "ed922a91-f6bd-4540-befd-037d777a31e3",
       "name": "Пилешка кавърма",
-      "nameEn": "Chicken kavarma",
-      "description": "",
-      "tags": [],
       "variants": [
         {
           "id": "regular",
+          "cmsId": "097796aa-6091-4eb0-8d5e-5e68aa2058ee",
           "label": "400 г",
-          "price": "6.80"
+          "price": "6.80",
+          "available": true
         }
-      ]
+      ],
+      "available": true,
+      "featured": false,
+      "nameEn": "Chicken kavarma"
     },
     {
       "id": "baked-beans",
+      "cmsId": "d8421820-2165-4e2a-8a7d-60b73976e253",
       "name": "Боб на фурна постен",
-      "nameEn": "Baked beans (vegetarian)",
-      "description": "",
+      "variants": [
+        {
+          "id": "regular",
+          "cmsId": "af674b11-fdfe-41bd-86be-ad8d9a545be5",
+          "label": "400 г",
+          "price": "5.20",
+          "available": true
+        }
+      ],
+      "available": true,
+      "featured": false,
       "tags": [
         "vegetarian"
       ],
-      "variants": [
-        {
-          "id": "regular",
-          "label": "400 г",
-          "price": "5.20"
-        }
-      ]
+      "nameEn": "Baked beans (vegetarian)"
     },
     {
       "id": "beans-sausage",
+      "cmsId": "63fdb3f5-5aa2-437b-90c1-6c82181a2503",
       "name": "Боб на фурна с наденица",
-      "nameEn": "Baked beans with sausage",
-      "description": "",
-      "tags": [],
       "variants": [
         {
           "id": "regular",
+          "cmsId": "0cfa3ab2-bc4b-4a3b-8b70-684d65ba55cd",
           "label": "400 г",
-          "price": "7.20"
+          "price": "7.20",
+          "available": true
         }
-      ]
+      ],
+      "available": true,
+      "featured": false,
+      "nameEn": "Baked beans with sausage"
     },
     {
       "id": "orange-cake",
+      "cmsId": "c4285902-97d2-4699-b31d-4cf033392376",
       "name": "Портокалов кекс",
-      "nameEn": "Orange cake",
-      "description": "",
-      "tags": [],
       "variants": [
         {
           "id": "regular",
+          "cmsId": "4f8cb058-f3c7-4dca-9095-b92e88562531",
           "label": "180 г",
-          "price": "2.20"
+          "price": "2.20",
+          "available": true
         }
-      ]
+      ],
+      "available": true,
+      "featured": false,
+      "nameEn": "Orange cake"
     }
-  ],
-  "enabled": true
+  ]
 }
