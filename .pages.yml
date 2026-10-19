@@ -1,0 +1,220 @@
+media:
+  - name: foodPhotos
+    label: Снимки на ястията
+    input: public/images/menu
+    output: /images/menu
+    categories: [image]
+    extensions: [jpg, jpeg, png, webp, avif]
+    rename: random
+
+components:
+  stableId:
+    type: uuid
+    hidden: true
+    options:
+      editable: false
+      generate: false
+  dish:
+    type: object
+    list:
+      max: 200
+      collapsible:
+        collapsed: true
+        summary: "{name}"
+    fields:
+      - name: id
+        component: stableId
+      - name: name
+        label: Име на ястието
+        type: string
+        required: true
+        options:
+          maxlength: 120
+      - name: description
+        label: Съставки / описание
+        type: text
+        options:
+          maxlength: 1000
+      - name: image
+        label: Снимка
+        type: image
+        options:
+          media: foodPhotos
+      - name: variants
+        label: Размери и цени
+        type: object
+        required: true
+        list:
+          min: 1
+          max: 10
+          collapsible:
+            collapsed: false
+            summary: "{label} — {price} €"
+        fields:
+          - name: id
+            component: stableId
+          - name: label
+            label: Размер / грамаж
+            type: string
+            required: true
+            description: Например 33 см или 300 г.
+            options:
+              maxlength: 80
+          - name: price
+            label: Цена в евро
+            type: number
+            required: true
+            description: Например 7.80. До два знака след десетичната точка.
+            options:
+              min: 0.01
+              max: 1000
+          - name: available
+            label: Може да се поръчва
+            type: boolean
+            default: true
+          - name: labelEn
+            label: Размер на английски (по желание)
+            type: string
+            options:
+              maxlength: 80
+      - name: available
+        label: Може да се поръчва
+        type: boolean
+        default: true
+        description: Изключете, ако ястието временно е изчерпано. Изтрийте го от списъка, ако вече не е в менюто.
+      - name: featured
+        label: Покажи сред любимите на началната страница
+        type: boolean
+        default: false
+      - name: tags
+        label: Обозначения
+        type: select
+        options:
+          multiple: true
+          max: 3
+          values:
+            - name: vegetarian
+              label: Вегетарианско
+            - name: spicy
+              label: Пикантно
+            - name: popular
+              label: Популярно
+      - name: nameEn
+        label: Име на английски (по желание)
+        type: string
+        options:
+          maxlength: 120
+      - name: descriptionEn
+        label: Описание на английски (по желание)
+        type: text
+        options:
+          maxlength: 1000
+
+content:
+  - name: menu
+    label: Основно меню
+    type: file
+    path: content/menu.json
+    format: json
+    fields:
+      - name: categories
+        label: Категории
+        type: object
+        required: true
+        list:
+          min: 1
+          max: 30
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: id
+            component: stableId
+          - name: name
+            label: Име на категорията
+            type: string
+            required: true
+            options:
+              maxlength: 100
+          - name: items
+            label: Ястия
+            component: dish
+          - name: nameEn
+            label: Име на английски (по желание)
+            type: string
+            options:
+              maxlength: 100
+          - name: description
+            label: Описание (по желание)
+            type: text
+            options:
+              maxlength: 500
+          - name: descriptionEn
+            label: Описание на английски (по желание)
+            type: text
+            options:
+              maxlength: 500
+  - name: lunch
+    label: Обедно меню
+    type: file
+    path: content/lunch.json
+    format: json
+    fields:
+      - name: enabled
+        label: Обедното меню е готово за публикуване
+        type: boolean
+        default: false
+        description: Обновете датите, ястията и цените, след това включете. След крайната дата менюто се скрива автоматично.
+      - name: validFrom
+        label: От дата
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: validUntil
+        label: До дата
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: weekdays
+        label: Дни за обедно меню
+        type: select
+        required: true
+        options:
+          multiple: true
+          min: 1
+          max: 7
+          values:
+            - { name: "1", label: Понеделник }
+            - { name: "2", label: Вторник }
+            - { name: "3", label: Сряда }
+            - { name: "4", label: Четвъртък }
+            - { name: "5", label: Петък }
+            - { name: "6", label: Събота }
+            - { name: "0", label: Неделя }
+      - name: hours
+        label: Часове за поръчки
+        type: object
+        required: true
+        fields:
+          - name: from
+            label: От час
+            type: string
+            required: true
+            description: "Например 11:00 (българско време)."
+            pattern: "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+          - name: until
+            label: До час
+            type: string
+            required: true
+            description: "Например 15:00 (българско време)."
+            pattern: "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+      - name: items
+        label: Ястия за обяд
+        component: dish
+        list:
+          max: 100
+          collapsible:
+            collapsed: true
+            summary: "{name}"

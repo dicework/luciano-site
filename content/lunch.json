@@ -1,0 +1,104 @@
+{
+  "validFrom": "2026-10-05",
+  "validUntil": "2026-10-09",
+  "weekdays": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
+  "hours": {
+    "from": "11:00",
+    "until": "15:00"
+  },
+  "items": [
+    {
+      "id": "meatball-soup",
+      "name": "Супа топчета",
+      "nameEn": "Meatball soup",
+      "description": "",
+      "tags": [],
+      "variants": [
+        {
+          "id": "regular",
+          "label": "300 г",
+          "price": 3.4
+        }
+      ]
+    },
+    {
+      "id": "sweet-potato-soup",
+      "name": "Крем супа от батат",
+      "nameEn": "Sweet potato cream soup",
+      "description": "",
+      "tags": [],
+      "variants": [
+        {
+          "id": "regular",
+          "label": "300 г",
+          "price": 3.1
+        }
+      ]
+    },
+    {
+      "id": "chicken-kavarma",
+      "name": "Пилешка кавърма",
+      "nameEn": "Chicken kavarma",
+      "description": "",
+      "tags": [],
+      "variants": [
+        {
+          "id": "regular",
+          "label": "400 г",
+          "price": 6.8
+        }
+      ]
+    },
+    {
+      "id": "baked-beans",
+      "name": "Боб на фурна постен",
+      "nameEn": "Baked beans (vegetarian)",
+      "description": "",
+      "tags": [
+        "vegetarian"
+      ],
+      "variants": [
+        {
+          "id": "regular",
+          "label": "400 г",
+          "price": 5.2
+        }
+      ]
+    },
+    {
+      "id": "beans-sausage",
+      "name": "Боб на фурна с наденица",
+      "nameEn": "Baked beans with sausage",
+      "description": "",
+      "tags": [],
+      "variants": [
+        {
+          "id": "regular",
+          "label": "400 г",
+          "price": 7.2
+        }
+      ]
+    },
+    {
+      "id": "orange-cake",
+      "name": "Портокалов кекс",
+      "nameEn": "Orange cake",
+      "description": "",
+      "tags": [],
+      "variants": [
+        {
+          "id": "regular",
+          "label": "180 г",
+          "price": 2.2
+        }
+      ]
+    }
+  ],
+  "enabled": true
+}

@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1791900937440,
+      "tag": "0000_outstanding_captain_universe",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1791924613494,
+      "tag": "0001_dry_mattie_franklin",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1791925079797,
+      "tag": "0002_high_dakota_north",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1792181410857,
+      "tag": "0003_magenta_tony_stark",
+      "breakpoints": true
+    }
+  ]
+}

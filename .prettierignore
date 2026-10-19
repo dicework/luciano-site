@@ -1,0 +1,30 @@
+# Dependencies and generated output
+node_modules/
+.next/
+.vinext/
+out/
+dist/
+build/
+coverage/
+.vercel/
+.wrangler/
+next-env.d.ts
+*.tsbuildinfo
+
+# Package manager output, imported assets, and local working files
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+bun.lock
+bun.lockb
+public/
+outputs/
+work/
+
+# Maintained by Next.js
+AGENTS.md
+
+# Unmodified Sites runtime support
+scripts/
+vite.config.ts
+/.sites-runtime/
