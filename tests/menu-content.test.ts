@@ -89,3 +89,26 @@ void test('lunch schedule changes expire old cart identities and disabled menus 
   ])
     assert.throws(() => parseLunchWeek({ ...raw, ...changed }));
 });
+
+void test('CMS-generated IDs support new entries while preserving imported cart identities', () => {
+  const category = menuContent.categories[0];
+  const item = category.items[0];
+  const variant = item.variants[0];
+  const cmsId = crypto.randomUUID();
+  const raw = {
+    categories: [{ ...category, cmsId, items: [{ ...item, cmsId, variants: [{ ...variant, cmsId }] }] }],
+  };
+  const imported = parseMenu(raw)[0];
+  assert.equal(imported.id, category.id);
+  assert.equal(imported.items[0].id, item.id);
+  assert.equal(imported.items[0].variants[0].id, variant.id);
+  raw.categories[0].id = '';
+  raw.categories[0].items[0].id = '';
+  raw.categories[0].items[0].variants[0].id = '';
+  const added = parseMenu(raw)[0];
+  assert.equal(added.id, cmsId);
+  assert.equal(added.items[0].id, cmsId);
+  assert.equal(added.items[0].variants[0].id, cmsId);
+  raw.categories[0].items.push(structuredClone(raw.categories[0].items[0]));
+  assert.throws(() => parseMenu(raw), /duplicate/);
+});

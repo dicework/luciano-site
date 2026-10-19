@@ -11,7 +11,10 @@ function text(value: unknown, max = 1000, required = false): string {
     throw new Error('Invalid menu text');
   return value.trim();
 }
-function id(value: unknown, seen: Set<string>): string {
+function id(row: Record<string, unknown>, seen: Set<string>): string {
+  // Preserve imported IDs used by existing carts and translations. New CMS entries
+  // receive a UUID automatically; the owner never needs to enter an identifier.
+  const value = row.id == null || row.id === '' ? row.cmsId : row.id;
   const result = text(value, 200, true);
   if (!/^[\w-]+$/.test(result) || seen.has(result)) throw new Error('Invalid or duplicate menu ID');
   seen.add(result);
@@ -28,7 +31,7 @@ function flag(value: unknown, fallback: boolean): boolean {
 }
 function parseItem(value: unknown, ids: Set<string>, prefix = ''): MenuItem {
   const row = record(value);
-  const itemId = id(row.id, ids);
+  const itemId = id(row, ids);
   if (!prefix && itemId.startsWith('lunch-')) throw new Error('Reserved lunch ID');
   const variantIds = new Set<string>();
   const variants = array(row.variants, 10).map((value) => {
@@ -45,7 +48,7 @@ function parseItem(value: unknown, ids: Set<string>, prefix = ''): MenuItem {
     if (priceMinor < 1 || Math.abs(price * 100 - priceMinor) > 1e-8)
       throw new Error('Menu prices must have at most two decimal places');
     return {
-      id: id(variant.id, variantIds),
+      id: id(variant, variantIds),
       label: text(variant.label, 80, true),
       labelEn: text(variant.labelEn, 80),
       priceMinor,
@@ -80,7 +83,7 @@ export function parseMenu(value: unknown): MenuCategory[] {
   const items = new Set<string>();
   const menu = array(record(value).categories, 30).map((value): MenuCategory => {
     const row = record(value);
-    const categoryId = id(row.id, categories);
+    const categoryId = id(row, categories);
     if (categoryId === 'lunch') throw new Error('Reserved lunch category');
     return {
       id: categoryId,

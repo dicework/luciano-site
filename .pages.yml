@@ -8,6 +8,9 @@ media:
     rename: random
 
 components:
+  existingId:
+    type: string
+    hidden: true
   stableId:
     type: uuid
     hidden: true
@@ -23,6 +26,8 @@ components:
         summary: '{name}'
     fields:
       - name: id
+        component: existingId
+      - name: cmsId
         component: stableId
       - name: name
         label: Име на ястието
@@ -52,6 +57,8 @@ components:
             summary: '{label} — {price} €'
         fields:
           - name: id
+            component: existingId
+          - name: cmsId
             component: stableId
           - name: label
             label: Размер / грамаж
@@ -129,6 +136,8 @@ content:
             summary: '{name}'
         fields:
           - name: id
+            component: existingId
+          - name: cmsId
             component: stableId
           - name: name
             label: Име на категорията
