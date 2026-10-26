@@ -60,6 +60,7 @@ export async function submitOrder(request: Request, env: RestaurantEnv, send: ty
       `Нова поръчка · Лучиано · ${input.requestId}`,
       `Име: ${input.name}`,
       `Телефон: ${input.phone}`,
+      `Адрес за доставка: ${input.address}`,
       ...lines.map(
         (line) => `${line.quantity} × ${line.name} (${line.variantLabel}) — ${money(line.quantity * line.priceMinor)}`,
       ),
@@ -78,6 +79,7 @@ export async function submitOrder(request: Request, env: RestaurantEnv, send: ty
     const data = JSON.stringify({
       name: input.name,
       phone: input.phone,
+      address: input.address,
       notes: input.notes,
       locale: input.locale,
       lines,

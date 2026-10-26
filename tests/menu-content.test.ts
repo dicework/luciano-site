@@ -19,6 +19,7 @@ void test('Pages CMS price, photo and translation edits feed the menu and checko
     requestId: crypto.randomUUID(),
     name: 'Test Guest',
     phone: '+359888123456',
+    address: 'Варна, ул. Тестова 12',
     notes: '',
     locale: 'bg' as const,
     lines: [{ itemId: item.id, variantId: item.variants[1].id, quantity: 1 }],

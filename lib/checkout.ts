@@ -1,12 +1,24 @@
 import type { CartLine, MenuCategory, ResolvedLine } from '../types/menu';
 import { orderTotal, resolveCart } from './order.ts';
 
-export type CheckoutError = 'invalid' | 'name' | 'phone' | 'items' | 'changed' | 'unavailable' | 'limited' | 'conflict';
+export const checkoutErrors = {
+  invalid: 'invalid',
+  name: 'name',
+  phone: 'phone',
+  address: 'address',
+  items: 'items',
+  changed: 'changed',
+  unavailable: 'unavailable',
+  limited: 'limited',
+  conflict: 'conflict',
+} as const;
+export type CheckoutError = (typeof checkoutErrors)[keyof typeof checkoutErrors];
 export type OrderReceipt = { reference: string; notified: boolean };
 export type CheckoutInput = {
   requestId: string;
   name: string;
   phone: string;
+  address: string;
   notes: string;
   locale: 'bg' | 'en';
   lines: CartLine[];
@@ -40,6 +52,14 @@ export function parseCheckout(value: unknown): CheckoutInput {
     !/^\d{7,15}$/.test(v.phone.replace(/\D/g, ''))
   )
     return fail('phone');
+  if (
+    typeof v.address !== 'string' ||
+    v.address.trim().length < 5 ||
+    v.address.length > 300 ||
+    // eslint-disable-next-line no-control-regex -- Prevent control characters from forging notification lines.
+    /[\x00-\x1f\x7f]/.test(v.address)
+  )
+    return fail('address');
   if (typeof v.notes !== 'string' || v.notes.length > 500 || /[\x00-\x08\x0b\x0c\x0e-\x1f]/.test(v.notes))
     return fail('invalid');
   if (v.locale !== 'bg' && v.locale !== 'en') return fail('invalid');
@@ -71,6 +91,7 @@ export function parseCheckout(value: unknown): CheckoutInput {
     requestId: v.requestId.toLowerCase(),
     name: v.name.trim(),
     phone: v.phone.replace(/[\s()-]/g, ''),
+    address: v.address.trim(),
     notes: v.notes.trim(),
     locale: v.locale,
     lines,

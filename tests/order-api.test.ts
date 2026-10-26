@@ -26,6 +26,7 @@ void test('order API saves before notifying, handles concurrent retries, validat
     requestId: crypto.randomUUID(),
     name: 'Test Customer',
     phone: '+359888123456',
+    address: 'Варна, ул. Тестова 12, вх. А, ет. 2, ап. 3',
     notes: '',
     locale: 'en',
     lines: [{ itemId: 'pizza-1', variantId: '33', quantity: 2 }],
@@ -49,6 +50,8 @@ void test('order API saves before notifying, handles concurrent retries, validat
       .first<{ order_json: string }>();
     assert.ok(saved, 'order must be saved before notification');
     assert.equal(JSON.parse(saved.order_json).totalMinor, 1560);
+    assert.equal(JSON.parse(saved.order_json).address, fixture().address);
+    assert.ok(body.text.includes(`Адрес за доставка: ${fixture().address}`));
     return Response.json({ ok: true });
   };
 
@@ -60,9 +63,13 @@ void test('order API saves before notifying, handles concurrent retries, validat
   assert.deepEqual(await replay.json(), { reference: data.requestId, notified: true });
   assert.equal(calls, 1);
   assert.equal((await submitOrder(request({ ...data, notes: 'changed' }), env, send)).status, 409);
+  assert.equal((await submitOrder(request({ ...data, address: 'Different street 2' }), env, send)).status, 409);
   assert.equal((await submitOrder(request(fixture(), 'https://other.test'), env, send)).status, 403);
   assert.equal((await submitOrder(request(fixture()), { ...env, ORDERS_ENABLED: 'false' }, send)).status, 503);
   assert.equal((await submitOrder(request({ ...fixture(), expectedTotalMinor: 1 }), env, send)).status, 400);
+  const missingAddress = await submitOrder(request({ ...fixture(), address: undefined }), env, send);
+  assert.equal(missingAddress.status, 400);
+  assert.deepEqual(await missingAddress.json(), { error: 'address' });
   assert.equal(calls, 1);
 
   const failed = fixture();

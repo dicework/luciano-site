@@ -19,6 +19,9 @@ export const en = {
     'Book a table at Luchiano, Varna. Send a request online or call +359 88 609 4164.',
 
   Име: 'Name',
+  'Адрес за доставка': 'Delivery address',
+  'Улица, номер, вход, етаж, апартамент': 'Street, number, entrance, floor, apartment',
+  'Моля, въведете адрес за доставка (между 5 и 300 знака).': 'Please enter a delivery address (5–300 characters).',
   'Моля, проверете данните за поръчката.': 'Please check your order details.',
   'За голяма поръчка, моля, обадете се на ресторанта.': 'For a large order, please call the restaurant.',
   'Менюто е променено. Презаредете страницата и проверете поръчката.':
@@ -43,8 +46,8 @@ export const en = {
   'Данни за поръчката': 'Order details',
   'Автоматичните поръчки са изключени в тестов режим. Излезте от теста, за да поръчате.':
     'Automatic orders are disabled in test mode. Exit test mode to place an order.',
-  'Името, телефонът и поръчката се изпращат на ресторанта за потвърждение и получаване.':
-    'Your name, phone number and order are shared with the restaurant to arrange confirmation and collection.',
+  'Името, телефонът, адресът и поръчката се записват и изпращат на ресторанта за потвърждение.':
+    'Your name, phone number, address and order are saved and sent to the restaurant for confirmation.',
   'Изпращане…': 'Submitting…',
   'Проверка на поръчките…': 'Checking ordering availability…',
   'Изпрати поръчката': 'Place order',

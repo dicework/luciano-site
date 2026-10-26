@@ -24,6 +24,7 @@ export function CheckoutForm({
   const [available, setAvailable] = useState<boolean | null>(null);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [address, setAddress] = useState('');
   const [notes, setNotes] = useState('');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<CheckoutError | 'connection' | null>(null);
@@ -61,6 +62,7 @@ export function CheckoutForm({
     const payload = {
       name,
       phone,
+      address,
       notes,
       locale,
       lines: lines.map(({ itemId, variantId, quantity }) => ({ itemId, variantId, quantity })),
@@ -94,6 +96,7 @@ export function CheckoutForm({
     invalid: t('Моля, проверете данните за поръчката.'),
     name: t('Моля, въведете вашето име.'),
     phone: t('Моля, въведете валиден телефон.'),
+    address: t('Моля, въведете адрес за доставка (между 5 и 300 знака).'),
     items: t('За голяма поръчка, моля, обадете се на ресторанта.'),
     changed: t('Менюто е променено. Презаредете страницата и проверете поръчката.'),
     unavailable: t('Онлайн поръчките временно не са достъпни. Моля, обадете се.'),
@@ -154,6 +157,19 @@ export function CheckoutForm({
           />
         </label>
         <label className="field">
+          {t('Адрес за доставка')}
+          <input
+            name="address"
+            autoComplete="street-address"
+            required
+            minLength={5}
+            maxLength={300}
+            value={address}
+            onChange={(event) => setAddress(event.target.value)}
+            placeholder={t('Улица, номер, вход, етаж, апартамент')}
+          />
+        </label>
+        <label className="field">
           {t('Бележка към поръчката')}
           <textarea
             name="notes"
@@ -181,7 +197,7 @@ export function CheckoutForm({
         </p>
       )}
       <p className="small">
-        {t('Името, телефонът и поръчката се изпращат на ресторанта за потвърждение и получаване.')}
+        {t('Името, телефонът, адресът и поръчката се записват и изпращат на ресторанта за потвърждение.')}
       </p>
       <button className="btn btn-red" type="submit" disabled={!available || busy || testMode || !test.ready}>
         {busy ?

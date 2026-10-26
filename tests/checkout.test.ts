@@ -10,6 +10,7 @@ export const checkoutFixture = () => ({
   requestId: crypto.randomUUID(),
   name: 'Test customer',
   phone: '+359 888 123 456',
+  address: 'Варна, ул. Тестова 12, вх. А, ет. 2, ап. 3',
   notes: '',
   locale: 'en',
   lines: [{ itemId: 'pizza-1', variantId: '33', quantity: 2 }],
@@ -46,6 +47,27 @@ void test('checkout validates contacts, quantities, duplicate lines, and size li
     { lines: [{ ...input.lines[0], quantity: 100 }] },
   ])
     assert.throws(() => parseCheckout({ ...input, ...patch }), CheckoutValidationError);
+});
+
+void test('checkout requires a bounded address and preserves Bulgarian delivery details', () => {
+  const input = checkoutFixture();
+  assert.equal(parseCheckout({ ...input, address: `  ${input.address}  ` }).address, input.address);
+  assert.equal(parseCheckout({ ...input, address: 'x'.repeat(300) }).address.length, 300);
+  for (const address of [
+    undefined,
+    null,
+    12,
+    '',
+    '     ',
+    '1234',
+    'x'.repeat(301),
+    'Street\nForged line',
+    'Street\x00',
+  ])
+    assert.throws(
+      () => parseCheckout({ ...input, address }),
+      (error) => error instanceof CheckoutValidationError && error.code === 'address',
+    );
 });
 
 void test('expired lunch cannot be submitted even when a client retains an old cart', () => {
