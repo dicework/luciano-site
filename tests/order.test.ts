@@ -118,6 +118,7 @@ void test('Bulgarian order message survives URL encoding with special notes', ()
 const reservation = {
   name: 'Иван Иванов',
   phone: '+359 888 123 456',
+  address: 'Варна, ул. Тестова 12',
   guests: 2,
   date: '2026-09-07',
   time: '19:00',
@@ -132,7 +133,13 @@ void test('reservation validation respects Sofia date and working hours', () => 
   assert.ok(validateReservation({ ...reservation, date: '2026-02-30' }, now));
   assert.ok(validateReservation({ ...reservation, guests: 0 }, now));
   assert.ok(validateReservation({ ...reservation, phone: 'abc' }, now));
+  for (const address of ['', '     ', '1234', 'x'.repeat(301), 'Street\nForged line', 'Street\x00']) {
+    assert.equal(validateReservation({ ...reservation, address }, now), 'Моля, въведете адрес (между 5 и 300 знака).');
+  }
+  assert.equal(validateReservation({ ...reservation, address: '12345' }, now), null);
+  assert.equal(validateReservation({ ...reservation, address: 'x'.repeat(300) }, now), null);
   assert.match(reservationMessage(reservation), /07.09.2026/);
+  assert.ok(reservationMessage(reservation).includes(`Адрес: ${reservation.address}`));
   assert.match(reservationMessage(reservation), /Моля, потвърдете/);
 });
 void test('Sofia local date handles midnight and daylight saving changes', () => {

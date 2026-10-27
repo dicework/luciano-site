@@ -33,6 +33,7 @@ void test('reservations use the existing Telegram recipient, persist before deli
     requestId: crypto.randomUUID(),
     name: 'Test Guest',
     phone: '+359888123456',
+    address: 'Варна, ул. Тестова 12',
     date: '2026-10-14',
     time: '19:00',
     guests: 3,
@@ -53,6 +54,7 @@ void test('reservations use the existing Telegram recipient, persist before deli
     assert.equal(body.chat_id, 'same-owner');
     assert.match(body.text, /Ново запитване за резервация/);
     assert.match(body.text, /19:00/);
+    assert.ok(body.text.includes(`Адрес: ${fixture().address}`));
     const reference = /\bR-(\d+)\b/.exec(body.text);
     assert.ok(reference);
     assert.doesNotMatch(body.text, /[\da-f]{8}-[\da-f-]{27}/i);
@@ -65,9 +67,10 @@ void test('reservations use the existing Telegram recipient, persist before deli
       .first<{ reservation_json: string }>();
     assert.ok(saved, 'must persist before notification');
     assert.equal(JSON.parse(saved.reservation_json).status, 'awaiting_confirmation');
+    assert.equal(JSON.parse(saved.reservation_json).address, fixture().address);
     return Response.json({ ok: true });
   };
-  const data = fixture();
+  const data = { ...fixture(), address: `  ${fixture().address}  ` };
   const responses = await Promise.all(
     Array.from({ length: 3 }, () => submitReservation(request(data), env, send, now)),
   );
@@ -83,6 +86,19 @@ void test('reservations use the existing Telegram recipient, persist before deli
     notified: true,
   });
   assert.equal((await submitReservation(request({ ...data, guests: 4 }), env, send, now)).status, 409);
+  assert.equal(
+    (await submitReservation(request({ ...data, address: 'Different street 2' }), env, send, now)).status,
+    409,
+  );
+  for (const field of ['name', 'phone', 'address']) {
+    for (const value of [undefined, null, 12, '', '       ']) {
+      assert.equal(
+        (await submitReservation(request({ ...fixture(), [field]: value }), env, send, now)).status,
+        400,
+        `${field} must contain a valid value`,
+      );
+    }
+  }
   for (const changes of [
     { guests: 31 },
     { guests: '2' },
@@ -91,10 +107,17 @@ void test('reservations use the existing Telegram recipient, persist before deli
     { time: '23:00' },
     { name: 'x'.repeat(81) },
     { phone: 'invalid' },
+    { address: '1234' },
+    { address: 'x'.repeat(301) },
+    { address: 'Street\nForged line' },
+    { address: 'Street\x00' },
+    { address: '\nStreet 12' },
     { notes: 'x'.repeat(501) },
   ]) {
     assert.equal((await submitReservation(request({ ...fixture(), ...changes }), env, send, now)).status, 400);
   }
+  assert.equal(calls, 1, 'invalid requests must not notify the owner');
+  assert.deepEqual(await db.prepare('SELECT COUNT(*) AS count FROM reservations').first(), { count: 1 });
   assert.equal((await submitReservation(request(fixture(), 'https://evil.test'), env, send, now)).status, 403);
   assert.equal(
     (await submitReservation(request(fixture()), { ...env, TELEGRAM_CHAT_ID: undefined }, send, now)).status,

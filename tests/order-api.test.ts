@@ -83,6 +83,14 @@ void test('order API saves before notifying, handles concurrent retries, validat
   const missingAddress = await submitOrder(request({ ...fixture(), address: undefined }), env, send);
   assert.equal(missingAddress.status, 400);
   assert.deepEqual(await missingAddress.json(), { error: 'address' });
+  for (const field of ['name', 'phone', 'address']) {
+    for (const value of [undefined, null, 12, '', '       ']) {
+      const invalid = await submitOrder(request({ ...fixture(), [field]: value }), env, send);
+      assert.equal(invalid.status, 400, `${field} must contain a valid value`);
+      assert.deepEqual(await invalid.json(), { error: field });
+    }
+  }
+  assert.deepEqual(await db.prepare('SELECT COUNT(*) AS count FROM orders').first(), { count: 1 });
   assert.equal(calls, 1);
 
   const failed = fixture();

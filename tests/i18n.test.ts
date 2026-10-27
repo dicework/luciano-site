@@ -92,12 +92,18 @@ void test('English order and reservation handoffs include translated items, vali
   const reservation = {
     name: 'Jane Doe',
     phone: '+359888123456',
+    address: '12 Test Street, Varna',
     guests: 2,
     date: '2026-10-08',
     time: '19:00',
     notes: '',
   };
   assert.match(reservationMessage(reservation, 'en'), /Please confirm the reservation/);
+  assert.match(reservationMessage(reservation, 'en'), /Address: 12 Test Street, Varna/);
+  assert.equal(
+    validateReservation({ ...reservation, address: '' }, new Date('2026-10-06T10:00Z'), 'en'),
+    'Please enter an address (5–300 characters).',
+  );
   assert.equal(
     validateReservation({ ...reservation, name: '' }, new Date('2026-10-06T10:00Z'), 'en'),
     'Please enter your name.',

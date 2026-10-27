@@ -47,6 +47,7 @@ export function ReservationForm() {
     const r: Reservation = {
       name: field('name'),
       phone: field('phone'),
+      address: field('address'),
       guests: Number(f.get('guests')),
       date: field('date'),
       time: field('time'),
@@ -112,6 +113,7 @@ export function ReservationForm() {
               {request.time}
             </span>
             <span>{request.phone}</span>
+            <span>{request.address}</span>
           </div>
           <p className="small">{t('Резервацията е валидна само след потвърждение от ресторанта.')}</p>
           <p>
@@ -144,8 +146,11 @@ export function ReservationForm() {
           <form onSubmit={submit} className="reservation-form">
             <fieldset disabled={busy}>
               <legend className="sr-only">{t('Данни за резервацията')}</legend>
+              <p className="small">{t('Полетата с * са задължителни.')}</p>
               <label className="field">
-                {t('Вашето име')}
+                <span>
+                  {t('Вашето име')} <span aria-hidden="true">*</span>
+                </span>
                 <input
                   name="name"
                   autoComplete="name"
@@ -157,7 +162,9 @@ export function ReservationForm() {
                 />
               </label>
               <label className="field">
-                {t('Телефон')}
+                <span>
+                  {t('Телефон')} <span aria-hidden="true">*</span>
+                </span>
                 <input
                   name="phone"
                   type="tel"
@@ -169,13 +176,31 @@ export function ReservationForm() {
                   defaultValue={draft?.phone}
                 />
               </label>
+              <label className="field">
+                <span>
+                  {t('Адрес')} <span aria-hidden="true">*</span>
+                </span>
+                <input
+                  name="address"
+                  autoComplete="street-address"
+                  required
+                  minLength={5}
+                  maxLength={300}
+                  placeholder={t('Улица, номер, вход, етаж, апартамент')}
+                  defaultValue={draft?.address}
+                />
+              </label>
               <div className="form-row">
                 <label className="field">
-                  {t('Дата')}
+                  <span>
+                    {t('Дата')} <span aria-hidden="true">*</span>
+                  </span>
                   <input name="date" type="date" required min={minDate} defaultValue={draft?.date} />
                 </label>
                 <label className="field">
-                  {t('Час')}
+                  <span>
+                    {t('Час')} <span aria-hidden="true">*</span>
+                  </span>
                   <input
                     name="time"
                     type="time"
@@ -188,7 +213,9 @@ export function ReservationForm() {
                 </label>
               </div>
               <label className="field">
-                {t('Брой гости')}
+                <span>
+                  {t('Брой гости')} <span aria-hidden="true">*</span>
+                </span>
                 <input name="guests" type="number" required min={1} max={30} defaultValue={draft?.guests ?? 2} />
               </label>
               <label className="field">
@@ -230,7 +257,7 @@ export function ReservationForm() {
             </button>
             <p className="small">
               {t(
-                'Името, телефонът и запитването се записват и изпращат на ресторанта за потвърждение на резервацията.',
+                'Името, телефонът, адресът и запитването се записват и изпращат на ресторанта за потвърждение на резервацията.',
               )}
             </p>
           </form>

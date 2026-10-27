@@ -13,12 +13,16 @@ export const en = {
     'Online reservations are temporarily unavailable. Please call us.',
   'Проверка…': 'Checking…',
   'Изпрати запитването': 'Send reservation request',
-  'Името, телефонът и запитването се записват и изпращат на ресторанта за потвърждение на резервацията.':
-    'Your name, phone number and request are saved and sent to the restaurant to confirm your reservation.',
+  'Името, телефонът, адресът и запитването се записват и изпращат на ресторанта за потвърждение на резервацията.':
+    'Your name, phone number, address and request are saved and sent to the restaurant to confirm your reservation.',
   'Запазете маса в Лучиано, Варна. Изпратете запитване онлайн или се обадете на +359 88 609 4164.':
     'Book a table at Luchiano, Varna. Send a request online or call +359 88 609 4164.',
 
   Име: 'Name',
+  Адрес: 'Address',
+  'Адрес:': 'Address:',
+  'Моля, въведете адрес (между 5 и 300 знака).': 'Please enter an address (5–300 characters).',
+  'Полетата с * са задължителни.': 'Fields marked * are required.',
   'Адрес за доставка': 'Delivery address',
   'Улица, номер, вход, етаж, апартамент': 'Street, number, entrance, floor, apartment',
   'Моля, въведете адрес за доставка (между 5 и 300 знака).': 'Please enter a delivery address (5–300 characters).',

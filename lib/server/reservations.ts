@@ -39,12 +39,13 @@ export async function submitReservation(
       !/^[\da-f]{8}-[\da-f]{4}-4[\da-f]{3}-[89ab][\da-f]{3}-[\da-f]{12}$/i.test(String(raw.requestId)) ||
       !['bg', 'en'].includes(String(raw.locale)) ||
       typeof raw.guests !== 'number' ||
-      ['name', 'phone', 'date', 'time', 'notes'].some((key) => typeof raw[key] !== 'string')
+      ['name', 'phone', 'address', 'date', 'time', 'notes'].some((key) => typeof raw[key] !== 'string')
     )
       return json({ error: 'invalid' }, 400);
     const input: Reservation = {
       name: (raw.name as string).trim(),
       phone: (raw.phone as string).trim(),
+      address: (raw.address as string).trim(),
       date: raw.date as string,
       time: raw.time as string,
       guests: raw.guests,
@@ -54,6 +55,9 @@ export async function submitReservation(
       input.name.length > 80 ||
       input.phone.length > 20 ||
       input.notes.length > 500 ||
+      (raw.address as string).length > 300 ||
+      // eslint-disable-next-line no-control-regex -- Reject control characters before trimming the address.
+      /[\x00-\x1f\x7f]/.test(raw.address as string) ||
       /[\u0000-\u001f]/.test(input.name + input.phone)
     )
       return json({ error: 'invalid' }, 400);

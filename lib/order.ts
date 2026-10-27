@@ -59,6 +59,7 @@ export function orderMessage(lines: ResolvedLine[], notes = '', locale: Locale =
 export interface Reservation {
   name: string;
   phone: string;
+  address: string;
   guests: number;
   date: string;
   time: string;
@@ -85,6 +86,13 @@ export function validateReservation(r: Reservation, now = new Date(), locale: Lo
   if (r.name.trim().length < 2) return t('Моля, въведете вашето име.');
   if (!/^\+?[\d\s()-]{7,20}$/.test(r.phone) || r.phone.replace(/\D/g, '').length < 7)
     return t('Моля, въведете валиден телефон.');
+  if (
+    r.address.trim().length < 5 ||
+    r.address.length > 300 ||
+    // eslint-disable-next-line no-control-regex -- Keep addresses on one notification line.
+    /[\x00-\x1f\x7f]/.test(r.address)
+  )
+    return t('Моля, въведете адрес (между 5 и 300 знака).');
   if (!Number.isInteger(r.guests) || r.guests < 1 || r.guests > 30)
     return t('Изберете между 1 и 30 гости. За по-голяма компания ни се обадете.');
   if (!/^\d{4}-\d{2}-\d{2}$/.test(r.date) || !/^([01]\d|2[0-3]):[0-5]\d$/.test(r.time))
@@ -104,6 +112,7 @@ export function reservationMessage(r: Reservation, locale: Locale = 'bg') {
     t('Здравейте, Лучиано! Бих искал/а да резервирам маса:'),
     t('Име: ') + r.name.trim(),
     t('Телефон: ') + r.phone.trim(),
+    t('Адрес: ') + r.address.trim(),
     t('Гости: ') + r.guests,
     t('Дата: ') + day + '.' + month + '.' + year,
     t('Час: ') + r.time + t(' (Варна)'),

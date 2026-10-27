@@ -131,8 +131,11 @@ export function CheckoutForm({
     <form className="checkout-form" onSubmit={submit}>
       <fieldset disabled={busy}>
         <legend className="sr-only">{t('Данни за поръчката')}</legend>
+        <p className="small">{t('Полетата с * са задължителни.')}</p>
         <label className="field">
-          {t('Име')}
+          <span>
+            {t('Име')} <span aria-hidden="true">*</span>
+          </span>
           <input
             name="name"
             autoComplete="name"
@@ -144,7 +147,9 @@ export function CheckoutForm({
           />
         </label>
         <label className="field">
-          {t('Телефон')}
+          <span>
+            {t('Телефон')} <span aria-hidden="true">*</span>
+          </span>
           <input
             name="phone"
             type="tel"
@@ -157,7 +162,9 @@ export function CheckoutForm({
           />
         </label>
         <label className="field">
-          {t('Адрес за доставка')}
+          <span>
+            {t('Адрес за доставка')} <span aria-hidden="true">*</span>
+          </span>
           <input
             name="address"
             autoComplete="street-address"
@@ -170,7 +177,9 @@ export function CheckoutForm({
           />
         </label>
         <label className="field">
-          {t('Бележка към поръчката')}
+          <span>
+            {t('Бележка към поръчката')} <span className="optional">{t('(по желание)')}</span>
+          </span>
           <textarea
             name="notes"
             maxLength={500}
