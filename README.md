@@ -36,7 +36,7 @@ npm run db:migrate:remote
 npm run deploy
 ```
 
-The temporary address is `https://luciano-site.harizanovworks.workers.dev`. It is publicly accessible without a login code for sharing with friends, as authorized on 19 October 2026. Worker-level Cloudflare Access has been removed for this site. Version preview URLs remain disabled. Access is managed in Cloudflare, independently of the site code. Change `content/restaurant.ts` when a custom domain is ready.
+The primary address is `https://luchianopizza.com`; `https://www.luchianopizza.com` serves the same site. Both custom domains are configured in `wrangler.jsonc`, so automatic deployments retain them. Canonical URLs and the sitemap use the primary address from `content/restaurant.ts`. The public `https://luciano-site.harizanovworks.workers.dev` address remains available without a login code. Version preview URLs remain disabled. Access is managed in Cloudflare, independently of the site code.
 
 Workers Builds is connected to `dicework/luciano-site`, branch `main`, root `/`, build command `npm run build`, deploy command `npm run deploy`. Database migrations are applied separately when the schema changes; ordinary menu edits require no migration. Pages CMS commits automatically trigger a deployment; the save-to-deploy flow has been verified. Preview-branch builds are disabled. The deployment token is limited to Workers Scripts Edit and Account Settings Read for this Cloudflare account.
 

@@ -8,6 +8,18 @@
   // Public sharing is enabled on workers.dev; version preview URLs stay disabled.
   "workers_dev": true,
   "preview_urls": false,
+  "routes": [
+    {
+      "pattern": "luchianopizza.com",
+      "custom_domain": true,
+      "zone_id": "c30fe80c77caefaed30123ed2f40e4b3",
+    },
+    {
+      "pattern": "www.luchianopizza.com",
+      "custom_domain": true,
+      "zone_id": "c30fe80c77caefaed30123ed2f40e4b3",
+    },
+  ],
   "assets": {
     "directory": "dist/client",
     "binding": "ASSETS",

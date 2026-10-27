@@ -18,7 +18,7 @@ export const restaurant = {
   mapUrl: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Ресторант Лучиано, Русе 13, Варна'),
   mapEmbed:
     'https://maps.google.com/maps?q=' + encodeURIComponent('Ресторант Лучиано, Русе 13, Варна') + '&output=embed',
-  siteUrl: 'https://luciano-site.harizanovworks.workers.dev',
+  siteUrl: 'https://luchianopizza.com',
   currency: 'EUR',
 } as const;
 export const navigation = [

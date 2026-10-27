@@ -28,7 +28,7 @@ There is no separate CMS package, dependency installation, CMS API token or runt
 
 The source repository is [dicework/luciano-site](https://github.com/dicework/luciano-site), branch `main`. The separate Cloudflare Worker is `luciano-site`, with its own order/reservation database and the existing Telegram secrets. The temporary site is publicly accessible without a login code, as authorized on 19 October 2026. Only Luciano’s Worker-level Access protection was removed.
 
-The [public preview](https://luciano-site.harizanovworks.workers.dev) is deployed. Its public pages and dish photos can be opened without authentication. The standalone build, type check and all 34 tests pass; local navigation, language switching and both forms were checked.
+The site uses [luchianopizza.com](https://luchianopizza.com), with `www.luchianopizza.com` connected to the same Worker. The [public preview](https://luciano-site.harizanovworks.workers.dev) remains available. Its public pages and dish photos can be opened without authentication. The standalone build, type check and all 35 tests pass; local navigation, language switching and both forms were checked. Pages CMS edits continue to publish automatically to these addresses.
 
 Pages CMS is connected and a menu save has been verified to create a GitHub commit and a successful automatic Cloudflare deployment. Both main-menu and weekly lunch-menu saves have been checked. Prices accept either a decimal comma or a dot. Existing dish and portion identifiers are preserved, while new entries receive hidden automatic identifiers.
 
