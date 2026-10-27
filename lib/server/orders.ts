@@ -5,8 +5,9 @@ import { orderingMenu } from '../lunch.ts';
 import { money, orderTotal, sofiaDateTime } from '../order.ts';
 import { boundedText, notificationChannels, notifyOwner, type NotificationResult } from './notifications.ts';
 import type { RestaurantEnv } from './env.ts';
+import { requestReference } from './request-reference.ts';
 
-type SavedOrder = { id: string; payload_hash: string; notification_json: string };
+type SavedOrder = { id: string; number: number; payload_hash: string; notification_json: string };
 
 export function ordersEnabled(env: RestaurantEnv) {
   const channels = notificationChannels(env);
@@ -18,7 +19,10 @@ function json(value: unknown, status = 200) {
 }
 function receipt(row: SavedOrder): OrderReceipt {
   const notifications = JSON.parse(row.notification_json) as NotificationResult[];
-  return { reference: row.id, notified: notifications.some((result) => result.status === 'accepted') };
+  return {
+    reference: requestReference('order', row.number),
+    notified: notifications.some((result) => result.status === 'accepted'),
+  };
 }
 async function digest(text: string) {
   const hash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
@@ -47,7 +51,11 @@ export async function submitOrder(request: Request, env: RestaurantEnv, send: ty
     const hash = await digest(JSON.stringify(input));
     const findOrder = () =>
       env
-        .DB!.prepare('SELECT id, payload_hash, notification_json FROM orders WHERE id = ?')
+        .DB!.prepare(
+          `SELECT orders.id, refs.number, orders.payload_hash, orders.notification_json
+          FROM orders JOIN request_references refs ON refs.kind = 'order' AND refs.request_id = orders.id
+          WHERE orders.id = ?`,
+        )
         .bind(input.requestId)
         .first<SavedOrder>();
     const existing = await findOrder();
@@ -56,21 +64,24 @@ export async function submitOrder(request: Request, env: RestaurantEnv, send: ty
     // Validate against today's server-side menu, including Sofia lunch hours.
     const lines = priceCheckout(input, orderingMenu(menu, lunchWeek, sofiaDateTime(now)));
     const totalMinor = orderTotal(lines);
-    const message = [
-      `Нова поръчка · Лучиано · ${input.requestId}`,
-      `Име: ${input.name}`,
-      `Телефон: ${input.phone}`,
-      `Адрес за доставка: ${input.address}`,
-      ...lines.map(
-        (line) => `${line.quantity} × ${line.name} (${line.variantLabel}) — ${money(line.quantity * line.priceMinor)}`,
-      ),
-      `Общо: ${money(totalMinor)}`,
-      input.notes ? `Бележка: ${input.notes}` : '',
-      'Моля, свържете се с клиента за потвърждение и получаване.',
-    ]
-      .filter(Boolean)
-      .join('\n');
-    if (message.length > 3900) return json({ error: 'items' }, 400);
+    const messageFor = (reference: string) =>
+      [
+        `Нова поръчка · Лучиано · № ${reference}`,
+        `Име: ${input.name}`,
+        `Телефон: ${input.phone}`,
+        `Адрес за доставка: ${input.address}`,
+        ...lines.map(
+          (line) =>
+            `${line.quantity} × ${line.name} (${line.variantLabel}) — ${money(line.quantity * line.priceMinor)}`,
+        ),
+        `Общо: ${money(totalMinor)}`,
+        input.notes ? `Бележка: ${input.notes}` : '',
+        'Моля, свържете се с клиента за потвърждение и получаване.',
+      ]
+        .filter(Boolean)
+        .join('\n');
+    // The internal UUID is an upper bound on the length of the public number.
+    if (messageFor(input.requestId).length > 3900) return json({ error: 'items' }, 400);
     const createdAt = now.getTime();
     const abuseKey = await digest(
       request.headers.get('cf-connecting-ip') ?? request.headers.get('oai-authenticated-user-id') ?? 'local',
@@ -119,13 +130,16 @@ export async function submitOrder(request: Request, env: RestaurantEnv, send: ty
 
     // The order is durable before contacting providers. Never retry an ambiguous
     // provider response automatically: that can send duplicate order alerts.
-    const notifications = await notifyOwner(env, message, send);
+    const saved = await findOrder();
+    if (!saved) throw new Error('Saved order reference is missing');
+    const reference = requestReference('order', saved.number);
+    const notifications = await notifyOwner(env, messageFor(reference), send);
     await env.DB.prepare('UPDATE orders SET notification_json = ? WHERE id = ?')
       .bind(JSON.stringify(notifications), input.requestId)
       .run();
     return json(
       {
-        reference: input.requestId,
+        reference,
         notified: notifications.some((result) => result.status === 'accepted'),
       } satisfies OrderReceipt,
       201,

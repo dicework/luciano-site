@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { Miniflare } from 'miniflare';
 import { submitOrder } from '../lib/server/orders.ts';
 import type { RestaurantEnv } from '../lib/server/env.ts';
@@ -14,8 +14,12 @@ void test('order API saves before notifying, handles concurrent retries, validat
   });
   t.after(() => runtime.dispose());
   const db = await runtime.getD1Database('DB');
-  const migration = readFileSync(new URL('../drizzle/0000_outstanding_captain_universe.sql', import.meta.url), 'utf8');
-  for (const sql of migration.split('--> statement-breakpoint')) await db.prepare(sql.trim()).run();
+  for (const file of readdirSync('drizzle')
+    .filter((name) => name.endsWith('.sql'))
+    .sort()) {
+    for (const sql of readFileSync('drizzle/' + file, 'utf8').split('--> statement-breakpoint'))
+      await db.prepare(sql.trim()).run();
+  }
   const env: RestaurantEnv = {
     DB: db,
     ORDERS_ENABLED: 'true',
@@ -42,11 +46,15 @@ void test('order API saves before notifying, handles concurrent retries, validat
   const send: typeof fetch = async (_url, init) => {
     calls++;
     const body = JSON.parse(String(init?.body));
-    const reference = /[\da-f]{8}-[\da-f-]{27}/.exec(body.text)?.[0];
+    const reference = /\bP-(\d+)\b/.exec(body.text);
     assert.ok(reference);
+    assert.doesNotMatch(body.text, /[\da-f]{8}-[\da-f-]{27}/i);
     const saved = await db
-      .prepare('SELECT order_json FROM orders WHERE id = ?')
-      .bind(reference)
+      .prepare(
+        `SELECT order_json FROM orders JOIN request_references refs
+        ON refs.kind = 'order' AND refs.request_id = orders.id WHERE refs.number = ?`,
+      )
+      .bind(Number(reference[1]))
       .first<{ order_json: string }>();
     assert.ok(saved, 'order must be saved before notification');
     assert.equal(JSON.parse(saved.order_json).totalMinor, 1560);
@@ -59,8 +67,13 @@ void test('order API saves before notifying, handles concurrent retries, validat
   const responses = await Promise.all(Array.from({ length: 3 }, () => submitOrder(request(data), env, send)));
   assert.equal(calls, 1, 'concurrent retries send once');
   assert.ok(responses.every((response) => response.ok));
+  const receipts = await Promise.all(responses.map((response) => response.json()));
+  for (const receipt of receipts) {
+    assert.ok(receipt && typeof receipt === 'object' && 'reference' in receipt);
+    assert.equal(receipt.reference, 'P-000001');
+  }
   const replay = await submitOrder(request(data), env, send);
-  assert.deepEqual(await replay.json(), { reference: data.requestId, notified: true });
+  assert.deepEqual(await replay.json(), { reference: 'P-000001', notified: true });
   assert.equal(calls, 1);
   assert.equal((await submitOrder(request({ ...data, notes: 'changed' }), env, send)).status, 409);
   assert.equal((await submitOrder(request({ ...data, address: 'Different street 2' }), env, send)).status, 409);
@@ -77,11 +90,18 @@ void test('order API saves before notifying, handles concurrent retries, validat
     throw new Error('simulated network failure');
   });
   assert.equal(failedResponse.status, 201);
-  assert.deepEqual(await failedResponse.json(), { reference: failed.requestId, notified: false });
-  await submitOrder(request(failed), env, send);
+  assert.deepEqual(await failedResponse.json(), { reference: 'P-000002', notified: false });
+  assert.deepEqual(await (await submitOrder(request(failed), env, send)).json(), {
+    reference: 'P-000002',
+    notified: false,
+  });
   assert.equal(calls, 1, 'an ambiguous provider failure must not be automatically resent');
   for (let index = 0; index < 3; index++) assert.equal((await submitOrder(request(fixture()), env, send)).status, 201);
   assert.equal((await submitOrder(request(fixture()), env, send)).status, 429);
   const count = await db.prepare('SELECT COUNT(*) AS count FROM orders').first<{ count: number }>();
   assert.equal(count?.count, 5);
+  const references = await db
+    .prepare('SELECT COUNT(*) AS count, COUNT(DISTINCT number) AS unique_count FROM request_references')
+    .first<{ count: number; unique_count: number }>();
+  assert.deepEqual(references, { count: 5, unique_count: 5 });
 });

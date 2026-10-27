@@ -2,10 +2,11 @@ import { validateReservation, reservationMessage, type Reservation } from '../or
 import { boundedText, notificationChannels, notifyOwner, type NotificationResult } from './notifications.ts';
 import { json, sameOrigin, digest } from './http.ts';
 import type { RestaurantEnv } from './env.ts';
+import { requestReference } from './request-reference.ts';
 
-type Saved = { id: string; payload_hash: string; notification_json: string };
+type Saved = { id: string; number: number; payload_hash: string; notification_json: string };
 const receipt = (row: Saved) => ({
-  reference: row.id,
+  reference: requestReference('reservation', row.number),
   notified: (JSON.parse(row.notification_json) as NotificationResult[]).some((n) => n.status === 'accepted'),
 });
 
@@ -59,7 +60,11 @@ export async function submitReservation(
     const hash = await digest(JSON.stringify({ ...input, locale: raw.locale }));
     const find = () =>
       env
-        .DB!.prepare('SELECT id, payload_hash, notification_json FROM reservations WHERE id = ?')
+        .DB!.prepare(
+          `SELECT reservations.id, refs.number, reservations.payload_hash, reservations.notification_json
+          FROM reservations JOIN request_references refs ON refs.kind = 'reservation' AND refs.request_id = reservations.id
+          WHERE reservations.id = ?`,
+        )
         .bind(raw.requestId)
         .first<Saved>();
     const existing = await find();
@@ -103,15 +108,18 @@ export async function submitReservation(
         : json({ error: 'limited' }, 429)
       );
     }
+    const saved = await find();
+    if (!saved) throw new Error('Saved reservation reference is missing');
+    const reference = requestReference('reservation', saved.number);
     const notifications = await notifyOwner(
       { TELEGRAM_BOT_TOKEN: env.TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID: env.TELEGRAM_CHAT_ID },
-      `Ново запитване за резервация · ${raw.requestId}\n${reservationMessage(input, 'bg')}`,
+      `Ново запитване за резервация · № ${reference}\n${reservationMessage(input, 'bg')}`,
       send,
     );
     await env.DB.prepare('UPDATE reservations SET notification_json = ? WHERE id = ?')
       .bind(JSON.stringify(notifications), raw.requestId)
       .run();
-    return json({ reference: raw.requestId, notified: notifications.some((n) => n.status === 'accepted') }, 201);
+    return json({ reference, notified: notifications.some((n) => n.status === 'accepted') }, 201);
   } catch {
     console.error(JSON.stringify({ event: 'reservation_submission_failed' }));
     return json({ error: 'unavailable' }, 503);

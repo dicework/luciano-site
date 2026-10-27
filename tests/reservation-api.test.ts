@@ -53,11 +53,15 @@ void test('reservations use the existing Telegram recipient, persist before deli
     assert.equal(body.chat_id, 'same-owner');
     assert.match(body.text, /Ново запитване за резервация/);
     assert.match(body.text, /19:00/);
-    const id = /[\da-f]{8}-[\da-f-]{27}/.exec(body.text)?.[0];
-    assert.ok(id);
+    const reference = /\bR-(\d+)\b/.exec(body.text);
+    assert.ok(reference);
+    assert.doesNotMatch(body.text, /[\da-f]{8}-[\da-f-]{27}/i);
     const saved = await db
-      .prepare('SELECT reservation_json FROM reservations WHERE id = ?')
-      .bind(id)
+      .prepare(
+        `SELECT reservation_json FROM reservations JOIN request_references refs
+        ON refs.kind = 'reservation' AND refs.request_id = reservations.id WHERE refs.number = ?`,
+      )
+      .bind(Number(reference[1]))
       .first<{ reservation_json: string }>();
     assert.ok(saved, 'must persist before notification');
     assert.equal(JSON.parse(saved.reservation_json).status, 'awaiting_confirmation');
@@ -68,9 +72,14 @@ void test('reservations use the existing Telegram recipient, persist before deli
     Array.from({ length: 3 }, () => submitReservation(request(data), env, send, now)),
   );
   assert.ok(responses.every((r) => r.ok));
+  const receipts = await Promise.all(responses.map((response) => response.json()));
+  for (const receipt of receipts) {
+    assert.ok(receipt && typeof receipt === 'object' && 'reference' in receipt);
+    assert.equal(receipt.reference, 'R-000001');
+  }
   assert.equal(calls, 1);
   assert.deepEqual(await (await submitReservation(request(data), env, send, now)).json(), {
-    reference: data.requestId,
+    reference: 'R-000001',
     notified: true,
   });
   assert.equal((await submitReservation(request({ ...data, guests: 4 }), env, send, now)).status, 409);
@@ -103,7 +112,7 @@ void test('reservations use the existing Telegram recipient, persist before deli
         now,
       )
     ).json(),
-    { reference: failed.requestId, notified: false },
+    { reference: 'R-000002', notified: false },
   );
   await submitReservation(request(failed), env, send, now);
   assert.equal(calls, 1, 'no duplicate alert after ambiguous provider failure');

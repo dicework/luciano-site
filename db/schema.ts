@@ -1,4 +1,15 @@
-import { index, integer, sqliteTable, text } from 'drizzle-orm/sqlite-core';
+import { index, integer, sqliteTable, text, uniqueIndex } from 'drizzle-orm/sqlite-core';
+
+// Kept independently of request retention so public numbers are never reused.
+export const requestReferences = sqliteTable(
+  'request_references',
+  {
+    number: integer('number').primaryKey({ autoIncrement: true }),
+    kind: text('kind').notNull(),
+    requestId: text('request_id').notNull(),
+  },
+  (table) => [uniqueIndex('request_references_kind_id').on(table.kind, table.requestId)],
+);
 
 export const reservations = sqliteTable(
   'reservations',
