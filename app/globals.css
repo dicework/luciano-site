@@ -1400,6 +1400,18 @@ p {
   border-block: 1px solid var(--border);
   font-size: 14px;
 }
+.reservation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  margin-top: 24px;
+}
+.reservation-actions .text-link {
+  min-height: 44px;
+  margin-top: 0;
+  padding-block: 8px;
+}
 /* Story, gallery, contact */
 .about-panorama {
   position: relative;

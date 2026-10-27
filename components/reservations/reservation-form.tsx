@@ -117,20 +117,22 @@ export function ReservationForm() {
           <p>
             {t('Номер на заявката:')} <code className="checkout-reference">{receipt?.reference}</code>
           </p>
-          <a className="btn btn-outline" href={'tel:' + restaurant.phone}>
-            {t('Обадете се:')} {restaurant.displayPhone}
-          </a>
-          <button
-            className="text-link"
-            onClick={() => {
-              setRequest(null);
-              setReceipt(null);
-              setDraft(null);
-              attempt.current = null;
-            }}
-          >
-            {t('Ново запитване')}
-          </button>
+          <div className="reservation-actions">
+            <a className="btn btn-outline" href={'tel:' + restaurant.phone}>
+              {t('Обадете се:')} {restaurant.displayPhone}
+            </a>
+            <button
+              className="text-link"
+              onClick={() => {
+                setRequest(null);
+                setReceipt(null);
+                setDraft(null);
+                attempt.current = null;
+              }}
+            >
+              {t('Ново запитване')}
+            </button>
+          </div>
         </>
       : <>
           <p className="eyebrow">
