@@ -1,5 +1,6 @@
 import { getTranslator, type Locale } from '@/i18n';
 import Link from '@/components/i18n/localized-link';
+import Image from 'next/image';
 import { ArrowUpRight, Camera } from 'lucide-react';
 import { navigation, restaurant } from '@/content/restaurant';
 export function Footer({ locale = 'bg' }: { locale?: Locale }) {
@@ -8,9 +9,8 @@ export function Footer({ locale = 'bg' }: { locale?: Locale }) {
     <footer className="footer">
       <div className="wrap footer-grid">
         <div>
-          <Link className="brand" href="/">
-            {t('Лучиано')}
-            <span>{t('PIZZA • BAR • DINNER')}</span>
+          <Link className="brand brand-badge" href="/" aria-label={t('Лучиано — начало')}>
+            <Image src="/images/brand/luchiano-badge.webp" alt={t('Лучиано')} width={512} height={512} loading="lazy" />
           </Link>
           <p>
             {t('Малко Италия.')}

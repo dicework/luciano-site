@@ -5,6 +5,7 @@ import { LanguageSwitcher } from '@/components/i18n/language-switcher';
 import { localePath } from '@/i18n';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import Image from 'next/image';
 import { Menu, X, ShoppingBag, Phone } from 'lucide-react';
 import { Sheet, SheetContent, SheetTitle, SheetDescription, SheetClose } from '@/components/ui/sheet';
 import { navigation, restaurant } from '@/content/restaurant';
@@ -24,8 +25,13 @@ export function Header() {
       <header className="site-header">
         <div className="header-inner wrap">
           <Link className="brand" href="/" aria-label={t('Лучиано — начало')}>
-            {t('Лучиано')}
-            <span>{t('PIZZA • BAR • DINNER')}</span>
+            <Image
+              src="/images/brand/luchiano-wordmark.webp"
+              alt={t('Лучиано')}
+              width={640}
+              height={218}
+              loading="eager"
+            />
           </Link>
           <nav aria-label={t('Основна навигация')}>
             {navigation.map((n) => (
