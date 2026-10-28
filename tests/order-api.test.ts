@@ -80,6 +80,19 @@ void test('order API saves before notifying, handles concurrent retries, validat
   assert.equal((await submitOrder(request(fixture(), 'https://other.test'), env, send)).status, 403);
   assert.equal((await submitOrder(request(fixture()), { ...env, ORDERS_ENABLED: 'false' }, send)).status, 503);
   assert.equal((await submitOrder(request({ ...fixture(), expectedTotalMinor: 1 }), env, send)).status, 400);
+  for (const expectedTotalMinor of [780, 1500]) {
+    const belowMinimum = await submitOrder(
+      request({
+        ...fixture(),
+        lines: [{ itemId: 'pizza-1', variantId: '33', quantity: 1 }],
+        expectedTotalMinor,
+      }),
+      env,
+      send,
+    );
+    assert.equal(belowMinimum.status, 400);
+    assert.deepEqual(await belowMinimum.json(), { error: expectedTotalMinor === 780 ? 'minimum' : 'changed' });
+  }
   const missingAddress = await submitOrder(request({ ...fixture(), address: undefined }), env, send);
   assert.equal(missingAddress.status, 400);
   assert.deepEqual(await missingAddress.json(), { error: 'address' });

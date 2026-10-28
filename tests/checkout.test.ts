@@ -49,6 +49,25 @@ void test('checkout validates contacts, quantities, duplicate lines, and size li
     assert.throws(() => parseCheckout({ ...input, ...patch }), CheckoutValidationError);
 });
 
+void test('checkout rejects totals below 15 euro and accepts the exact minimum and higher totals', () => {
+  for (const priceMinor of [1499, 1500, 1501]) {
+    const pricedMenu = structuredClone(menu);
+    const item = pricedMenu.flatMap((category) => category.items).find((dish) => dish.id === 'pizza-1')!;
+    item.variants.find((variant) => variant.id === '33')!.priceMinor = priceMinor;
+    const input = parseCheckout({
+      ...checkoutFixture(),
+      lines: [{ itemId: 'pizza-1', variantId: '33', quantity: 1 }],
+      expectedTotalMinor: priceMinor,
+    });
+    if (priceMinor < 1500)
+      assert.throws(
+        () => priceCheckout(input, pricedMenu),
+        (error) => error instanceof CheckoutValidationError && error.code === 'minimum',
+      );
+    else assert.equal(priceCheckout(input, pricedMenu)[0].priceMinor, priceMinor);
+  }
+});
+
 void test('checkout requires a bounded address and preserves Bulgarian delivery details', () => {
   const input = checkoutFixture();
   assert.equal(parseCheckout({ ...input, address: `  ${input.address}  ` }).address, input.address);
@@ -73,8 +92,8 @@ void test('checkout requires a bounded address and preserves Bulgarian delivery 
 void test('expired lunch cannot be submitted even when a client retains an old cart', () => {
   const input = parseCheckout({
     ...checkoutFixture(),
-    lines: [{ itemId: lunchWeek!.items[0].id, variantId: 'regular', quantity: 1 }],
-    expectedTotalMinor: 340,
+    lines: [{ itemId: lunchWeek!.items[0].id, variantId: 'regular', quantity: 5 }],
+    expectedTotalMinor: 1700,
   });
   assert.equal(priceCheckout(input, orderingMenu(menu, lunchWeek, { date: '2026-10-08', time: '12:00' })).length, 1);
   assert.throws(

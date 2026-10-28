@@ -4,8 +4,8 @@ import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { useI18n } from '@/components/i18n/language-provider';
 import { useMessagingTest } from '@/components/messaging-test-provider';
 import { restaurant } from '@/content/restaurant';
-import { orderTotal } from '@/lib/order';
-import type { CheckoutError, OrderReceipt } from '@/lib/checkout';
+import { money, orderTotal } from '@/lib/order';
+import { MINIMUM_ORDER_MINOR, type CheckoutError, type OrderReceipt } from '@/lib/checkout';
 import type { ResolvedLine } from '@/types/menu';
 
 export function CheckoutForm({
@@ -31,6 +31,12 @@ export function CheckoutForm({
   const attempt = useRef<{ fingerprint: string; id: string } | null>(null);
   const submitting = useRef(false);
   const testMode = Boolean(test.phone || test.error);
+  const total = orderTotal(lines);
+  const belowMinimum = total < MINIMUM_ORDER_MINOR;
+  const minimumMessage = t('Минимална стойност на поръчката: {amount}.').replace(
+    '{amount}',
+    money(MINIMUM_ORDER_MINOR, locale),
+  );
 
   useEffect(() => {
     const controller = new AbortController();
@@ -55,7 +61,7 @@ export function CheckoutForm({
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (submitting.current || !available || testMode) return;
+    if (submitting.current || !available || testMode || belowMinimum) return;
     submitting.current = true;
     setBusy(true);
     setError(null);
@@ -66,7 +72,7 @@ export function CheckoutForm({
       notes,
       locale,
       lines: lines.map(({ itemId, variantId, quantity }) => ({ itemId, variantId, quantity })),
-      expectedTotalMinor: orderTotal(lines),
+      expectedTotalMinor: total,
     };
     const fingerprint = JSON.stringify(payload);
     if (attempt.current?.fingerprint !== fingerprint) attempt.current = { fingerprint, id: crypto.randomUUID() };
@@ -98,6 +104,7 @@ export function CheckoutForm({
     phone: t('Моля, въведете валиден телефон.'),
     address: t('Моля, въведете адрес за доставка (между 5 и 300 знака).'),
     items: t('За голяма поръчка, моля, обадете се на ресторанта.'),
+    minimum: minimumMessage,
     changed: t('Менюто е променено. Презаредете страницата и проверете поръчката.'),
     unavailable: t('Онлайн поръчките временно не са достъпни. Моля, обадете се.'),
     limited: t('Твърде много опити. Изчакайте малко или ни се обадете.'),
@@ -129,6 +136,14 @@ export function CheckoutForm({
 
   return (
     <form className="checkout-form" onSubmit={submit}>
+      <p id="order-minimum" className={belowMinimum ? 'notice' : 'small'} role="status">
+        {minimumMessage}{' '}
+        {belowMinimum &&
+          t('Добавете още {amount}, за да изпратите поръчката.').replace(
+            '{amount}',
+            money(MINIMUM_ORDER_MINOR - total, locale),
+          )}
+      </p>
       <fieldset disabled={busy}>
         <legend className="sr-only">{t('Данни за поръчката')}</legend>
         <p className="small">{t('Полетата с * са задължителни.')}</p>
@@ -208,7 +223,12 @@ export function CheckoutForm({
       <p className="small">
         {t('Името, телефонът, адресът и поръчката се записват и изпращат на ресторанта за потвърждение.')}
       </p>
-      <button className="btn btn-red" type="submit" disabled={!available || busy || testMode || !test.ready}>
+      <button
+        className="btn btn-red"
+        type="submit"
+        aria-describedby="order-minimum"
+        disabled={!available || busy || testMode || !test.ready || belowMinimum}
+      >
         {busy ?
           t('Изпращане…')
         : available === null ?

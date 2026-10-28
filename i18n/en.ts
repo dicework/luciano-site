@@ -48,6 +48,8 @@ export const en = {
   'Обадете се:': 'Call us:',
   'Нова поръчка': 'New order',
   'Данни за поръчката': 'Order details',
+  'Минимална стойност на поръчката: {amount}.': 'Minimum order value: {amount}.',
+  'Добавете още {amount}, за да изпратите поръчката.': 'Add {amount} more to place your order.',
   'Автоматичните поръчки са изключени в тестов режим. Излезте от теста, за да поръчате.':
     'Automatic orders are disabled in test mode. Exit test mode to place an order.',
   'Името, телефонът, адресът и поръчката се записват и изпращат на ресторанта за потвърждение.':
