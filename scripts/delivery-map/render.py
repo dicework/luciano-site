@@ -35,16 +35,18 @@ C = {
     'building': '#1c1b17',
     'water': '#0c1c29',
     'coast': '#2c3a44',
-    'minor': '#2b2924',
-    'tertiary': '#3e392d',
-    'secondary': '#5a4e36',
-    'primary': '#7a6942',
+    # Roads stay neutral so the gold zone borders stand out from them.
+    'minor': '#272623',
+    'tertiary': '#36342f',
+    'secondary': '#48453f',
+    'primary': '#5d5951',
     'rail': '#34332d',
     'zone_fill': '#d8aa4f',
-    'zone_line': '#e7c06c',
+    'zone_line': '#f0c86a',
+    'zone_divider': '#0b0b09',
     'label': '#f7e9c6',
     'halo': '#121210',
-    'street': '#a0906a',
+    'street': '#9c9586',
     'context': '#7d93a3',
     'park_label': '#6f8b6a',
 }
@@ -240,6 +242,29 @@ def base_map(segs, water, land_use, land, buildings):
     return out, wet
 
 
+# Fill (colour, opacity) per zone; neighbouring zones never share a tone.
+ZONE_TONES = [
+    ('#e2b04e', 0.30),
+    ('#c4682c', 0.32),
+    ('#f2e4c0', 0.20),
+    ('#a9bd84', 0.30),
+]
+
+
+def zone_tones(zones):
+    names = list(zones)
+    touching = {
+        a: {b for b in names if b != a and zones[a].distance(zones[b]) < 5} for a in names
+    }
+    tones, count = {}, [0] * len(ZONE_TONES)
+    for zone in sorted(names, key=lambda z: -len(touching[z])):
+        used = {tones[n] for n in touching[zone] if n in tones}
+        # Least-used allowed tone, so all tones appear evenly.
+        tones[zone] = min((i for i in range(len(ZONE_TONES)) if i not in used), key=lambda i: (count[i], i))
+        count[tones[zone]] += 1
+    return tones
+
+
 def street_paths(segs, lang):
     defs, texts = [], []
     for i, name in enumerate(STREETS):
@@ -332,7 +357,16 @@ def render(lang, zones, layers):
     base, wet = base_map(*layers)
     street_defs, street_texts = street_paths(segs, lang)
 
-    zone_fill = ''.join(f'<path d="{poly_d(g)}"/>' for g in zones.values())
+    tones = zone_tones(zones)
+    zone_paths = {z: poly_d(g) for z, g in zones.items()}
+    zone_fill = ''.join(
+        f'<path d="{d}" fill="{ZONE_TONES[tones[z]][0]}" fill-opacity="{ZONE_TONES[tones[z]][1]}"/>'
+        for z, d in zone_paths.items()
+    )
+    zone_clips = ''.join(f'<clipPath id="zone{i}"><path d="{d}"/></clipPath>' for i, d in enumerate(zone_paths.values()))
+    # Each zone gets a gold edge on its inside; a dark line then separates neighbours.
+    zone_edges = ''.join(f'<path d="{d}" clip-path="url(#zone{i})"/>' for i, d in enumerate(zone_paths.values()))
+    zone_lines = ''.join(f'<path d="{d}"/>' for d in zone_paths.values())
 
     labels = []
     for zone, g in zones.items():
@@ -402,7 +436,7 @@ def render(lang, zones, layers):
   <rect width="520" height="250" rx="16" fill="#121210" fill-opacity=".9" stroke="#3e392d" stroke-width="2"/>
   <text class="title" x="32" y="78">{html.escape(t["title"])}</text>
   <text class="subtitle" x="34" y="118">{html.escape(t["subtitle"])}</text>
-  <rect x="34" y="150" width="46" height="30" rx="5" fill="{C["zone_fill"]}" fill-opacity=".3" stroke="{C["zone_line"]}" stroke-width="2.5"/>
+  <rect x="34" y="150" width="46" height="30" rx="5" fill="{C["zone_fill"]}" fill-opacity=".3" stroke="{C["zone_line"]}" stroke-width="4"/>
   <text class="legend" x="98" y="172">{html.escape(t["legend_zone"])}</text>
   <path transform="translate(57 232) scale(.36)" d="M0 0 C-10 -22 -38 -40 -38 -70 A38 38 0 1 1 38 -70 C38 -40 10 -22 0 0Z" fill="#e7c06c"/>
   <text class="legend" x="98" y="219">{html.escape(t["legend_pin"])}</text>
@@ -431,14 +465,15 @@ def render(lang, zones, layers):
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">
 <defs>
   <clipPath id="badge"><circle cx="0" cy="-70" r="31"/></clipPath>
+  {zone_clips}
   {''.join(street_defs)}
   <style>{css}</style>
 </defs>
 <rect width="{W}" height="{H}" fill="{C["land"]}"/>
 {''.join(base)}
-<g fill="{C["zone_fill"]}" fill-opacity=".24">{zone_fill}</g>
-<g fill="none" stroke="#000" stroke-opacity=".6" stroke-width="7" stroke-linejoin="round">{zone_fill}</g>
-<g fill="none" stroke="{C["zone_line"]}" stroke-width="3" stroke-linejoin="round">{zone_fill}</g>
+<g>{zone_fill}</g>
+<g fill="none" stroke="{C["zone_line"]}" stroke-width="10" stroke-linejoin="round">{zone_edges}</g>
+<g fill="none" stroke="{C["zone_divider"]}" stroke-width="3.5" stroke-linejoin="round">{zone_lines}</g>
 {''.join(street_texts)}
 {''.join(context)}
 {''.join(labels)}
