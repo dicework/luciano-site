@@ -231,7 +231,8 @@ def build():
         assigned[zone].append(gap)
 
     def unions():
-        return {z: unary_union(parts).buffer(4).buffer(-4) for z, parts in assigned.items()}
+        # Close hairline cracks, then drop road-width slivers (under ~16 m) that poke into neighbours.
+        return {z: unary_union(parts).buffer(4).buffer(-4).buffer(-8).buffer(8) for z, parts in assigned.items()}
 
     # A fragment cut off from its zone's main body joins the neighbour it shares
     # the longest border with; isolated crumbs are dropped.
@@ -254,6 +255,18 @@ def build():
         if u.geom_type == 'MultiPolygon':
             biggest = max(u.geoms, key=lambda g: g.area)
             zones[zone] = unary_union([g for g in u.geoms if g.area > 0.15 * biggest.area])
+
+    # Removing slivers can leave thin cracks; each goes to the zone around it.
+    taken = unary_union(list(zones.values()))
+    closed = taken.buffer(GAP_FILL).buffer(-GAP_FILL)
+    closed = unary_union([shapely.Polygon(p.exterior) for p in getattr(closed, 'geoms', [closed])])
+    cracks = closed.difference(taken).intersection(land)
+    for crack in getattr(cracks, 'geoms', [cracks]):
+        if crack.geom_type != 'Polygon' or crack.is_empty:
+            continue
+        edge = crack.buffer(3)
+        zone = max(zones, key=lambda n: edge.intersection(zones[n]).area)
+        zones[zone] = unary_union([zones[zone], crack]).buffer(2).buffer(-2)
     return zones, seeds
 
 
