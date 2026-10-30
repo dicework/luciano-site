@@ -5,6 +5,7 @@ import { ArrowUpRight, CalendarDays, Camera, UtensilsCrossed } from 'lucide-reac
 import Link from '@/components/i18n/localized-link';
 import { PageHeading } from '@/components/site/section-heading';
 import { Location } from '@/components/site/location';
+import { DeliveryZones } from '@/components/site/delivery-zones';
 import { Messaging } from '@/components/messaging';
 import { restaurant } from '@/content/restaurant';
 export function pageMetadata(locale: Locale): Metadata {
@@ -29,6 +30,7 @@ export default function ContactPage({ locale = 'bg' }: { locale?: Locale }) {
         description={t('В центъра на Варна, с топла пица и свободно място за още един хубав разговор.')}
       />
       <Location locale={locale} compact />
+      <DeliveryZones locale={locale} />
       <section className="wrap section contact-bottom">
         <div>
           <p className="eyebrow">{t('ПО ВАШИЯ НАЧИН')}</p>

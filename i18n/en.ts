@@ -536,4 +536,26 @@ export const en = {
   Buon: 'Enjoy',
   'appetito!': 'your meal!',
   Език: 'Language',
+  ДОСТАВКА: 'DELIVERY',
+  'Зони за': 'Delivery',
+  'доставка.': 'zones.',
+  'Доставяме в кварталите, отбелязани на картата. Ако не сте сигурни за адреса си, обадете ни се.':
+    'We deliver to the neighbourhoods marked on the map. If you are unsure about your address, give us a call.',
+  'Карта на Варна със зоните за доставка на Лучиано и ресторанта на ул. „Русе“ 13':
+    'Map of Varna showing Luchiano’s delivery zones and the restaurant at 13 Ruse Street',
+  'Квартали за доставка': 'Delivery neighbourhoods',
+  'Отвори картата в пълен размер': 'Open the full-size map',
+  'Картни данни © OpenStreetMap contributors, Overture Maps Foundation':
+    'Map data © OpenStreetMap contributors, Overture Maps Foundation',
+  Център: 'City Centre',
+  'Гръцка махала': 'Greek Quarter',
+  'Фестивален комплекс': 'Festival Complex',
+  'Червен площад': 'Cherven Ploshtad',
+  'Колхозен пазар': 'Kolhozen Pazar',
+  'Окръжна болница': 'District Hospital',
+  Генералите: 'Generalite',
+  Чаталджа: 'Chataldzha',
+  'Спортна зала': 'Sports Hall',
+  Левски: 'Levski',
+  Трошево: 'Troshevo',
 };

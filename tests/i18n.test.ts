@@ -9,6 +9,7 @@ import { menu } from '../content/menu.ts';
 import { lunchWeek } from '../content/lunch.ts';
 import { restaurant, navigation, features } from '../content/restaurant.ts';
 import { gallery } from '../content/gallery.ts';
+import { deliveryZones } from '../content/delivery.ts';
 import { money, orderMessage, resolveCart, reservationMessage, validateReservation } from '../lib/order.ts';
 
 const messages: Record<string, string> = en;
@@ -44,7 +45,7 @@ void test('every UI catalogue call and every published content string has an Eng
     else if (Array.isArray(value)) value.forEach(walk);
     else if (value && typeof value === 'object') Object.values(value).forEach(walk);
   };
-  walk([menu, lunchWeek, restaurant, navigation, features, gallery]);
+  walk([menu, lunchWeek, restaurant, navigation, features, gallery, deliveryZones]);
   for (const [source, translated] of Object.entries(messages)) {
     assert.ok(translated.trim(), source);
     assert.doesNotMatch(translated, /[А-Яа-я]/, source);
