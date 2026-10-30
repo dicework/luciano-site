@@ -42,3 +42,8 @@ next-env.d.ts
 /.sites-runtime/
 .dev.vars*
 !.env.example
+
+# delivery map source data (scripts/delivery-map/fetch_overture.py)
+/scripts/delivery-map/.data/
+/.venv-delivery-map/
+__pycache__/

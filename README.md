@@ -53,18 +53,19 @@ Cloudflare's local build tooling may generate ignored `dist/server/.dev.vars` fr
 
 ## Main files
 
-| Path                                          | Purpose                                                          |
-| --------------------------------------------- | ---------------------------------------------------------------- |
-| `.pages.yml`                                  | Bulgarian editor fields, hidden automatic IDs and photo picker.  |
-| `content/menu.json`, `content/lunch.json`     | Editable menu content and lunch schedule.                        |
-| `public/images/menu/`                         | Dish photos managed through Pages CMS.                           |
-| `lib/menu-content.ts`                         | Content validation and euro-to-cent conversion.                  |
-| `content/restaurant.ts`, `content/gallery.ts` | Business details, deployment address and gallery.                |
-| `components/pages/`                           | Shared page content.                                             |
-| `app/(bg)/`, `app/en/`                        | Bulgarian and English routes.                                    |
-| `i18n/`                                       | Translations and language switching.                             |
-| `lib/server/`, `app/api/`                     | Order and reservation validation, persistence and notifications. |
-| `db/schema.ts`, `drizzle/`                    | Database schema and migration history.                           |
+| Path                                           | Purpose                                                           |
+| ---------------------------------------------- | ----------------------------------------------------------------- |
+| `.pages.yml`                                   | Bulgarian editor fields, hidden automatic IDs and photo picker.   |
+| `content/menu.json`, `content/lunch.json`      | Editable menu content and lunch schedule.                         |
+| `public/images/menu/`                          | Dish photos managed through Pages CMS.                            |
+| `lib/menu-content.ts`                          | Content validation and euro-to-cent conversion.                   |
+| `content/restaurant.ts`, `content/gallery.ts`  | Business details, deployment address and gallery.                 |
+| `components/pages/`                            | Shared page content.                                              |
+| `app/(bg)/`, `app/en/`                         | Bulgarian and English routes.                                     |
+| `i18n/`                                        | Translations and language switching.                              |
+| `lib/server/`, `app/api/`                      | Order and reservation validation, persistence and notifications.  |
+| `db/schema.ts`, `drizzle/`                     | Database schema and migration history.                            |
+| `content/delivery.ts`, `scripts/delivery-map/` | Delivery zones and the map generator; see `docs/delivery-map.md`. |
 
 ## Request behavior
 
