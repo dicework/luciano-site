@@ -112,6 +112,8 @@ void test('Bulgarian order message survives URL encoding with special notes', ()
   assert.equal(url.searchParams.get('text'), text);
   assert.match(text, /2 × Маргарита \(33 см\)/);
   assert.match(text, /15,60/);
+  assert.ok(text.includes('Доставка: 1,50'));
+  assert.match(text, /Ориентировъчна сума: 17,10/);
   assert.match(text, /потвърдете/);
   assert.throws(() => orderMessage([]));
 });

@@ -3,6 +3,7 @@ import { localizedMetadata } from '@/i18n/metadata';
 import type { Metadata } from 'next';
 import { PageHeading } from '@/components/site/section-heading';
 import { LunchMenu } from '@/components/lunch/lunch-menu';
+import { DeliveryTerms } from '@/components/site/delivery-terms';
 
 export function pageMetadata(locale: Locale): Metadata {
   const t = getTranslator(locale);
@@ -26,6 +27,7 @@ export default function LunchPage({ locale = 'bg' }: { locale?: Locale }) {
         accent={t('Всеки обяд.')}
         description={t('Обедните предложения на Лучиано, събрани на едно място.')}
       />
+      <DeliveryTerms locale={locale} />
       <LunchMenu />
     </main>
   );

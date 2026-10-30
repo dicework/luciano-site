@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { PageHeading } from '@/components/site/section-heading';
 import { MenuBrowser } from '@/components/menu/menu-browser';
 import Link from '@/components/i18n/localized-link';
+import { DeliveryTerms } from '@/components/site/delivery-terms';
 export function pageMetadata(locale: Locale): Metadata {
   const t = getTranslator(locale);
   const meta = {
@@ -29,6 +30,7 @@ export default function MenuPage({ locale = 'bg' }: { locale?: Locale }) {
         <span>{t('Пица на пещ · 26, 33 или 50 см')}</span>
         <span>{t('Всички цени са в евро · Поръчките се потвърждават от екипа')}</span>
       </div>
+      <DeliveryTerms locale={locale} />
       <nav className="wrap menu-switch" aria-label={t('Избор на меню')}>
         <Link href="/menu/" aria-current="page">
           {t('Основно меню')}

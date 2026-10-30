@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import { getTranslator, type Locale } from '@/i18n';
 import { deliveryMap, deliveryZones } from '@/content/delivery';
+import { deliveryTermsText } from '@/components/site/delivery-terms';
 export function DeliveryZones({ locale = 'bg' }: { locale?: Locale }) {
   const t = getTranslator(locale);
   const full = deliveryMap.path + locale + '.webp';
@@ -16,7 +17,10 @@ export function DeliveryZones({ locale = 'bg' }: { locale?: Locale }) {
             <em>{t('доставка.')}</em>
           </h2>
         </div>
-        <p>{t('Доставяме в кварталите, отбелязани на картата. Ако не сте сигурни за адреса си, обадете ни се.')}</p>
+        <div>
+          <p>{t('Доставяме в кварталите, отбелязани на картата. Ако не сте сигурни за адреса си, обадете ни се.')}</p>
+          <p className="delivery-zones-terms">{deliveryTermsText(locale)}</p>
+        </div>
       </div>
       <figure className="delivery-map">
         <a href={full} target="_blank" rel="noopener noreferrer" className="delivery-map-image">

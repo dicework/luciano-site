@@ -5,7 +5,9 @@ import { useI18n } from '@/components/i18n/language-provider';
 import { useMessagingTest } from '@/components/messaging-test-provider';
 import { restaurant } from '@/content/restaurant';
 import { money, orderTotal } from '@/lib/order';
-import { MINIMUM_ORDER_MINOR, type CheckoutError, type OrderReceipt } from '@/lib/checkout';
+import { type CheckoutError, type OrderReceipt } from '@/lib/checkout';
+import { MINIMUM_ORDER_MINOR, deliveryQuote } from '@/lib/delivery';
+import { DeliveryZonesHint } from '@/components/cart/delivery-zones-hint';
 import type { ResolvedLine } from '@/types/menu';
 
 export function CheckoutForm({
@@ -31,9 +33,9 @@ export function CheckoutForm({
   const attempt = useRef<{ fingerprint: string; id: string } | null>(null);
   const submitting = useRef(false);
   const testMode = Boolean(test.phone || test.error);
-  const total = orderTotal(lines);
-  const belowMinimum = total < MINIMUM_ORDER_MINOR;
-  const minimumMessage = t('Минимална стойност на поръчката: {amount}.').replace(
+  const quote = deliveryQuote(orderTotal(lines));
+  const belowMinimum = quote.toMinimumMinor > 0;
+  const minimumMessage = t('Минималната поръчка за доставка е {amount}.').replace(
     '{amount}',
     money(MINIMUM_ORDER_MINOR, locale),
   );
@@ -72,7 +74,7 @@ export function CheckoutForm({
       notes,
       locale,
       lines: lines.map(({ itemId, variantId, quantity }) => ({ itemId, variantId, quantity })),
-      expectedTotalMinor: total,
+      expectedTotalMinor: quote.totalMinor,
     };
     const fingerprint = JSON.stringify(payload);
     if (attempt.current?.fingerprint !== fingerprint) attempt.current = { fingerprint, id: crypto.randomUUID() };
@@ -136,14 +138,6 @@ export function CheckoutForm({
 
   return (
     <form className="checkout-form" onSubmit={submit}>
-      <p id="order-minimum" className={belowMinimum ? 'notice' : 'small'} role="status">
-        {minimumMessage}{' '}
-        {belowMinimum &&
-          t('Добавете още {amount}, за да изпратите поръчката.').replace(
-            '{amount}',
-            money(MINIMUM_ORDER_MINOR - total, locale),
-          )}
-      </p>
       <fieldset disabled={busy}>
         <legend className="sr-only">{t('Данни за поръчката')}</legend>
         <p className="small">{t('Полетата с * са задължителни.')}</p>
@@ -191,6 +185,7 @@ export function CheckoutForm({
             placeholder={t('Улица, номер, вход, етаж, апартамент')}
           />
         </label>
+        <DeliveryZonesHint />
         <label className="field">
           <span>
             {t('Бележка към поръчката')} <span className="optional">{t('(по желание)')}</span>
@@ -223,10 +218,19 @@ export function CheckoutForm({
       <p className="small">
         {t('Името, телефонът, адресът и поръчката се записват и изпращат на ресторанта за потвърждение.')}
       </p>
+      {belowMinimum && (
+        <output id="order-minimum" className="notice">
+          {minimumMessage}{' '}
+          {t('Добавете още {amount}, за да изпратите поръчката.').replace(
+            '{amount}',
+            money(quote.toMinimumMinor, locale),
+          )}
+        </output>
+      )}
       <button
         className="btn btn-red"
         type="submit"
-        aria-describedby="order-minimum"
+        aria-describedby={belowMinimum ? 'order-minimum' : undefined}
         disabled={!available || busy || testMode || !test.ready || belowMinimum}
       >
         {busy ?

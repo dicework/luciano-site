@@ -23,12 +23,12 @@ void test('Pages CMS price, photo and translation edits feed the menu and checko
     notes: '',
     locale: 'bg' as const,
     lines: [{ itemId: item.id, variantId: item.variants[1].id, quantity: 2 }],
-    expectedTotalMinor: 1560,
+    expectedTotalMinor: 1710,
   };
   assert.throws(() => priceCheckout(input, menu), /changed/);
-  assert.equal(priceCheckout({ ...input, expectedTotalMinor: 1630 }, menu)[0].priceMinor, 815);
+  assert.equal(priceCheckout({ ...input, expectedTotalMinor: 1780 }, menu)[0].priceMinor, 815);
   raw.categories[0].items[0].available = false;
-  assert.throws(() => priceCheckout({ ...input, expectedTotalMinor: 1630 }, parseMenu(raw)));
+  assert.throws(() => priceCheckout({ ...input, expectedTotalMinor: 1780 }, parseMenu(raw)));
 });
 
 void test('invalid editable prices, photos, IDs and portions cannot enter the ordering menu', () => {

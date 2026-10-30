@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 import { Miniflare } from 'miniflare';
 import { submitOrder } from '../lib/server/orders.ts';
+import { money } from '../lib/order.ts';
 import type { RestaurantEnv } from '../lib/server/env.ts';
 
 void test('order API saves before notifying, handles concurrent retries, validates prices, and limits requests', async (t) => {
@@ -34,7 +35,7 @@ void test('order API saves before notifying, handles concurrent retries, validat
     notes: '',
     locale: 'en',
     lines: [{ itemId: 'pizza-1', variantId: '33', quantity: 2 }],
-    expectedTotalMinor: 1560,
+    expectedTotalMinor: 1710,
   });
   const request = (data: unknown, origin = 'https://restaurant.test') =>
     new Request('https://restaurant.test/api/orders/', {
@@ -57,7 +58,10 @@ void test('order API saves before notifying, handles concurrent retries, validat
       .bind(Number(reference[1]))
       .first<{ order_json: string }>();
     assert.ok(saved, 'order must be saved before notification');
-    assert.equal(JSON.parse(saved.order_json).totalMinor, 1560);
+    const order = JSON.parse(saved.order_json);
+    assert.deepEqual([order.itemsMinor, order.deliveryMinor, order.totalMinor], [1560, 150, 1710]);
+    assert.ok(body.text.includes(`Доставка: ${money(150)}`));
+    assert.ok(body.text.includes(`Общо: ${money(1710)}`));
     assert.equal(JSON.parse(saved.order_json).address, fixture().address);
     assert.ok(body.text.includes(`Адрес за доставка: ${fixture().address}`));
     return Response.json({ ok: true });
@@ -80,7 +84,7 @@ void test('order API saves before notifying, handles concurrent retries, validat
   assert.equal((await submitOrder(request(fixture(), 'https://other.test'), env, send)).status, 403);
   assert.equal((await submitOrder(request(fixture()), { ...env, ORDERS_ENABLED: 'false' }, send)).status, 503);
   assert.equal((await submitOrder(request({ ...fixture(), expectedTotalMinor: 1 }), env, send)).status, 400);
-  for (const expectedTotalMinor of [780, 1500]) {
+  for (const expectedTotalMinor of [930, 780]) {
     const belowMinimum = await submitOrder(
       request({
         ...fixture(),
@@ -91,7 +95,8 @@ void test('order API saves before notifying, handles concurrent retries, validat
       send,
     );
     assert.equal(belowMinimum.status, 400);
-    assert.deepEqual(await belowMinimum.json(), { error: expectedTotalMinor === 780 ? 'minimum' : 'changed' });
+    // 7.80 € plus delivery is below the 12 € minimum; without the delivery fee the total is stale.
+    assert.deepEqual(await belowMinimum.json(), { error: expectedTotalMinor === 930 ? 'minimum' : 'changed' });
   }
   const missingAddress = await submitOrder(request({ ...fixture(), address: undefined }), env, send);
   assert.equal(missingAddress.status, 400);

@@ -1,6 +1,7 @@
 import { menu } from '../../content/menu.ts';
 import { lunchWeek } from '../../content/lunch.ts';
 import { CheckoutValidationError, parseCheckout, priceCheckout, type OrderReceipt } from '../checkout.ts';
+import { deliveryQuote } from '../delivery.ts';
 import { orderingMenu } from '../lunch.ts';
 import { money, orderTotal, sofiaDateTime } from '../order.ts';
 import { boundedText, notificationChannels, notifyOwner, type NotificationResult } from './notifications.ts';
@@ -63,7 +64,7 @@ export async function submitOrder(request: Request, env: RestaurantEnv, send: ty
 
     // Validate against today's server-side menu, including Sofia lunch hours.
     const lines = priceCheckout(input, orderingMenu(menu, lunchWeek, sofiaDateTime(now)));
-    const totalMinor = orderTotal(lines);
+    const quote = deliveryQuote(orderTotal(lines));
     const messageFor = (reference: string) =>
       [
         `Нова поръчка · Лучиано · № ${reference}`,
@@ -74,7 +75,9 @@ export async function submitOrder(request: Request, env: RestaurantEnv, send: ty
           (line) =>
             `${line.quantity} × ${line.name} (${line.variantLabel}) — ${money(line.quantity * line.priceMinor)}`,
         ),
-        `Общо: ${money(totalMinor)}`,
+        `Продукти: ${money(quote.itemsMinor)}`,
+        `Доставка: ${quote.deliveryMinor ? money(quote.deliveryMinor) : 'безплатна'}`,
+        `Общо: ${money(quote.totalMinor)}`,
         input.notes ? `Бележка: ${input.notes}` : '',
         'Моля, свържете се с клиента за потвърждение и получаване.',
       ]
@@ -94,7 +97,9 @@ export async function submitOrder(request: Request, env: RestaurantEnv, send: ty
       notes: input.notes,
       locale: input.locale,
       lines,
-      totalMinor,
+      itemsMinor: quote.itemsMinor,
+      deliveryMinor: quote.deliveryMinor,
+      totalMinor: quote.totalMinor,
       status: 'awaiting_confirmation',
     });
 

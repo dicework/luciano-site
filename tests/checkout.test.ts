@@ -4,6 +4,7 @@ import { menu } from '../content/menu.ts';
 import { lunchWeek } from '../content/lunch.ts';
 import { orderingMenu } from '../lib/lunch.ts';
 import { parseCheckout, priceCheckout, CheckoutValidationError } from '../lib/checkout.ts';
+import { deliveryQuote } from '../lib/delivery.ts';
 import { notifyOwner } from '../lib/server/notifications.ts';
 
 export const checkoutFixture = () => ({
@@ -14,7 +15,8 @@ export const checkoutFixture = () => ({
   notes: '',
   locale: 'en',
   lines: [{ itemId: 'pizza-1', variantId: '33', quantity: 2 }],
-  expectedTotalMinor: 1560,
+  // 2 × 7.80 € plus 1.50 € delivery.
+  expectedTotalMinor: 1710,
 });
 
 void test('checkout uses current menu prices and rejects missing or changed dishes instead of silently dropping them', () => {
@@ -49,17 +51,17 @@ void test('checkout validates contacts, quantities, duplicate lines, and size li
     assert.throws(() => parseCheckout({ ...input, ...patch }), CheckoutValidationError);
 });
 
-void test('checkout rejects totals below 15 euro and accepts the exact minimum and higher totals', () => {
-  for (const priceMinor of [1499, 1500, 1501]) {
+void test('checkout rejects items below 12 euro and accepts the exact minimum and higher totals', () => {
+  for (const priceMinor of [1199, 1200, 1201]) {
     const pricedMenu = structuredClone(menu);
     const item = pricedMenu.flatMap((category) => category.items).find((dish) => dish.id === 'pizza-1')!;
     item.variants.find((variant) => variant.id === '33')!.priceMinor = priceMinor;
     const input = parseCheckout({
       ...checkoutFixture(),
       lines: [{ itemId: 'pizza-1', variantId: '33', quantity: 1 }],
-      expectedTotalMinor: priceMinor,
+      expectedTotalMinor: priceMinor + 150,
     });
-    if (priceMinor < 1500)
+    if (priceMinor < 1200)
       assert.throws(
         () => priceCheckout(input, pricedMenu),
         (error) => error instanceof CheckoutValidationError && error.code === 'minimum',
@@ -89,11 +91,45 @@ void test('checkout requires a bounded address and preserves Bulgarian delivery 
     );
 });
 
+void test('delivery costs 1.50 euro below 20 euro, is free from 20 euro, and is part of the confirmed total', () => {
+  assert.deepEqual(deliveryQuote(1199), {
+    itemsMinor: 1199,
+    deliveryMinor: 150,
+    totalMinor: 1349,
+    toMinimumMinor: 1,
+    toFreeDeliveryMinor: 801,
+  });
+  assert.equal(deliveryQuote(1200).toMinimumMinor, 0);
+  assert.equal(deliveryQuote(1999).totalMinor, 2149);
+  assert.equal(deliveryQuote(2000).deliveryMinor, 0);
+  assert.equal(deliveryQuote(2000).totalMinor, 2000);
+  for (const [priceMinor, expectedTotalMinor] of [
+    [1999, 2149],
+    [2000, 2000],
+    [2001, 2001],
+  ]) {
+    const pricedMenu = structuredClone(menu);
+    const item = pricedMenu.flatMap((category) => category.items).find((dish) => dish.id === 'pizza-1')!;
+    item.variants.find((variant) => variant.id === '33')!.priceMinor = priceMinor;
+    const lines = [{ itemId: 'pizza-1', variantId: '33', quantity: 1 }];
+    assert.equal(
+      priceCheckout(parseCheckout({ ...checkoutFixture(), lines, expectedTotalMinor }), pricedMenu).length,
+      1,
+    );
+    // A client that shows a different delivery fee must reload before ordering.
+    if (priceMinor < 2000)
+      assert.throws(
+        () => priceCheckout(parseCheckout({ ...checkoutFixture(), lines, expectedTotalMinor: priceMinor }), pricedMenu),
+        (error) => error instanceof CheckoutValidationError && error.code === 'changed',
+      );
+  }
+});
+
 void test('expired lunch cannot be submitted even when a client retains an old cart', () => {
   const input = parseCheckout({
     ...checkoutFixture(),
     lines: [{ itemId: lunchWeek!.items[0].id, variantId: 'regular', quantity: 5 }],
-    expectedTotalMinor: 1700,
+    expectedTotalMinor: 1850,
   });
   assert.equal(priceCheckout(input, orderingMenu(menu, lunchWeek, { date: '2026-10-08', time: '12:00' })).length, 1);
   assert.throws(
