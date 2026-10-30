@@ -48,7 +48,7 @@ export const en = {
   'Обадете се:': 'Call us:',
   'Нова поръчка': 'New order',
   'Данни за поръчката': 'Order details',
-  'Минимална стойност на поръчката: {amount}.': 'Minimum order value: {amount}.',
+  'Минималната поръчка за доставка е {amount}.': 'The minimum order for delivery is {amount}.',
   'Добавете още {amount}, за да изпратите поръчката.': 'Add {amount} more to place your order.',
   'Автоматичните поръчки са изключени в тестов режим. Излезте от теста, за да поръчате.':
     'Automatic orders are disabled in test mode. Exit test mode to place an order.',
@@ -558,4 +558,22 @@ export const en = {
   'Спортна зала': 'Sports Hall',
   Левски: 'Levski',
   Трошево: 'Troshevo',
+  'Минимална поръчка за доставка: {minimum}. Добавете още {amount}.':
+    'Minimum order for delivery: {minimum}. Add {amount} more.',
+  'Още {amount} до безплатна доставка.': 'Add {amount} more for free delivery.',
+  'Безплатна доставка за тази поръчка.': 'Free delivery for this order.',
+  'Още {amount} до минималната поръчка': 'Add {amount} to reach the minimum order',
+  'Безплатна доставка': 'Free delivery',
+  Продукти: 'Items',
+  Доставка: 'Delivery',
+  Безплатна: 'Free',
+  'Доставка:': 'Delivery:',
+  безплатна: 'free',
+  'Виж поръчката': 'View order',
+  'Доставяме ли до вас? Вижте зоните за доставка': 'Do we deliver to you? See the delivery zones',
+  'Ако адресът ви е извън зоните, обадете ни се, преди да поръчате.':
+    'If your address is outside the zones, call us before ordering.',
+  'Доставка {fee} · безплатна при поръчка от {free} · минимална поръчка {minimum}':
+    'Delivery {fee} · free on orders from {free} · minimum order {minimum}',
+  'Зони за доставка': 'Delivery zones',
 };

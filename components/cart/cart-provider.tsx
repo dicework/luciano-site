@@ -8,8 +8,10 @@ import { lunchWeek } from '@/content/lunch';
 import { orderingMenu } from '@/lib/lunch';
 import { initialCart, createCartReducer } from '@/lib/cart';
 import type { CartLine } from '@/types/menu';
-import { reconcileCart, resolveCart, sofiaDateTime } from '@/lib/order';
+import { orderTotal, reconcileCart, resolveCart, sofiaDateTime } from '@/lib/order';
+import { deliveryQuote } from '@/lib/delivery';
 import { CartSheet } from './cart-sheet';
+import { deliveryStatus } from './delivery-summary';
 import { useCartTools } from './use-cart-tools';
 
 const STORAGE = 'luchiano-cart-v1';
@@ -101,7 +103,11 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const announced = state.announcement;
   const announcement =
     announced === 'updated' ? t('Поръчката е обновена спрямо наличното меню.')
-    : announced ? (resolved.find((line) => line.itemId === announced.itemId)?.name ?? '') + t(' е добавен в поръчката.')
+    : announced ?
+      (resolved.find((line) => line.itemId === announced.itemId)?.name ?? '') +
+      t(' е добавен в поръчката.') +
+      ' ' +
+      deliveryStatus(deliveryQuote(orderTotal(resolved)), t, locale)
     : '';
   return (
     <Context.Provider value={value}>
@@ -113,6 +119,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
             open={open}
             setOpen={setOpen}
             announcement={announcement}
+            added={announced && announced !== 'updated' ? announced : null}
             storageWarning={storageWarning}
             change={(itemId, variantId, delta) =>
               dispatch({

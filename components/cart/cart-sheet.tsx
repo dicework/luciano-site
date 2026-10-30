@@ -1,18 +1,21 @@
 'use client';
 import { useI18n } from '@/components/i18n/language-provider';
-import { useState } from 'react';
-import { ShoppingBag, Minus, Plus, X, Trash2, ArrowRight } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { ShoppingBag, Minus, Plus, X, Trash2, ArrowRight, Check } from 'lucide-react';
 import Link from '@/components/i18n/localized-link';
 import { Sheet, SheetContent, SheetTitle, SheetDescription, SheetClose } from '@/components/ui/sheet';
-import type { ResolvedLine } from '@/types/menu';
+import type { CartLine, ResolvedLine } from '@/types/menu';
 import { money, orderTotal } from '@/lib/order';
+import { deliveryQuote } from '@/lib/delivery';
 import { CheckoutForm } from '@/components/cart/checkout-form';
+import { DeliverySummary, deliveryStatus } from '@/components/cart/delivery-summary';
 import type { OrderReceipt } from '@/lib/checkout';
 export function CartSheet({
   resolved,
   open,
   setOpen,
   announcement,
+  added,
   storageWarning,
   change,
 }: {
@@ -20,12 +23,25 @@ export function CartSheet({
   open: boolean;
   setOpen: (open: boolean) => void;
   announcement: string;
+  added: CartLine | null;
   storageWarning: boolean;
   change: (itemId: string, variantId: string, delta: number) => void;
 }) {
   const { locale, t } = useI18n();
   const [receipt, setReceipt] = useState<OrderReceipt | null>(null);
+  const [dismissed, setDismissed] = useState<CartLine | null>(null);
   const count = resolved.reduce((sum, line) => sum + line.quantity, 0);
+  const quote = deliveryQuote(orderTotal(resolved));
+  // Each dish added from the menu briefly confirms itself with the delivery progress.
+  const addedName =
+    added && added !== dismissed && !open ?
+      resolved.find((line) => line.itemId === added.itemId && line.variantId === added.variantId)?.name
+    : undefined;
+  useEffect(() => {
+    if (!added) return;
+    const timer = window.setTimeout(() => setDismissed(added), 5000);
+    return () => window.clearTimeout(timer);
+  }, [added]);
   return (
     <>
       <output className="sr-only" aria-live="polite">
@@ -37,10 +53,33 @@ export function CartSheet({
           <span>
             {t('Моята поръчка · ')}
             {count}
+            <small>{deliveryStatus(quote, t, locale, true)}</small>
           </span>
-          <strong>{money(orderTotal(resolved), locale)}</strong>
+          <strong>{money(quote.totalMinor, locale)}</strong>
           <ArrowRight size={19} />
         </button>
+      )}
+      {addedName && (
+        <div className="cart-toast" aria-hidden="true">
+          <Check size={18} />
+          <p>
+            <strong>
+              {addedName}
+              {t(' е добавен в поръчката.')}
+            </strong>
+            <span>{deliveryStatus(quote, t, locale)}</span>
+          </p>
+          <button
+            type="button"
+            tabIndex={-1}
+            onClick={() => {
+              setDismissed(added);
+              setOpen(true);
+            }}
+          >
+            {t('Виж поръчката')}
+          </button>
+        </div>
       )}
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetContent showCloseButton={false} className="cart-sheet !w-full !max-w-lg">
@@ -103,10 +142,7 @@ export function CartSheet({
                       </div>
                     ))}
                   </div>
-                  <div className="cart-total">
-                    <span>{t('Ориентировъчна сума')}</span>
-                    <strong>{money(orderTotal(resolved), locale)}</strong>
-                  </div>
+                  <DeliverySummary quote={quote} />
                   <p className="small">
                     {t(
                       'Наличностите, получаването и крайната сума се уточняват с ресторанта. Поръчката е приета след потвърждение.',

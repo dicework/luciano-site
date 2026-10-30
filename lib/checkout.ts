@@ -1,7 +1,6 @@
 import type { CartLine, MenuCategory, ResolvedLine } from '../types/menu';
+import { deliveryQuote } from './delivery.ts';
 import { orderTotal, resolveCart } from './order.ts';
-
-export const MINIMUM_ORDER_MINOR = 1500;
 
 export const checkoutErrors = {
   invalid: 'invalid',
@@ -105,8 +104,9 @@ export function parseCheckout(value: unknown): CheckoutInput {
 export function priceCheckout(input: CheckoutInput, menu: MenuCategory[]): ResolvedLine[] {
   const lines = resolveCart(input.lines, menu);
   if (lines.length !== input.lines.length) throw new CheckoutValidationError('changed');
-  const total = orderTotal(lines);
-  if (total !== input.expectedTotalMinor) throw new CheckoutValidationError('changed');
-  if (total < MINIMUM_ORDER_MINOR) throw new CheckoutValidationError('minimum');
+  // The expected total includes delivery, so an order is accepted only at the price the customer saw.
+  const quote = deliveryQuote(orderTotal(lines));
+  if (quote.totalMinor !== input.expectedTotalMinor) throw new CheckoutValidationError('changed');
+  if (quote.toMinimumMinor > 0) throw new CheckoutValidationError('minimum');
   return lines;
 }

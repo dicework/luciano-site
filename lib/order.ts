@@ -1,4 +1,5 @@
 import { getTranslator, intlLocale, type Locale } from '../i18n/index.ts';
+import { deliveryQuote } from './delivery.ts';
 import type { CartLine, MenuCategory, ResolvedLine } from '../types/menu';
 export function money(minor: number, locale: Locale = 'bg') {
   return new Intl.NumberFormat(intlLocale(locale), {
@@ -43,13 +44,15 @@ export function orderTotal(lines: ResolvedLine[]) {
 export function orderMessage(lines: ResolvedLine[], notes = '', locale: Locale = 'bg') {
   const t = getTranslator(locale);
   if (!lines.length) throw new Error(t('Поръчката е празна.'));
+  const quote = deliveryQuote(orderTotal(lines));
   return [
     t('Здравейте, Лучиано! Бих искал/а да поръчам:'),
     ...lines.map(
       (l) => l.quantity + ' × ' + l.name + ' (' + l.variantLabel + ') — ' + money(l.priceMinor * l.quantity, locale),
     ),
     '',
-    t('Ориентировъчна сума: ') + money(orderTotal(lines), locale),
+    t('Доставка: ') + (quote.deliveryMinor ? money(quote.deliveryMinor, locale) : t('безплатна')),
+    t('Ориентировъчна сума: ') + money(quote.totalMinor, locale),
     notes.trim() ? t('Бележка: ') + notes.trim() : '',
     t('Моля, потвърдете наличността, крайната сума и кога мога да получа поръчката.'),
   ]
