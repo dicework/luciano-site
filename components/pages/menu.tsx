@@ -5,13 +5,17 @@ import { PageHeading } from '@/components/site/section-heading';
 import { MenuBrowser } from '@/components/menu/menu-browser';
 import Link from '@/components/i18n/localized-link';
 import { DeliveryTerms } from '@/components/site/delivery-terms';
+import { money } from '@/lib/order';
+import { FREE_DELIVERY_FROM_MINOR, MINIMUM_ORDER_MINOR } from '@/lib/delivery';
 export function pageMetadata(locale: Locale): Metadata {
   const t = getTranslator(locale);
   const meta = {
     title: t('Меню: пица, паста, салати и скара'),
     description: t(
-      'Пица на пещ в 26, 33 и 50 см, паста, салати и скара. Поръчайте онлайн с доставка във Варна, минимална поръчка 15 €.',
-    ),
+      'Пица на пещ в 26, 33 и 50 см, паста, салати и скара. Поръчайте онлайн с доставка във Варна от {minimum}, безплатна доставка от {free}.',
+    )
+      .replace('{minimum}', money(MINIMUM_ORDER_MINOR, locale))
+      .replace('{free}', money(FREE_DELIVERY_FROM_MINOR, locale)),
     alternates: { canonical: '/menu/' },
   };
   return localizedMetadata(meta, locale);

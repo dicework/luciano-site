@@ -162,8 +162,8 @@ export const en = {
   'Нещо вкусно всеки обяд.': 'Something delicious every lunchtime.',
   'Обедните предложения на Лучиано, събрани на едно място.': "All of Luchiano's lunch specials in one place.",
   'Меню: пица, паста, салати и скара': 'Menu: pizza, pasta, salads and grill',
-  'Пица на пещ в 26, 33 и 50 см, паста, салати и скара. Поръчайте онлайн с доставка във Варна, минимална поръчка 15 €.':
-    'Wood-fired pizza in 26, 33 and 50 cm, pasta, salads and grill. Order online for delivery in Varna, minimum order €15.',
+  'Пица на пещ в 26, 33 и 50 см, паста, салати и скара. Поръчайте онлайн с доставка във Варна от {minimum}, безплатна доставка от {free}.':
+    'Wood-fired pizza in 26, 33 and 50 cm, pasta, salads and grill. Order online for delivery in Varna from {minimum}, free delivery from {free}.',
   'ОТ НАШАТА КУХНЯ': 'FROM OUR KITCHEN',
   'Пица, паста и скара.': 'Pizza, pasta and grill.',
   'За всеки вкус.': 'For every taste.',
