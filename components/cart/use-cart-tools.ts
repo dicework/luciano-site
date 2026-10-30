@@ -69,7 +69,7 @@ export function useCartTools(ready: boolean, menu: MenuCategory[], onStage: (ite
             !input.items.length ||
             input.items.length > 30
           )
-            throw new Error('Expected 1–30 items.');
+            throw new Error('Expected 1-30 items.');
           const items = input.items;
           for (const item of items) {
             if (

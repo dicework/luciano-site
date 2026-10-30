@@ -8,7 +8,7 @@ import { Phone, Clock, MapPin } from 'lucide-react';
 export function pageMetadata(locale: Locale): Metadata {
   const t = getTranslator(locale);
   const meta = {
-    title: t('Резервации'),
+    title: t('Резервация на маса'),
     description: t('Запазете маса в Лучиано, Варна. Изпратете запитване онлайн или се обадете на +359 88 609 4164.'),
     alternates: { canonical: '/reservations/' },
   };
@@ -26,7 +26,13 @@ export default function ReservationsPage({ locale = 'bg' }: { locale?: Locale })
           {t('заслужава ')}
           <em>{t('хубава маса.')}</em>
         </h1>
-        <Image src="/images/interior.webp" alt={t('Уютни маси и меки кресла в Лучиано')} width={900} height={600} />
+        <Image
+          src="/images/interior.webp"
+          alt={t('Уютни маси и меки кресла в Лучиано')}
+          width={900}
+          height={600}
+          loading="eager"
+        />
         <div className="contact-lines">
           <a href={'tel:' + restaurant.phone}>
             <Phone />

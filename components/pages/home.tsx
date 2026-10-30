@@ -25,16 +25,14 @@ export default function Home({ locale = 'bg' }: { locale?: Locale }) {
             {t(' МАЛКО НЕАПОЛ. МНОГО ВАРНА.')}
           </p>
           <h1>
-            <span className="hero-name">{t('Лучиано —')}</span>
-            {t(' неаполитанска')}
+            {t('Неаполитанска')}
             <br />
-            {t('пица във ')}
-            <em>{t('Варна.')}</em>
+            {t('пица във Варна.')}
           </h1>
           <p className="hero-description">
             {t('Хубавата храна събира хората.')}
             <br />
-            {t('Пица от пещта, прясна паста и още малко време заедно — в сърцето на града.')}
+            {t('Пица от пещта, прясна паста и още малко време заедно в сърцето на града.')}
           </p>
           <div className="actions">
             <Link className="btn btn-red" href="/menu/">
@@ -52,17 +50,18 @@ export default function Home({ locale = 'bg' }: { locale?: Locale }) {
             </span>
             <span>
               <Clock size={16} />
-              {t(' Всеки ден · 08:00–22:00')}
+              {t(' Всеки ден · 08:00-22:00')}
             </span>
           </div>
         </div>
         <div className="hero-visual">
           <Image
             className="hero-image"
-            src="/images/hero.webp"
+            src="/images/hero-pizza.webp"
             alt={t('Прясно изпечена пица в ресторант Лучиано')}
-            width="1000"
-            height="1200"
+            width="1266"
+            height="1243"
+            loading="eager"
             fetchPriority="high"
           />
           <div className="hero-stamp">
@@ -74,7 +73,6 @@ export default function Home({ locale = 'bg' }: { locale?: Locale }) {
             </b>
             <span>{t('С ЛЮБОВ ОТ ЛУЧИАНО')}</span>
           </div>
-          <span className="image-caption">{t('Италиански вкус. Нашето място.')}</span>
         </div>
       </section>
       <IngredientBanner locale={locale} />
@@ -88,7 +86,7 @@ export default function Home({ locale = 'bg' }: { locale?: Locale }) {
           </h2>
           <p>
             {t(
-              'На ул. „Русе“ 13 има място за дълги обеди, семейни вечери и срещи без повод. Приготвяме любимите италиански вкусове и ви посрещаме така, както обичаме да посрещат нас — с топлина.',
+              'На ул. „Русе“ 13 има място за дълги обеди, семейни вечери и срещи без повод. Приготвяме любимите италиански вкусове и ви посрещаме така, както обичаме да посрещат нас, с топлина.',
             )}
           </p>
           <Link className="text-link" href="/about/">
@@ -102,7 +100,7 @@ export default function Home({ locale = 'bg' }: { locale?: Locale }) {
       <section className="restaurant-banner wrap">
         <Image
           src="/images/interior.webp"
-          alt={t('Интериорът на Лучиано — уютни сепарета и топла атмосфера')}
+          alt={t('Интериорът на Лучиано с уютни сепарета и топла атмосфера')}
           width={1800}
           height={650}
           loading="lazy"

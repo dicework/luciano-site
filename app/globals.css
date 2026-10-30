@@ -149,12 +149,6 @@ p {
   width: 100%;
   height: auto;
 }
-.brand-badge {
-  width: 180px;
-}
-.brand-badge img {
-  mix-blend-mode: lighten;
-}
 .header-inner nav {
   display: flex;
   gap: 26px;
@@ -235,13 +229,6 @@ p {
   letter-spacing: -0.047em;
   line-height: 1.02;
 }
-.hero-name {
-  display: block;
-  font-size: 0.65em;
-  margin-bottom: 10px;
-  color: var(--red);
-  font-style: italic;
-}
 .hero-description {
   font-size: 16px;
   line-height: 1.9;
@@ -274,8 +261,7 @@ p {
 .hero-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 200px 200px 5px 5px;
+  object-fit: contain;
 }
 .hero-stamp {
   position: absolute;
@@ -308,15 +294,6 @@ p {
   margin: 9px 0;
   font-weight: 500;
 }
-.image-caption {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-  color: white;
-  text-shadow: 0 1px 8px #000;
-  font-size: 12px;
-  letter-spacing: 0.03em;
-}
 .section {
   padding-block: 90px;
 }
@@ -348,7 +325,6 @@ p {
   color: #f9f4e7;
   padding: 44px 0;
 }
-.footer .brand,
 .footer p {
   color: inherit;
 }
@@ -863,7 +839,7 @@ p {
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.25fr 0.8fr 1fr 1.05fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 40px;
 }
 .footer-grid h3 {
@@ -1950,8 +1926,7 @@ p {
     font-size: 25px;
   }
   .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px 60px;
+    gap: 40px 32px;
   }
   .menu-layout {
     grid-template-columns: 190px 1fr;
@@ -2083,11 +2058,18 @@ p {
     font-size: clamp(3.2rem, 11vw, 4.8rem);
   }
   .hero .actions {
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: stretch;
   }
   .hero .btn {
     min-width: 0;
+    gap: 8px;
+    padding-inline: 10px;
+    text-align: center;
+  }
+  .hero .btn svg {
+    flex-shrink: 0;
   }
   .page-heading {
     padding-block: 45px 32px;
@@ -2151,21 +2133,54 @@ p {
   .map-frame {
     height: 340px;
   }
+  .footer {
+    padding-top: 48px;
+  }
   .footer-grid {
-    gap: 35px 22px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 24px;
   }
-  .footer-grid > div:first-child {
+  .footer-navigation {
     grid-column: 1/-1;
   }
-  .footer-grid > div:last-child {
-    grid-column: 1/-1;
+  .footer-grid h3 {
+    margin-bottom: 12px;
+  }
+  /* Two columns of links, each tall enough to tap comfortably. */
+  .footer-navigation nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 24px;
+    font-size: 14px;
+  }
+  .footer-navigation nav a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
   }
   .footer-grid p {
-    font-size: 13px;
+    margin-top: 12px;
+    font-size: 14px;
+  }
+  .footer-grid h3 + p {
+    margin-top: 0;
+  }
+  .footer-link {
+    min-height: 44px;
+    margin-top: 8px;
+  }
+  .footer-phone {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .footer-contact > p {
+    margin-top: 4px;
   }
   .footer-bottom {
     flex-direction: column;
     gap: 8px;
+    margin-top: 32px;
   }
   .menu-intro-note {
     flex-direction: column;
@@ -2332,14 +2347,11 @@ p {
   .header-inner .cart-toggle {
     margin-left: auto;
   }
-  .hero .actions .btn {
-    width: 100%;
-  }
   .hero-visual {
     height: 380px;
   }
   .hero h1 {
-    font-size: 3.2rem;
+    font-size: clamp(2.5rem, 13vw, 3.2rem);
   }
   .gallery-grid {
     grid-template-columns: 1fr;
@@ -2347,12 +2359,6 @@ p {
   .gallery-item,
   .gallery-item.wide {
     height: 390px;
-  }
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-  .footer-grid > div {
-    grid-column: auto !important;
   }
   .form-row {
     grid-template-columns: 1fr;
@@ -2857,6 +2863,9 @@ p {
   }
   .header-inner .cart-toggle {
     margin-left: auto;
+  }
+  .footer-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 @media (max-width: 360px) {

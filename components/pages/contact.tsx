@@ -13,7 +13,7 @@ export function pageMetadata(locale: Locale): Metadata {
   const meta = {
     title: t('Контакти и местоположение'),
     description: t(
-      'Намерете ресторант Лучиано на ул. „Русе“ 13, Варна. Всеки ден 08:00–22:00. Телефон: +359 88 609 4164.',
+      'Намерете ресторант Лучиано на ул. „Русе“ 13, Варна. Всеки ден 08:00-22:00. Телефон: +359 88 609 4164.',
     ),
     alternates: { canonical: '/contact/' },
   };
@@ -38,7 +38,7 @@ export default function ContactPage({ locale = 'bg' }: { locale?: Locale }) {
             {t('Да се ')}
             <em>{t('чуем.')}</em>
           </h2>
-          <p>{t('За въпроси, поръчки и резервации — обадете се или ни пишете.')}</p>
+          <p>{t('За въпроси, поръчки и резервации, обадете се или ни пишете.')}</p>
           <a className="contact-social" href={restaurant.instagram} target="_blank" rel="noopener noreferrer">
             <Camera size={18} aria-hidden="true" />
             {restaurant.instagramHandle}

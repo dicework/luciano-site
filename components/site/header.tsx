@@ -24,7 +24,7 @@ export function Header() {
       </div>
       <header className="site-header">
         <div className="header-inner wrap">
-          <Link className="brand" href="/" aria-label={t('Лучиано — начало')}>
+          <Link className="brand" href="/" aria-label={t('Лучиано: начало')}>
             <Image
               src="/images/brand/luchiano-wordmark.webp"
               alt={t('Лучиано')}

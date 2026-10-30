@@ -14,6 +14,8 @@ Accessed 2026-09-06. Reused for this restaurant redesign under the user's instru
 | luciano.webp   | /img/menu/pizza-luciano.png   |
 | carbonara.webp | /img/menu/pasta-carbonara.png |
 
+`hero-pizza.webp` (1266 × 1243, transparent background) is the restaurant's burrata pizza photo with the white background removed. It is the home page hero and is shown whole, uncropped.
+
 URLs are relative to the source website above. Images resized/compressed to WebP. Gallery JPGs show the restaurant and food. The two exact menu PNGs are the restaurant's published product representations and appear processed; their status as unaltered photography is unverified. No claim is made that all food imagery is unedited photography.
 
 Fonts: self-hosted Cormorant Garamond and Manrope from Fontsource, including Cyrillic. Original font licensing is in their installed packages (SIL OFL).

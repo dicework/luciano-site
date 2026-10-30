@@ -46,7 +46,7 @@ export function LunchMenu({ preview = false }: { preview?: boolean }) {
               <div className="lunch-meta">
                 <span>
                   <CalendarDays size={18} />
-                  {dateLabel(week.validFrom, { day: 'numeric' }, locale)}–
+                  {dateLabel(week.validFrom, { day: 'numeric' }, locale)}-
                   {dateLabel(
                     week.validUntil,
                     {
@@ -68,12 +68,12 @@ export function LunchMenu({ preview = false }: { preview?: boolean }) {
                 </span>
                 <span>
                   <Clock size={18} />
-                  {week.hours.from}–{week.hours.until}
+                  {week.hours.from}-{week.hours.until}
                 </span>
               </div>
               {!open && (
                 <p className="lunch-order-note">
-                  {t('Поръчките са достъпни в посочените дни и часове:')} {week.hours.from}–{week.hours.until}.
+                  {t('Поръчките са достъпни в посочените дни и часове:')} {week.hours.from}-{week.hours.until}.
                 </p>
               )}
             </div>

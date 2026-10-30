@@ -2,6 +2,9 @@ const phone = '+359886094164';
 
 export const restaurant = {
   name: 'Лучиано',
+  // Spellings guests search for: the sign reads „Пицария Лучиано“, Instagram uses Luciano.
+  alternateNames: ['Пицария Лучиано', 'Лучиано', 'Luchiano', 'Luciano'],
+  logo: '/images/brand/luchiano-logo.jpg',
   phone,
   displayPhone: '+359 88 609 4164',
   whatsappNumber: phone,
@@ -12,12 +15,16 @@ export const restaurant = {
   },
   address: 'ул. „Русе“ 13',
   city: 'Варна',
-  hours: '08:00–22:00',
+  postalCode: '9000',
+  // Pin of the restaurant's Google Maps listing.
+  geo: { latitude: 43.2033091, longitude: 27.9116265 },
+  hours: '08:00-22:00',
   instagram: 'https://www.instagram.com/luciano_pizzaa/',
   instagramHandle: '@luciano_pizzaa',
   mapUrl: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Ресторант Лучиано, Русе 13, Варна'),
   mapEmbed:
     'https://maps.google.com/maps?q=' + encodeURIComponent('Ресторант Лучиано, Русе 13, Варна') + '&output=embed',
+  mapListingUrl: 'https://maps.google.com/?cid=1315426167596723749',
   siteUrl: 'https://luchianopizza.com',
   currency: 'EUR',
 } as const;

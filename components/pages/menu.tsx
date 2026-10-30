@@ -8,9 +8,9 @@ import { DeliveryTerms } from '@/components/site/delivery-terms';
 export function pageMetadata(locale: Locale): Metadata {
   const t = getTranslator(locale);
   const meta = {
-    title: t('Меню и поръчки'),
+    title: t('Меню: пица, паста, салати и скара'),
     description: t(
-      'Разгледайте пиците, пастите, салатите и барбекюто на Лучиано. Изберете ястия и подгответе поръчка по WhatsApp или Viber.',
+      'Пица на пещ в 26, 33 и 50 см, паста, салати и скара. Поръчайте онлайн с доставка във Варна, минимална поръчка 15 €.',
     ),
     alternates: { canonical: '/menu/' },
   };
@@ -22,9 +22,9 @@ export default function MenuPage({ locale = 'bg' }: { locale?: Locale }) {
     <main id="main">
       <PageHeading
         eyebrow={t('ОТ НАШАТА КУХНЯ')}
-        title={t('За всеки вкус.')}
-        accent={t('И за споделяне.')}
-        description={t('Изберете нещо любимо. Добавете го в поръчката и ни пишете — ние ще уточним останалото.')}
+        title={t('Пица, паста и скара.')}
+        accent={t('За всеки вкус.')}
+        description={t('Изберете нещо любимо. Добавете го в поръчката и ни пишете. Ние ще уточним останалото.')}
       />
       <div className="wrap menu-intro-note">
         <span>{t('Пица на пещ · 26, 33 или 50 см')}</span>

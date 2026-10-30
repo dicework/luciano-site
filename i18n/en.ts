@@ -21,11 +21,11 @@ export const en = {
   Име: 'Name',
   Адрес: 'Address',
   'Адрес:': 'Address:',
-  'Моля, въведете адрес (между 5 и 300 знака).': 'Please enter an address (5–300 characters).',
+  'Моля, въведете адрес (между 5 и 300 знака).': 'Please enter an address (5-300 characters).',
   'Полетата с * са задължителни.': 'Fields marked * are required.',
   'Адрес за доставка': 'Delivery address',
   'Улица, номер, вход, етаж, апартамент': 'Street, number, entrance, floor, apartment',
-  'Моля, въведете адрес за доставка (между 5 и 300 знака).': 'Please enter a delivery address (5–300 characters).',
+  'Моля, въведете адрес за доставка (между 5 и 300 знака).': 'Please enter a delivery address (5-300 characters).',
   'Моля, проверете данните за поръчката.': 'Please check your order details.',
   'За голяма поръчка, моля, обадете се на ресторанта.': 'For a large order, please call the restaurant.',
   'Менюто е променено. Презаредете страницата и проверете поръчката.':
@@ -58,7 +58,7 @@ export const en = {
   'Проверка на поръчките…': 'Checking ordering availability…',
   'Изпрати поръчката': 'Place order',
   'Тестов режим': 'Test mode',
-  'Тестов режим — WhatsApp и Viber към:': 'Test mode — WhatsApp and Viber to:',
+  'Тестов режим: WhatsApp и Viber към:': 'Test mode: WhatsApp and Viber to:',
   'Изход от теста': 'Exit test mode',
   'ТЕСТОВО СЪОБЩЕНИЕ': 'TEST MESSAGE',
   'Тестово съобщение до:': 'Test message to:',
@@ -69,12 +69,13 @@ export const en = {
   артикул: 'item',
   'гост ·': 'guest ·',
   Лучиано: 'Luchiano',
-  'Лучиано – неаполитанска пица във Варна': 'Luchiano – Neapolitan pizza in Varna',
+  'Пицария Лучиано': 'Luchiano Pizzeria',
+  'Пицария Лучиано: пица на пещ и обедно меню във Варна': 'Luchiano Pizzeria: wood-fired pizza and lunch menu in Varna',
   'Пица на пещ, прясна паста и хубава компания на ул. „Русе“ 13, Варна.':
     'Wood-fired pizza, fresh pasta and good company at 13 Ruse Street, Varna.',
   '%s | Лучиано · Варна': '%s | Luchiano · Varna',
-  'Италианска кухня, пица на пещ и прясна паста в центъра на Варна. Очакваме ви всеки ден, 08:00–22:00, на ул. „Русе“ 13.':
-    'Italian food, wood-fired pizza and fresh pasta in central Varna. Join us every day, 08:00–22:00, at 13 Ruse Street.',
+  'Неаполитанска пица, паста и седмично обедно меню на ул. „Русе“ 13, до Операта. Поръчайте онлайн с доставка или запазете маса. Всеки ден от 08:00.':
+    'Neapolitan pizza, pasta and a weekly lunch menu at 13 Ruse Street, next to the Opera. Order online for delivery or book a table. Open every day from 08:00.',
   'Към съдържанието': 'Skip to content',
   '404 · ТУК НЯМА НИЩО В ЧИНИЯТА': '404 · NOTHING ON THIS PLATE',
   'Да се върнем': "Let's get back",
@@ -82,39 +83,37 @@ export const en = {
   'Тази страница не е намерена.': 'This page could not be found.',
   'Към менюто ↗': 'Back to the menu ↗',
   'МАЛКО НЕАПОЛ. МНОГО ВАРНА.': 'A LITTLE NAPLES. A LOT OF VARNA.',
-  'Лучиано —': 'Luchiano —',
-  неаполитанска: 'Neapolitan',
-  'пица във': 'pizza in',
-  'Варна.': 'Varna.',
+  Неаполитанска: 'Neapolitan',
+  'пица във Варна.': 'pizza in Varna.',
   'Хубавата храна събира хората.': 'Good food brings people together.',
-  'Пица от пещта, прясна паста и още малко време заедно — в сърцето на града.':
-    'Pizza from the oven, fresh pasta and a little more time together — in the heart of the city.',
+  'Пица от пещта, прясна паста и още малко време заедно в сърцето на града.':
+    'Pizza from the oven, fresh pasta and a little more time together in the heart of the city.',
   'Поръчай онлайн': 'Order online',
   'Направи резервация': 'Book a table',
   'ул. „Русе“ 13, Варна': '13 Ruse Street, Varna',
-  'Всеки ден · 08:00–22:00': 'Every day · 08:00–22:00',
+  'Всеки ден · 08:00-22:00': 'Every day · 08:00-22:00',
   'Прясно изпечена пица в ресторант Лучиано': 'Freshly baked pizza at Luchiano restaurant',
   'ПИЦА ОТ ПЕЩТА': 'WOOD-FIRED PIZZA',
   'С ЛЮБОВ ОТ ЛУЧИАНО': 'WITH LOVE FROM LUCHIANO',
-  'Италиански вкус. Нашето място.': 'Italian flavour. Our kind of place.',
   'Италианска душа.': 'Italian soul.',
   'Варненско сърце.': 'A Varna heart.',
-  'На ул. „Русе“ 13 има място за дълги обеди, семейни вечери и срещи без повод. Приготвяме любимите италиански вкусове и ви посрещаме така, както обичаме да посрещат нас — с топлина.':
-    'At 13 Ruse Street, there is a place for long lunches, family dinners and spontaneous get-togethers. We cook the Italian flavours we love and welcome you just as we like to be welcomed — warmly.',
+  'На ул. „Русе“ 13 има място за дълги обеди, семейни вечери и срещи без повод. Приготвяме любимите италиански вкусове и ви посрещаме така, както обичаме да посрещат нас, с топлина.':
+    'At 13 Ruse Street, there is a place for long lunches, family dinners and spontaneous get-togethers. We cook the Italian flavours we love and welcome you just as we like to be welcomed, warmly.',
   'Историята на Лучиано': 'The Luchiano story',
-  'Интериорът на Лучиано — уютни сепарета и топла атмосфера': 'Inside Luchiano — cosy booths and a warm atmosphere',
+  'Интериорът на Лучиано с уютни сепарета и топла атмосфера': 'Inside Luchiano with cosy booths and a warm atmosphere',
   'ХУБАВИТЕ МОМЕНТИ СА СПОДЕЛЕНИ': 'GOOD MOMENTS ARE SHARED',
   'Още малко време.': 'A little more time.',
   'Заедно.': 'Together.',
   'Усети атмосферата ↗': 'Feel the atmosphere ↗',
   'За нас': 'About us',
+  'Италиански ресторант в центъра': 'Italian restaurant in the city centre',
   'Лучиано е уютен италиански ресторант в центъра на Варна. Неаполитански пици, домашни пасти и място за хубава компания.':
     'Luchiano is a cosy Italian restaurant in central Varna. Neapolitan pizza, homemade pasta and a place for good company.',
   'НАШАТА ИСТОРИЯ Е НА МАСАТА': 'OUR STORY IS AT THE TABLE',
   'Малко Италия.': 'A little Italy.',
   'Съвсем наблизо.': 'Just around the corner.',
-  'Лучиано е уютен италиански ъгъл на ул. „Русе“ 13 — за ежедневните срещи и специалните поводи.':
-    'Luchiano is a cosy Italian corner at 13 Ruse Street — for everyday gatherings and special occasions.',
+  'Лучиано е уютен италиански ъгъл на ул. „Русе“ 13 за ежедневните срещи и специалните поводи.':
+    'Luchiano is a cosy Italian corner at 13 Ruse Street for everyday gatherings and special occasions.',
   'Топли тухлени стени, удобни сепарета и маси в ресторант Лучиано':
     'Warm brick walls, comfortable booths and tables at Luchiano restaurant',
   'Елате за храната. Останете за компанията.': 'Come for the food. Stay for the company.',
@@ -122,16 +121,16 @@ export const en = {
   'Италианската кухня': 'Italian cooking',
   'говори с': 'speaks through',
   'вкус.': 'flavour.',
-  'Вярваме в тестото, на което е дадено време, в подбраните съставки и в удоволствието от прясно приготвената храна. Нашите пици са в неаполитански стил — с тънък блат и аромат от пещта.':
-    'We believe in dough given time to rise, carefully chosen ingredients and the pleasure of freshly prepared food. Our pizzas are Neapolitan in style — with a thin base and the aroma of the oven.',
+  'Вярваме в тестото, на което е дадено време, в подбраните съставки и в удоволствието от прясно приготвената храна. Нашите пици са в неаполитански стил с тънък блат и аромат от пещта.':
+    'We believe in dough given time to rise, carefully chosen ingredients and the pleasure of freshly prepared food. Our pizzas are Neapolitan in style with a thin base and the aroma of the oven.',
   'Около тях има цял свят от вкусове: домашни пасти, свежи салати, предястия за споделяне, барбекю на жар и риба. За всеки на масата има нещо любимо.':
     'Around them is a whole world of flavours: homemade pasta, fresh salads, starters to share, charcoal barbecue and fish. There is a favourite for everyone at the table.',
-  'Независимо дали се отбивате за обяд, идвате със семейството или събирате приятели за празник — заповядайте. Хубавите моменти започват съвсем обикновено.':
-    'Whether you are stopping by for lunch, bringing the family or gathering friends for a celebration — welcome. Good moments start with the simplest things.',
+  'Независимо дали се отбивате за обяд, идвате със семейството или събирате приятели за празник, заповядайте. Хубавите моменти започват съвсем обикновено.':
+    'Whether you are stopping by for lunch, bringing the family or gathering friends for a celebration, you are welcome. Good moments start with the simplest things.',
   'Надникни в менюто ↗': 'Take a look at the menu ↗',
   'Контакти и местоположение': 'Contact and location',
-  'Намерете ресторант Лучиано на ул. „Русе“ 13, Варна. Всеки ден 08:00–22:00. Телефон: +359 88 609 4164.':
-    'Find Luchiano restaurant at 13 Ruse Street, Varna. Open every day 08:00–22:00. Phone: +359 88 609 4164.',
+  'Намерете ресторант Лучиано на ул. „Русе“ 13, Варна. Всеки ден 08:00-22:00. Телефон: +359 88 609 4164.':
+    'Find Luchiano restaurant at 13 Ruse Street, Varna. Open every day 08:00-22:00. Phone: +359 88 609 4164.',
   'НА НЯКОЛКО КРАЧКИ ОТ ВАС': 'JUST A FEW STEPS AWAY',
   'До скоро.': 'See you soon.',
   'В Лучиано.': 'At Luchiano.',
@@ -140,8 +139,8 @@ export const en = {
   'ПО ВАШИЯ НАЧИН': 'YOUR WAY',
   'Да се': "Let's",
   'чуем.': 'talk.',
-  'За въпроси, поръчки и резервации — обадете се или ни пишете.':
-    'For questions, orders and reservations — give us a call or send a message.',
+  'За въпроси, поръчки и резервации, обадете се или ни пишете.':
+    'For questions, orders and reservations, give us a call or send a message.',
   'Здравейте, Лучиано! Имам въпрос към вас.': 'Hello, Luchiano! I have a question for you.',
   'Разгледай менюто ↗': 'Browse the menu ↗',
   'Запази маса ↗': 'Book a table ↗',
@@ -155,20 +154,21 @@ export const en = {
     'From the first slice to the last conversation. A glimpse of everyday life at Luchiano.',
   'Още от нашата кухня и ежедневие': 'More from our kitchen and daily life',
   'Седмично обедно меню': 'Weekly lunch menu',
-  'Обедните предложения на Лучиано във Варна. Разгледайте менюто по дни и подгответе поръчка по WhatsApp или Viber.':
-    'Lunch specials at Luchiano in Varna. Browse the menu and prepare an order via WhatsApp or Viber.',
+  'Седмично обедно меню в центъра': 'Weekly lunch menu in the city centre',
+  'Седмичното обедно меню на Лучиано на ул. „Русе“ 13 в центъра на Варна. Поръчайте онлайн с доставка в обедните часове.':
+    "Luchiano's weekly lunch menu at 13 Ruse Street in central Varna. Order online for delivery during lunch hours.",
   'ВРЕМЕ ЗА ОБЯД': 'TIME FOR LUNCH',
-  'Нещо вкусно.': 'Something delicious.',
-  'Всеки обяд.': 'Every lunchtime.',
+  'Обедно меню.': 'Lunch menu.',
+  'Нещо вкусно всеки обяд.': 'Something delicious every lunchtime.',
   'Обедните предложения на Лучиано, събрани на едно място.': "All of Luchiano's lunch specials in one place.",
-  'Меню и поръчки': 'Menu and orders',
-  'Разгледайте пиците, пастите, салатите и барбекюто на Лучиано. Изберете ястия и подгответе поръчка по WhatsApp или Viber.':
-    "Explore Luchiano's pizzas, pasta, salads and barbecue. Choose your dishes and prepare an order via WhatsApp or Viber.",
+  'Меню: пица, паста, салати и скара': 'Menu: pizza, pasta, salads and grill',
+  'Пица на пещ в 26, 33 и 50 см, паста, салати и скара. Поръчайте онлайн с доставка във Варна, минимална поръчка 15 €.':
+    'Wood-fired pizza in 26, 33 and 50 cm, pasta, salads and grill. Order online for delivery in Varna, minimum order €15.',
   'ОТ НАШАТА КУХНЯ': 'FROM OUR KITCHEN',
+  'Пица, паста и скара.': 'Pizza, pasta and grill.',
   'За всеки вкус.': 'For every taste.',
-  'И за споделяне.': 'And for sharing.',
-  'Изберете нещо любимо. Добавете го в поръчката и ни пишете — ние ще уточним останалото.':
-    'Choose a favourite, add it to your order and send us a message — we will arrange the rest.',
+  'Изберете нещо любимо. Добавете го в поръчката и ни пишете. Ние ще уточним останалото.':
+    'Choose a favourite, add it to your order and send us a message. We will arrange the rest.',
   'Пица на пещ · 26, 33 или 50 см': 'Wood-fired pizza · 26, 33 or 50 cm',
   'Всички цени са в евро · Поръчките се потвърждават от екипа':
     'All prices in euros · Orders are confirmed by our team',
@@ -176,6 +176,7 @@ export const en = {
   'Основно меню': 'Main menu',
   'Обедно меню': 'Lunch menu',
   Резервации: 'Reservations',
+  'Резервация на маса': 'Book a table',
   'Запазете маса в Лучиано, Варна. Подгответе запитване по WhatsApp или Viber или се обадете на +359 88 609 4164.':
     'Book a table at Luchiano, Varna. Prepare a request via WhatsApp or Viber, or call +359 88 609 4164.',
   'ИМА МЯСТО ЗА ВАС': 'THERE IS ROOM FOR YOU',
@@ -241,7 +242,7 @@ export const en = {
   Няколко: 'A few',
   'любими.': 'favourites.',
   'Цялото меню': 'Full menu',
-  '— от менюто на Лучиано': '— from the Luchiano menu',
+  'от менюто на Лучиано': 'from the Luchiano menu',
   от: 'from',
   'КАКВО ВИ СЕ ХАПВА?': 'WHAT ARE YOU IN THE MOOD FOR?',
   'Категории в менюто': 'Menu categories',
@@ -277,7 +278,6 @@ export const en = {
   'Резервацията е валидна след потвърждение от ресторанта. Данните се използват само за съобщението ви.':
     'Your reservation is valid after confirmation from the restaurant. Your details are used only for your message.',
   'Нашите силни страни': 'What makes us special',
-  'Много поводи да се върнете.': 'Plenty of reasons to return.',
   'На нашата маса': 'At our table',
   'Връзки във футъра': 'Footer links',
   Заповядайте: 'Come on in',
@@ -287,7 +287,7 @@ export const en = {
   'За поръчки и резервации': 'For orders and reservations',
   '© 2026 Лучиано. С вкус към хубавите моменти.': '© 2026 Luchiano. A taste for good moments.',
   'Варна, България': 'Varna, Bulgaria',
-  'Лучиано — начало': 'Luchiano — home',
+  'Лучиано: начало': 'Luchiano: home',
   'Основна навигация': 'Main navigation',
   'Резервация ↗': 'Book a table ↗',
   'Отвори поръчката,': 'Open order,',

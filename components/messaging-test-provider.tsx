@@ -47,7 +47,7 @@ export function MessagingTestProvider({ children }: { children: React.ReactNode 
             {test.error ?
               t('Невалиден тестов номер. Изпращането е изключено.')
             : <>
-                {t('Тестов режим — WhatsApp и Viber към: ')}
+                {t('Тестов режим: WhatsApp и Viber към: ')}
                 <strong>{test.phone}</strong>
               </>
             }

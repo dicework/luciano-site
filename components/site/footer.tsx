@@ -1,6 +1,5 @@
 import { getTranslator, type Locale } from '@/i18n';
 import Link from '@/components/i18n/localized-link';
-import Image from 'next/image';
 import { ArrowUpRight, Camera } from 'lucide-react';
 import { navigation, restaurant } from '@/content/restaurant';
 export function Footer({ locale = 'bg' }: { locale?: Locale }) {
@@ -8,17 +7,7 @@ export function Footer({ locale = 'bg' }: { locale?: Locale }) {
   return (
     <footer className="footer">
       <div className="wrap footer-grid">
-        <div>
-          <Link className="brand brand-badge" href="/" aria-label={t('Лучиано — начало')}>
-            <Image src="/images/brand/luchiano-badge.webp" alt={t('Лучиано')} width={512} height={512} loading="lazy" />
-          </Link>
-          <p>
-            {t('Малко Италия.')}
-            <br />
-            {t('Много поводи да се върнете.')}
-          </p>
-        </div>
-        <div>
+        <div className="footer-navigation">
           <h3>{t('На нашата маса')}</h3>
           <nav aria-label={t('Връзки във футъра')}>
             {navigation.slice(1).map((n) => (
@@ -29,7 +18,7 @@ export function Footer({ locale = 'bg' }: { locale?: Locale }) {
             <Link href="/reservations/">{t('Резервации')}</Link>
           </nav>
         </div>
-        <div>
+        <div className="footer-visit">
           <h3>{t('Заповядайте')}</h3>
           <p>
             {t(restaurant.address)}
@@ -46,7 +35,7 @@ export function Footer({ locale = 'bg' }: { locale?: Locale }) {
             <ArrowUpRight size={16} />
           </a>
         </div>
-        <div>
+        <div className="footer-contact">
           <h3>{t('Да се чуем')}</h3>
           <a className="footer-phone" href={'tel:' + restaurant.phone}>
             {restaurant.displayPhone}

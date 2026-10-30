@@ -1,4 +1,5 @@
 import { getTranslator, localePath, type Locale } from '@/i18n';
+import { shareImage } from '@/i18n/metadata';
 import { LanguageProvider } from '@/components/i18n/language-provider';
 import type { Metadata } from 'next';
 import { Header } from '@/components/site/header';
@@ -20,40 +21,57 @@ export function siteMetadata(locale: Locale): Metadata {
   const t = getTranslator(locale);
   return {
     metadataBase: new URL(restaurant.siteUrl),
-    icons: { icon: '/icon.svg' },
+    icons: {
+      icon: [
+        { url: '/favicon.ico', sizes: '48x48' },
+        { url: '/icon.png', type: 'image/png', sizes: '192x192' },
+      ],
+      apple: '/apple-icon.png',
+    },
     openGraph: {
       type: 'website',
       locale: locale === 'bg' ? 'bg_BG' : 'en_GB',
       siteName: t('Лучиано'),
-      title: t('Лучиано – неаполитанска пица във Варна'),
+      title: t('Пицария Лучиано: пица на пещ и обедно меню във Варна'),
       description: t('Пица на пещ, прясна паста и хубава компания на ул. „Русе“ 13, Варна.'),
+      images: [shareImage(locale)],
     },
+    twitter: { card: 'summary' },
     title: {
-      default: t('Лучиано – неаполитанска пица във Варна'),
+      default: t('Пицария Лучиано: пица на пещ и обедно меню във Варна'),
       template: t('%s | Лучиано · Варна'),
     },
     description: t(
-      'Италианска кухня, пица на пещ и прясна паста в центъра на Варна. Очакваме ви всеки ден, 08:00–22:00, на ул. „Русе“ 13.',
+      'Неаполитанска пица, паста и седмично обедно меню на ул. „Русе“ 13, до Операта. Поръчайте онлайн с доставка или запазете маса. Всеки ден от 08:00.',
     ),
   };
 }
 export default function SiteDocument({ children, locale }: Readonly<{ children: React.ReactNode; locale: Locale }>) {
   const t = getTranslator(locale);
+  const name = t(restaurant.name);
   const business = {
     '@context': 'https://schema.org',
     '@type': 'Restaurant',
-    name: t(restaurant.name),
+    '@id': restaurant.siteUrl + '/#restaurant',
+    name,
+    alternateName: restaurant.alternateNames.filter((alternate) => alternate !== name),
     url: restaurant.siteUrl,
+    logo: restaurant.siteUrl + restaurant.logo,
+    image: [restaurant.siteUrl + '/images/interior.webp', restaurant.siteUrl + '/images/pizza.webp'],
     telephone: restaurant.phone,
+    priceRange: '€',
     address: {
       '@type': 'PostalAddress',
       streetAddress: t(restaurant.address),
       addressLocality: t(restaurant.city),
+      postalCode: restaurant.postalCode,
       addressCountry: 'BG',
     },
+    geo: { '@type': 'GeoCoordinates', ...restaurant.geo },
     servesCuisine: ['Italian', 'Pizza'],
     hasMenu: restaurant.siteUrl + localePath('/menu/', locale),
-    sameAs: [restaurant.instagram],
+    acceptsReservations: restaurant.siteUrl + localePath('/reservations/', locale),
+    sameAs: [restaurant.instagram, restaurant.mapListingUrl],
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',

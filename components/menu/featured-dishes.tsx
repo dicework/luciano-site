@@ -32,7 +32,7 @@ export function FeaturedDishes({ locale = 'bg' }: { locale?: Locale }) {
                 {item.image && (
                   <Image
                     src={item.image}
-                    alt={item.name + t(' — от менюто на Лучиано')}
+                    alt={item.name + t(' от менюто на Лучиано')}
                     width={700}
                     height={540}
                     loading="lazy"
