@@ -4,9 +4,9 @@ import Link from '@/components/i18n/localized-link';
 import { LanguageSwitcher } from '@/components/i18n/language-switcher';
 import { localePath } from '@/i18n';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, type CSSProperties } from 'react';
 import Image from 'next/image';
-import { Menu, X, ShoppingBag, Phone } from 'lucide-react';
+import { Menu, X, ShoppingBag, Phone, ArrowUpRight } from 'lucide-react';
 import { Sheet, SheetContent, SheetTitle, SheetDescription, SheetClose } from '@/components/ui/sheet';
 import { navigation, restaurant } from '@/content/restaurant';
 import { useCart } from '@/components/cart/cart-provider';
@@ -15,6 +15,9 @@ export function Header() {
   const path = usePathname();
   const [open, setOpen] = useState(false);
   const cart = useCart();
+  const isCurrent = (href: string) =>
+    path.replace(/\/$/, '') === localePath(href, locale).replace(/\/$/, '') ? 'page' : undefined;
+  const close = () => setOpen(false);
   return (
     <>
       <div className="topline">
@@ -35,13 +38,7 @@ export function Header() {
           </Link>
           <nav aria-label={t('Основна навигация')}>
             {navigation.map((n) => (
-              <Link
-                key={n.href}
-                href={n.href}
-                aria-current={
-                  path.replace(/\/$/, '') === localePath(n.href, locale).replace(/\/$/, '') ? 'page' : undefined
-                }
-              >
+              <Link key={n.href} href={n.href} aria-current={isCurrent(n.href)}>
                 {t(n.label)}
               </Link>
             ))}
@@ -66,39 +63,68 @@ export function Header() {
             className="icon-button mobile-toggle"
             onClick={() => setOpen(true)}
             aria-label={t('Отвори навигацията')}
+            aria-haspopup="dialog"
+            aria-expanded={open}
           >
             <Menu size={24} />
           </button>
         </div>
       </header>
       <Sheet open={open} onOpenChange={setOpen}>
-        <SheetContent showCloseButton={false} className="mobile-nav !w-full !max-w-sm">
-          <SheetClose className="icon-button close-button" aria-label={t('Затвори навигацията')}>
-            <X />
-          </SheetClose>
-          <SheetTitle className="!text-3xl !font-normal">{t('Добре дошли.')}</SheetTitle>
-          <SheetDescription>{t('Италиански вкус в сърцето на Варна.')}</SheetDescription>
-          <nav aria-label={t('Мобилна навигация')}>
-            {navigation.map((n) => (
-              <Link key={n.href} href={n.href} onClick={() => setOpen(false)}>
-                {t(n.label)}
-                <span>↗</span>
-              </Link>
-            ))}
-            <Link href="/reservations/" onClick={() => setOpen(false)}>
-              {t('Резервация')}
-              <span>↗</span>
+        <SheetContent showCloseButton={false} className="mobile-nav">
+          <div className="mobile-nav-top">
+            <Link className="brand" href="/" onClick={close} aria-label={t('Лучиано: начало')}>
+              <Image src="/images/brand/luchiano-wordmark.webp" alt={t('Лучиано')} width={640} height={218} />
             </Link>
-          </nav>
-          <a className="btn btn-green" href={'tel:' + restaurant.phone}>
-            {restaurant.displayPhone}
-          </a>
-          <p>
-            {t(restaurant.address)}, {t(restaurant.city)}
-            <br />
-            {t('Всеки ден · ')}
-            {restaurant.hours}
-          </p>
+            <SheetClose className="icon-button" aria-label={t('Затвори навигацията')}>
+              <X size={24} />
+            </SheetClose>
+          </div>
+          <div className="mobile-nav-body">
+            <SheetTitle className="sr-only">{t('Основна навигация')}</SheetTitle>
+            <SheetDescription className="eyebrow">
+              <span />
+              {t('Италиански вкус в сърцето на Варна.')}
+            </SheetDescription>
+            <nav aria-label={t('Мобилна навигация')}>
+              {navigation.map((n, i) => (
+                <Link
+                  key={n.href}
+                  href={n.href}
+                  onClick={close}
+                  aria-current={isCurrent(n.href)}
+                  style={{ '--i': i } as CSSProperties}
+                >
+                  <span className="mobile-nav-index" aria-hidden="true">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span className="mobile-nav-label">{t(n.label)}</span>
+                  <ArrowUpRight size={20} aria-hidden="true" />
+                </Link>
+              ))}
+            </nav>
+          </div>
+          <div className="mobile-nav-footer">
+            <div className="mobile-nav-actions">
+              <Link className="btn btn-red" href="/reservations/" onClick={close}>
+                {t('Резервация')}
+                <ArrowUpRight size={17} aria-hidden="true" />
+              </Link>
+              <a className="btn btn-outline" href={'tel:' + restaurant.phone}>
+                <Phone size={16} aria-hidden="true" />
+                {t('Обадете се')}
+              </a>
+            </div>
+            <div className="mobile-nav-meta">
+              <p>
+                {t(restaurant.address)}, {t(restaurant.city)}
+                <br />
+                {t('Всеки ден · ')}
+                {restaurant.hours}
+              </p>
+              <LanguageSwitcher />
+            </div>
+          </div>
         </SheetContent>
       </Sheet>
     </>

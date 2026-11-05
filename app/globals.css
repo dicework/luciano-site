@@ -535,21 +535,145 @@ p {
   top: 15px;
   right: 15px;
 }
+/* Mobile navigation: full-screen panel whose links scroll while the actions stay pinned above the browser toolbar. */
 .mobile-nav {
-  padding: 60px 30px 30px;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  height: 100dvh;
+  padding: 0;
+  gap: 0;
+  border: 0;
+  background: var(--background);
+  box-shadow: none;
+  overflow: hidden;
+}
+.mobile-nav-top {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  padding: 0 10px 0 20px;
+  border-bottom: 1px solid var(--border);
+}
+.mobile-nav-top .brand {
+  width: 128px;
+}
+.mobile-nav-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 26px 20px 24px;
+}
+.mobile-nav-body .eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
 }
 .mobile-nav nav {
   display: flex;
   flex-direction: column;
-  margin: 25px 0;
+  margin-top: 14px;
 }
 .mobile-nav nav a {
-  display: flex;
-  justify-content: space-between;
-  font-family: var(--serif);
-  font-size: 29px;
-  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
   padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s;
+  animation: mobile-nav-in 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(60ms + var(--i, 0) * 35ms);
+}
+.mobile-nav-index {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--muted-foreground);
+  font-variant-numeric: tabular-nums;
+}
+.mobile-nav-label {
+  font-family: var(--serif);
+  font-size: 31px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.mobile-nav nav svg {
+  color: var(--muted-foreground);
+  transition:
+    transform 0.2s,
+    color 0.2s;
+}
+.mobile-nav nav a:hover,
+.mobile-nav nav a[aria-current='page'],
+.mobile-nav nav a[aria-current='page'] .mobile-nav-index,
+.mobile-nav nav a:hover svg,
+.mobile-nav nav a[aria-current='page'] svg {
+  color: var(--red);
+}
+.mobile-nav nav a:hover svg {
+  transform: translate(2px, -2px);
+}
+.mobile-nav-footer {
+  flex-shrink: 0;
+  display: grid;
+  gap: 12px;
+  padding: 16px 20px max(16px, env(safe-area-inset-bottom));
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+.mobile-nav-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.mobile-nav-actions .btn {
+  min-width: 0;
+  gap: 8px;
+  padding-inline: 10px;
+  white-space: nowrap;
+}
+.mobile-nav-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.mobile-nav-meta p {
+  font-size: 12px;
+  line-height: 1.55;
+}
+@keyframes mobile-nav-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+@media (max-height: 700px) {
+  .mobile-nav-body {
+    padding-top: 20px;
+  }
+  .mobile-nav nav a {
+    padding: 9px 0;
+  }
+  .mobile-nav-label {
+    font-size: 27px;
+  }
+}
+@media (max-height: 600px) {
+  .mobile-nav-body .eyebrow {
+    display: none;
+  }
+  .mobile-nav nav {
+    margin-top: 0;
+  }
+}
+@media (max-width: 350px) {
+  .mobile-nav-actions .btn {
+    font-size: 13px;
+  }
 }
 .page-heading {
   padding-block: 70px 50px;
