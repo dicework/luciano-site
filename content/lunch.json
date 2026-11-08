@@ -15,75 +15,19 @@
   },
   "items": [
     {
-      "id": "meatball-soup",
-      "cmsId": "8f5f3e1f-ff4e-438f-bf0b-94716aefd581",
-      "name": "Салата Витамина",
+      "cmsId": "44f6724b-948b-48e5-aa61-485ecf6c913b",
+      "name": "Леща",
+      "image": "/images/menu/mw7su5tj-czsdi9yy.jpeg",
       "variants": [
         {
-          "id": "regular",
-          "cmsId": "0dbf7ed1-0e2f-4bff-8a99-35b9733f1638",
-          "label": "200 г",
+          "cmsId": "3f6e4e7f-cc85-4b93-8f94-23e6891f3e72",
+          "label": "0,300",
           "price": "2,80",
           "available": true
         }
       ],
       "available": true,
-      "featured": false,
-      "nameEn": "\"Vitamins\" Salad"
-    },
-    {
-      "id": "sweet-potato-soup",
-      "cmsId": "cef8b3f2-1515-4ffc-8259-25f9f380880e",
-      "name": "Боб чорба",
-      "variants": [
-        {
-          "id": "regular",
-          "cmsId": "b5169910-4131-4ca1-a8f2-2be6166c7c5b",
-          "label": "300 г",
-          "price": "2.20",
-          "available": true
-        }
-      ],
-      "available": true,
-      "featured": false,
-      "nameEn": "Bean Soup"
-    },
-    {
-      "id": "chicken-kavarma",
-      "cmsId": "ed922a91-f6bd-4540-befd-037d777a31e3",
-      "name": "Пилешки шницел с г-ра пържени картофи",
-      "variants": [
-        {
-          "id": "regular",
-          "cmsId": "097796aa-6091-4eb0-8d5e-5e68aa2058ee",
-          "label": "400 г",
-          "price": "5.80",
-          "available": true
-        }
-      ],
-      "available": true,
-      "featured": false,
-      "nameEn": "Chicken Schnitzel with French Fries"
-    },
-    {
-      "id": "baked-beans",
-      "cmsId": "d8421820-2165-4e2a-8a7d-60b73976e253",
-      "name": "Печена тиква с мед и орехи",
-      "variants": [
-        {
-          "id": "regular",
-          "cmsId": "af674b11-fdfe-41bd-86be-ad8d9a545be5",
-          "label": "150 г",
-          "price": "2.30",
-          "available": true
-        }
-      ],
-      "available": true,
-      "featured": false,
-      "tags": [
-        "vegetarian"
-      ],
-      "nameEn": "Baked beans (vegetarian)"
+      "featured": false
     }
   ]
 }
