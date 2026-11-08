@@ -1,5 +1,5 @@
 {
-  "enabled": false,
+  "enabled": true,
   "validFrom": "2026-11-09",
   "validUntil": "2026-11-01",
   "weekdays": [
