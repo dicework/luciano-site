@@ -64,6 +64,21 @@
       ],
       "available": true,
       "featured": false
+    },
+    {
+      "cmsId": "c21f5159-4504-4c3c-adf6-c658c445c907",
+      "name": "Крем-карамел",
+      "image": "/images/menu/mw7u4iw6-z6y0j369.jpg",
+      "variants": [
+        {
+          "cmsId": "17cc03b9-c78c-46a1-9275-89930df0a76b",
+          "label": "0,150",
+          "price": "2,20",
+          "available": true
+        }
+      ],
+      "available": true,
+      "featured": false
     }
   ]
 }
