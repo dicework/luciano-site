@@ -49,6 +49,21 @@
       ],
       "available": true,
       "featured": false
+    },
+    {
+      "cmsId": "392b680f-bf69-455d-8c8a-2130fdf00b81",
+      "name": "Паста Дженовезе ",
+      "image": "/images/menu/mw7u3ud7-szffy8gr.webp",
+      "variants": [
+        {
+          "cmsId": "a594aba4-4ae2-49a6-8960-9650139926df",
+          "label": "0,300",
+          "price": "4,80",
+          "available": true
+        }
+      ],
+      "available": true,
+      "featured": false
     }
   ]
 }
