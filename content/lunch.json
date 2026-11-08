@@ -28,6 +28,21 @@
       ],
       "available": true,
       "featured": false
+    },
+    {
+      "cmsId": "242507a6-b832-483c-adc8-528b6ea9ca84",
+      "name": "Салата Капрезе",
+      "image": "/images/menu/mw7sx1so-en7m4clx.jpg",
+      "variants": [
+        {
+          "cmsId": "a9b30fc1-35cf-4898-8c12-f87c869e2d7e",
+          "label": "0,300",
+          "price": "3,50",
+          "available": true
+        }
+      ],
+      "available": true,
+      "featured": false
     }
   ]
 }
