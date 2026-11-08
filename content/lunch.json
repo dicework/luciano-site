@@ -39,6 +39,12 @@
           "label": "0,300",
           "price": "3,50",
           "available": true
+        },
+        {
+          "cmsId": "44ebcfc7-613c-4211-93e8-f5ff050f4cd7",
+          "label": "0,300",
+          "price": "3,50",
+          "available": true
         }
       ],
       "available": true,
