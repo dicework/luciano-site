@@ -1731,6 +1731,26 @@
           "featured": false
         }
       ]
+    },
+    {
+      "cmsId": "49a056b3-e972-4be7-91b3-271a8f0facff",
+      "name": "Дeсерти",
+      "items": [
+        {
+          "cmsId": "7fface9d-4d00-4c7d-8b5d-7f6a34634cd3",
+          "name": "Торта ",
+          "variants": [
+            {
+              "cmsId": "9b155985-1997-48f2-879d-f7094d66e8b3",
+              "label": "1,80",
+              "price": "6,20",
+              "available": true
+            }
+          ],
+          "available": true,
+          "featured": false
+        }
+      ]
     }
   ]
 }
