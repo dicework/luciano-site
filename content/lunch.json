@@ -43,6 +43,21 @@
       ],
       "available": true,
       "featured": false
+    },
+    {
+      "cmsId": "7f2c8ec5-8a73-4e06-b541-a28b6357cc49",
+      "name": "КРЕМ СУПА ОТ БАТАТ",
+      "image": "/images/menu/mwj0ptep-o6lscg1b.jpg",
+      "variants": [
+        {
+          "cmsId": "f4a70398-f2ce-4be9-bb01-dc210fe4722c",
+          "label": "0,300",
+          "price": "2,50",
+          "available": true
+        }
+      ],
+      "available": true,
+      "featured": false
     }
   ]
 }
