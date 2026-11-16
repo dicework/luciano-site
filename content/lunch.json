@@ -58,6 +58,21 @@
       ],
       "available": true,
       "featured": false
+    },
+    {
+      "cmsId": "b41d7c01-7ae8-4f4f-bd62-3058af0c4e0a",
+      "name": "ШОКОЛАДОВ КРЕМ ",
+      "image": "/images/menu/mwj0qx0r-6aoru533.png",
+      "variants": [
+        {
+          "cmsId": "0a6b1740-0f4f-4d4d-acdf-5df4fed54c72",
+          "label": "0,180",
+          "price": "2,20",
+          "available": true
+        }
+      ],
+      "available": true,
+      "featured": false
     }
   ]
 }
