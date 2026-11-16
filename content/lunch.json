@@ -1,7 +1,7 @@
 {
   "enabled": true,
-  "validFrom": "2026-11-09",
-  "validUntil": "2026-11-13",
+  "validFrom": "2026-11-16",
+  "validUntil": "2026-11-20",
   "weekdays": [
     "1",
     "2",
@@ -15,65 +15,14 @@
   },
   "items": [
     {
-      "cmsId": "44f6724b-948b-48e5-aa61-485ecf6c913b",
-      "name": "Леща",
-      "image": "/images/menu/mw7su5tj-czsdi9yy.jpeg",
+      "cmsId": "de394cbb-4e14-45b3-8be8-6cab1b5b1c4c",
+      "name": "ШОПСКА САЛАТА",
+      "image": "/images/menu/mwj0lbk7-e3yzd8pd.jpg",
       "variants": [
         {
-          "cmsId": "3f6e4e7f-cc85-4b93-8f94-23e6891f3e72",
-          "label": "0,300",
-          "price": "2,80",
-          "available": true
-        }
-      ],
-      "available": true,
-      "featured": false
-    },
-    {
-      "cmsId": "242507a6-b832-483c-adc8-528b6ea9ca84",
-      "name": "Салата Капрезе",
-      "image": "/images/menu/mw7sx1so-en7m4clx.jpg",
-      "variants": [
-        {
-          "cmsId": "a9b30fc1-35cf-4898-8c12-f87c869e2d7e",
+          "cmsId": "b9667cc4-1106-4ff6-ae76-8db2b72969d3",
           "label": "0,300",
           "price": "3,50",
-          "available": true
-        },
-        {
-          "cmsId": "44ebcfc7-613c-4211-93e8-f5ff050f4cd7",
-          "label": "0,300",
-          "price": "3,50",
-          "available": true
-        }
-      ],
-      "available": true,
-      "featured": false
-    },
-    {
-      "cmsId": "392b680f-bf69-455d-8c8a-2130fdf00b81",
-      "name": "Паста Дженовезе ",
-      "image": "/images/menu/mw7u3ud7-szffy8gr.webp",
-      "variants": [
-        {
-          "cmsId": "a594aba4-4ae2-49a6-8960-9650139926df",
-          "label": "0,300",
-          "price": "4,80",
-          "available": true
-        }
-      ],
-      "available": true,
-      "featured": false
-    },
-    {
-      "cmsId": "c21f5159-4504-4c3c-adf6-c658c445c907",
-      "name": "Крем-карамел",
-      "image": "/images/menu/mw7u4iw6-z6y0j369.jpg",
-      "variants": [
-        {
-          "cmsId": "17cc03b9-c78c-46a1-9275-89930df0a76b",
-          "label": "0,150",
-          "price": "2,20",
           "available": true
         }
       ],
