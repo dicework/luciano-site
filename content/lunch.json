@@ -28,6 +28,21 @@
       ],
       "available": true,
       "featured": false
+    },
+    {
+      "cmsId": "82714577-584c-4af1-8d3f-dd640895fd42",
+      "name": "ВИНЕН КЕБАП",
+      "image": "/images/menu/mwj0of13-mwhwxj52.jpg",
+      "variants": [
+        {
+          "cmsId": "4cd14232-675b-4e3f-b670-ff379ec1b9e0",
+          "label": "0,400",
+          "price": "5,80",
+          "available": true
+        }
+      ],
+      "available": true,
+      "featured": false
     }
   ]
 }
