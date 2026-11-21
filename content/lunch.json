@@ -1,7 +1,7 @@
 {
   "enabled": true,
-  "validFrom": "2026-11-16",
-  "validUntil": "2026-11-20",
+  "validFrom": "2026-11-23",
+  "validUntil": "2026-11-27",
   "weekdays": [
     "1",
     "2",
@@ -15,42 +15,12 @@
   },
   "items": [
     {
-      "cmsId": "de394cbb-4e14-45b3-8be8-6cab1b5b1c4c",
-      "name": "ШОПСКА САЛАТА",
-      "image": "/images/menu/mwj0lbk7-e3yzd8pd.jpg",
+      "cmsId": "8a188fb7-6556-4093-b044-7ed91758fbf4",
+      "name": "ПИЛЕШКА СУПА",
+      "image": "/images/menu/mwqfo48p-ot5r4090.jpg",
       "variants": [
         {
-          "cmsId": "b9667cc4-1106-4ff6-ae76-8db2b72969d3",
-          "label": "0,300",
-          "price": "3,50",
-          "available": true
-        }
-      ],
-      "available": true,
-      "featured": false
-    },
-    {
-      "cmsId": "82714577-584c-4af1-8d3f-dd640895fd42",
-      "name": "ВИНЕН КЕБАП",
-      "image": "/images/menu/mwj0of13-mwhwxj52.jpg",
-      "variants": [
-        {
-          "cmsId": "4cd14232-675b-4e3f-b670-ff379ec1b9e0",
-          "label": "0,400",
-          "price": "5,80",
-          "available": true
-        }
-      ],
-      "available": true,
-      "featured": false
-    },
-    {
-      "cmsId": "7f2c8ec5-8a73-4e06-b541-a28b6357cc49",
-      "name": "КРЕМ СУПА ОТ БАТАТ",
-      "image": "/images/menu/mwj0ptep-o6lscg1b.jpg",
-      "variants": [
-        {
-          "cmsId": "f4a70398-f2ce-4be9-bb01-dc210fe4722c",
+          "cmsId": "64f4fc54-2217-4c55-93a5-a3970f456bf9",
           "label": "0,300",
           "price": "2,50",
           "available": true
@@ -60,14 +30,41 @@
       "featured": false
     },
     {
-      "cmsId": "b41d7c01-7ae8-4f4f-bd62-3058af0c4e0a",
-      "name": "ШОКОЛАДОВ КРЕМ ",
-      "image": "/images/menu/mwj0qx0r-6aoru533.png",
+      "cmsId": "a324c5ba-28dd-43d9-97f4-022338226f59",
+      "name": "ПИЦА КАПРИЧОЗА",
+      "image": "/images/menu/mwqfp0qs-7o4tm00y.jpg",
       "variants": [
         {
-          "cmsId": "0a6b1740-0f4f-4d4d-acdf-5df4fed54c72",
-          "label": "0,180",
-          "price": "2,20",
+          "cmsId": "1883c492-70b6-47d8-aca6-270cda727897",
+          "label": "26СМ МАЛКА",
+          "price": "6,80",
+          "available": true
+        }
+      ],
+      "available": true,
+      "featured": false
+    },
+    {
+      "cmsId": "0ef3f3f9-9047-4792-8579-03b54741e5ef",
+      "name": "САЛАТА СЪС СПАНАК ",
+      "image": "/images/menu/mwqfsa5h-awrgpgxi.jpg",
+      "variants": [
+        {
+          "cmsId": "1874eadd-196b-47a2-8067-f622def4d2a3",
+          "label": "0,300",
+          "price": "3,50",
+          "available": true
+        },
+        {
+          "cmsId": "2e67d852-7306-4cec-9210-774592fa0828",
+          "label": "0,300",
+          "price": "3,50",
+          "available": true
+        },
+        {
+          "cmsId": "d36b3494-34b7-472c-a281-dc5398bba365",
+          "label": "300",
+          "price": "2,50",
           "available": true
         }
       ],
