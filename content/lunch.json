@@ -70,6 +70,21 @@
       ],
       "available": true,
       "featured": false
+    },
+    {
+      "cmsId": "8faab385-1059-4e6a-82b2-e543cbbee0a5",
+      "name": "ПАЛАЧИНКА С ШОКОЛАД 1 БР",
+      "image": "/images/menu/mwqfzgai-skvdwyut.webp",
+      "variants": [
+        {
+          "cmsId": "ca3b5258-8e1c-40ff-b018-cdc5f1572db0",
+          "label": "1,80",
+          "price": "2,00",
+          "available": true
+        }
+      ],
+      "available": true,
+      "featured": false
     }
   ]
 }
